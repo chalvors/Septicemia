@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Others added by cole so if it breaks something blame him
+EditorUserSettings.asset
+default-2021.dwlt
