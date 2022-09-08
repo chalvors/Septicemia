@@ -1,2 +1,5 @@
-# Septicemia 
-## Clone this repository and open using unity
+# Unity
+
+![alt text](https://github.com/chalvors/Septicemia/Doc/Company Logo/Logo.png?raw=true)
+
+## Septicemia
