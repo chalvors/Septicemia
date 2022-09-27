@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3508776333006292422}
   - component: {fileID: 3173155676106761866}
   - component: {fileID: -7468918886888033827}
+  - component: {fileID: -4706629210080985832}
+  - component: {fileID: 7756801842355992746}
   m_Layer: 0
   m_Name: Cover
   m_TagString: Breakable
@@ -133,3 +135,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4706629210080985832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805655806238796269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!114 &7756801842355992746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805655806238796269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64789e262a2d4e44db06d3519f3a988e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
