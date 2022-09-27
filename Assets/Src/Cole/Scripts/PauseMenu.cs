@@ -5,15 +5,23 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
 
-    void Start() {
-        
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            gameObject.SetActive(true);
+            Pause();
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            gameObject.SetActive(false);
+            Debug.Log("back to the game!");
+        }
     }
 
-    void Update() {
-        
-    }
-
-    public void Pause() {
-        Debug.Log("Yo Mista White I'm Pausin");
+    public void Pause()
+    {
+        Debug.Log("this will be the pause menu in the final game");
     }
 }

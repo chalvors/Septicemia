@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cover : MonoBehaviour
+public class Static : MonoBehaviour
 {
 
     void Start()
@@ -14,12 +14,12 @@ public class Cover : MonoBehaviour
     {
         if (interBox.tag == "PLAYER")
         {
-            BreakWall();
+            DoNotBreak();
         }
     }
 
-    void BreakWall()
+    void DoNotBreak()
     {
-        print("someday, this will be destroyed when you do that");
+        print("you can't destroy this!");
     }
 }

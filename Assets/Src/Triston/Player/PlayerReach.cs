@@ -19,11 +19,11 @@ public class PlayerReach : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("yo mister white im colliding");
+        //print("yo mister white im colliding");
 
         if (other.tag == "Breakable")
         {
-            print("jesse, this object is breakable");
+            //print("jesse, this object is breakable");
         }
 
     }

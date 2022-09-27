@@ -2,24 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cover : MonoBehaviour
+public class HostileEnemy : MonoBehaviour
 {
-
-    void Start()
-    {
-
-    }
-
     void OnTriggerEnter2D(Collider2D interBox)
     {
         if (interBox.tag == "PLAYER")
         {
-            BreakWall();
+            Attack();
         }
     }
 
-    void BreakWall()
+    void Attack()
     {
-        print("someday, this will be destroyed when you do that");
+        print("i'll get you for that in the full game!");
     }
 }
