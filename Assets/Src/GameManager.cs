@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+   private PauseMenu pausemenu;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   void Start()
+   {
+
+   }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   void Update()
+   {
+      if (Input.GetKey(KeyCode.Escape)) {
+         //Debug.Log("escape");
+         pausemenu.Pause();
+      }
+   }
 }

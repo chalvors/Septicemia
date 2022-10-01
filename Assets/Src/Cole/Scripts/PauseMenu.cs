@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static bool gameIsPaused = false;
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            gameObject.SetActive(true);
-            Pause();
-        }
+    public GameObject pauseMenu;
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            gameObject.SetActive(false);
-            Debug.Log("back to the game!");
+    void Update() {
+        if ( Input.GetKeyDown(KeyCode.Escape)) {
+            if (gameIsPaused) {
+                Resume();
+            }
+            else {
+                Pause();
+            }
         }
     }
 
-    public void Pause()
-    {
-        Debug.Log("this will be the pause menu in the final game");
+    public void Resume() {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+        gameIsPaused = false;
+    }
+
+    public void Pause() {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0.0f;
+        gameIsPaused = true;
     }
 }
