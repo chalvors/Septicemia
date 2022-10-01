@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenuStart : MonoBehaviour
 {
-    public GameObject mainMenu;
+    [SerializeField] private GameObject mainMenu;
 
     public void StartGame() {
         Debug.Log("start game");
