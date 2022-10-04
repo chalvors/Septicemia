@@ -39,7 +39,15 @@ public class Boss : MonoBehaviour
         }
         return health;
     }
+    public int ChangeAttack(int attackDamage, int changedAttackDamage)
+    {
+        //This function will change the boss's attack damage
+        int currentAttackDamage = attackDamage;
 
+        currentAttackDamage = currentAttackDamage - changedAttackDamage;
+        return currentAttackDamage;
+
+    }
     void Die(Collider2D interBox)
     {
         print("You killed the biggest enemy");
