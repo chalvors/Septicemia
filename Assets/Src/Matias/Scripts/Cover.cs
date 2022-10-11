@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cover : MonoBehaviour
+public class Cover : Interactible
 {
+
+    bool isInteract = false;
 
     void Start()
     {
@@ -14,7 +16,12 @@ public class Cover : MonoBehaviour
     {
         if (interBox.tag == "PLAYER")
         {
-            BreakWall();
+            isInteract = CheckAct();
+            if (isInteract == true)
+            {
+                BreakWall();
+                isInteract = false;
+            }
         }
     }
 
