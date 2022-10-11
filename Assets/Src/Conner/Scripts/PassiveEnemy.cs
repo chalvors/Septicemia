@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class PassiveEnemy : MonoBehaviour
 {
+    public float health;
+    public float damage;
+
     void OnTriggerEnter2D(Collider2D interBox)
     {
         if (interBox.tag == "PLAYER")
         {
+            TakeDamage(damage);
             Flee();
         }
     }
 
-    void Flee()
+    public void Flee()
     {
         print("eep! run away! ahhhh!");
+    }
+
+    public float TakeDamage(float damage)
+    {
+        return health -= damage;
     }
 }
