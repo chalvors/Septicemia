@@ -20,7 +20,7 @@ public class SecretRoom : MonoBehaviour
 
     public int SelectRoom()
     {
-        if (Shop = false)
+        if (Shop == false)
         {
             roomID = 0;
             Shop = true;
