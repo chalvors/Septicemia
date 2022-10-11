@@ -5,8 +5,7 @@ using UnityEngine;
 public class SecretRoom : MonoBehaviour
 {
     int roomID;
-    bool Shop = false;
-    Random rnd = new Random();
+    public bool Shop = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +18,7 @@ public class SecretRoom : MonoBehaviour
         
     }
 
-    void SelectRoom()
+    public int SelectRoom()
     {
         if (Shop = false)
         {
@@ -28,7 +27,7 @@ public class SecretRoom : MonoBehaviour
         }
         else 
         {
-            roomID = rnd.Next(1, 20);
+            roomID = Random.Range(1, 21);
         }
         return roomID;
     }

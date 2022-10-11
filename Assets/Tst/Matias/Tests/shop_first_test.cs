@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 public class shop_first_test : MonoBehaviour
 {
     [Test]
-    public void shop_first_test()
+    public void does_shop_come_first()
     {
         SecretRoom SR1 = new SecretRoom();
         int IDcheck = SR1.SelectRoom();
