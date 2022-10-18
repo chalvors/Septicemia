@@ -9,7 +9,7 @@ public class Boss_Spawner : MonoBehaviour
     private GameObject swarmerPrefab;
 
     [SerializeField]
-    private float swarmerInterval = 3.5f;
+    private float swarmerInterval = 0.5f;
     
     public GameObject prefab;
     public Transform player;
@@ -32,6 +32,8 @@ public class Boss_Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         GameObject newBoss = Instantiate(prefab, new Vector2(Random.Range(-20,-14),Random.Range(-4, -8)), Quaternion.identity);
+
+         StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
         //player = gameObject.transform;
         //newBoss.GetComponent("Player");
         //newBoss = GameObject.AddComponent<Player>();

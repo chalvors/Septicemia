@@ -3916,13 +3916,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773652571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221b4d18ab3a85d48bb3d17a92c3c202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 5011991011096164344, guid: f15d4fe0f181742499de060ca89a6fe8, type: 3}
-  swarmerInterval: 3.5
+  swarmerInterval: 0.001
   prefab: {fileID: 5011991011096164344, guid: f15d4fe0f181742499de060ca89a6fe8, type: 3}
   player: {fileID: 1513387341}
 --- !u!4 &1773652574
@@ -4967,6 +4967,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1513387353}
+    - target: {fileID: 3752060320626879594, guid: f15d4fe0f181742499de060ca89a6fe8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3752060320626879594, guid: f15d4fe0f181742499de060ca89a6fe8, type: 3}
       propertyPath: moveSpeed
       value: 1
