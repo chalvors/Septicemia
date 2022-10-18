@@ -21,11 +21,13 @@ namespace DecoratorPattern
     {
         string GetBossType();
     }
+        
 
 
     // concrete implementation
     class Boss : IBoss
     {
+        
         public string GetBossType()
         {
             return "This is a normal Boss";

@@ -10,8 +10,10 @@ public class Boss : MonoBehaviour
     public Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
+    //public GameObject Player;
 
     private CircleCollider2D bossCollider;
+    //player = gameObject.Find("Player").GetComponent<Rigidbody2D>();
     
 
     void OnTriggerEnter2D(Collider2D interBox)
@@ -62,11 +64,15 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        //Player.GameObject.tag = "Player";
+        //Player = GetComponent("Player");
+        //player = Player.gameObject.transform;
         rb = this.GetComponent<Rigidbody2D>();
         bossCollider = GetComponent<CircleCollider2D>();
     }
     void Update()
     {
+       
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
