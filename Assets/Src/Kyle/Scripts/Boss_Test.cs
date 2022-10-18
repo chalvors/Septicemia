@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 namespace DecoratorPattern
@@ -9,6 +10,8 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
+            IBoss boss = new Boss();
+            Console.WriteLine(boss.GetBossType());
             //Decorator Design Patter
         }
     }
@@ -52,12 +55,21 @@ namespace DecoratorPattern
         public override string GetBossType()
         {
             string type = base.GetBossType();
-            type += "\r\n with good attack";
+            type += "\r\n with a better attack";
             return type;
         }
+    }
 
+    class RangedAttackDecorator : BossDecorator
+    {
+        public RangedAttackDecorator(IBoss boss) : base(boss) { }
 
-
+        public override string GetBossType()
+        {
+            string type = base.GetBossType();
+            type += "\r\n  and with a new ranged attack";
+            return type;
+        }
     }
 }
 
