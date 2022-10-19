@@ -8,6 +8,8 @@ TagManager:
   - Impassable
   - PLAYER
   - BOSS
+  - Sensor
+  - TestEnemy
   layers:
   - Default
   - TransparentFX

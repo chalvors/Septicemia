@@ -71,6 +71,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1674217843467360789, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674217843467360789, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
+      propertyPath: m_TagString
+      value: TestEnemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -3897218023312259251, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
@@ -91,3 +99,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705a275d5c20569468d373800224a3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 2
