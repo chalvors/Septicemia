@@ -1,27 +1,30 @@
+using Codice.CM.Common;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PassiveEnemy : MonoBehaviour
+public class PassiveEnemy : Enemy
 {
-    public float health;
-    public float damage;
+    // EnemyData data;
+    //private GameObject player;
 
-    void OnTriggerEnter2D(Collider2D interBox)
+    private void Start()
     {
-        if (interBox.tag == "PLAYER")
-        {
-            TakeDamage(damage);
-            Flee();
-        }
+        data.health = 100;
+        data.damage = 0;
+        data.speed = 1;
+
+        //Find Player GameObject
+        player = GameObject.FindGameObjectWithTag("PLAYER");
     }
 
-    public void Flee()
+    void Update()
     {
-        print("eep! run away! ahhhh!");
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * data.speed * Time.deltaTime);
     }
 
-    public float TakeDamage(float damage)
+    public int TakeDamage(int damage)
     {
         return health -= damage;
     }
