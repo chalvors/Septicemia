@@ -10,6 +10,7 @@ TagManager:
   - BOSS
   - Sensor
   - TestEnemy
+  - TestBoss
   layers:
   - Default
   - TransparentFX

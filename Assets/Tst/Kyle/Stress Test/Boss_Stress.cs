@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss_Stress : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Sensor;
+
     [SerializeField]
     private GameObject swarmerPrefab;
 
@@ -12,7 +16,9 @@ public class Boss_Stress : MonoBehaviour
 
     public GameObject prefab;
     public Transform player;
-    //public GameObject.find("Player");
+    
+    public Text totalCount;
+    private int total;
 
 
 
@@ -21,7 +27,8 @@ public class Boss_Stress : MonoBehaviour
     {
         StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
 
-
+        total = 0;
+        totalCount.text = "total Enemy Count: " + total;
 
 
     }
@@ -30,9 +37,20 @@ public class Boss_Stress : MonoBehaviour
     private IEnumerator spawnBoss(float interval, GameObject boss)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newBoss = Instantiate(prefab, new Vector2(Random.Range(-9, 9), Random.Range(-4, 4)), Quaternion.identity);
+        if (!Sensor.GetComponent<Sensor>().EnteredTrigger)
+        {
+            GameObject newBoss = Instantiate(prefab, new Vector2(Random.Range(-9, 9), Random.Range(-4, 4)), Quaternion.identity);
+            total = total + 1;
+            totalCount.text = "Total Enemy Count: " + total;
+            Debug.Log(Sensor.GetComponent<Sensor>().EnteredTrigger);
+            StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
+        }
+        //GameObject newBoss = Instantiate(prefab, new Vector2(Random.Range(-9, 9), Random.Range(-4, 4)), Quaternion.identity);
+        //total = total + 1;
+        //totalCount.text = "Total Enemy Count: " + total;
 
-        StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
+        //StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
+        
         //player = gameObject.transform;
         //newBoss.GetComponent("Player");
         //newBoss = GameObject.AddComponent<Player>();
