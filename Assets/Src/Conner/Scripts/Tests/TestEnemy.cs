@@ -6,11 +6,8 @@ using UnityEngine;
 
 public class TestEnemy : MonoBehaviour
 {
-    // EnemyData data;
-    //private GameObject player;
-    //private Rigidbody2D rb;
-
-    float maxSpeed = 2;
+    [SerializeField]
+    private float maxSpeed = 1;
 
     void Update()
     {

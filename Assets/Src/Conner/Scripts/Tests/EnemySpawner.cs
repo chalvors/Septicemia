@@ -6,30 +6,35 @@ using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject passiveEnemyPrefab;
+    private GameObject testEnemyPrefab;
+
+    [SerializeField]
+    private GameObject Sensor;
 
     [SerializeField]
     private float spawnInterval = 1f;
 
-    private static int totalVal;
-
-    //private Text total;
+    public Text totalCount;
+    private int total;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnEnemy(spawnInterval, passiveEnemyPrefab));
+        StartCoroutine(spawnEnemy(spawnInterval, testEnemyPrefab));
 
-        //total = GetComponent<Text>();
-        //totalVal = 0;
+        total = 0;
+        totalCount.text = "Total Enemy Count: " + total;
     }
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
-        //totalVal += 1;
-        //total.text = "Total Enemy Count: " + totalVal;
-        StartCoroutine(spawnEnemy(interval, enemy));
+        if (!Sensor.GetComponent<SensorScript>().EnteredTrigger) {
+            GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
+            total += 1;
+            totalCount.text = "Total Enemy Count: " + total;
+            Debug.Log(Sensor.GetComponent<SensorScript>().EnteredTrigger);
+            StartCoroutine(spawnEnemy(interval, enemy));
+        }
     }
 }
