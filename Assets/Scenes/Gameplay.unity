@@ -1994,18 +1994,6 @@ MonoBehaviour:
   damage: 15
   data: {fileID: 11400000, guid: b38f32fff5101bd4b8063f5fc558e0c1, type: 2}
   player: {fileID: 1513387341}
---- !u!114 &627128279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627128272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 218139eb31600a047ac4c2ea59b585d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &675874847
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,6 +26,13 @@ public class PassiveEnemy : Enemy
 
     public int TakeDamage(int damage)
     {
-        return health -= damage;
+        health -= damage;
+
+        if (health <= 0)
+        {
+            return 0;
+        }
+        else
+            return health;
     }
 }
