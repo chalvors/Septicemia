@@ -1,3 +1,4 @@
 {
-	"name": "TestReference"
+	"name": "TestReference",
+	"references": [ "Unity.TextMeshPro" ]
 }
