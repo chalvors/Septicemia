@@ -45,25 +45,13 @@ public class Boss_Stress : MonoBehaviour
             Debug.Log(Sensor.GetComponent<Sensor>().EnteredTrigger);
             StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
         }
-        //GameObject newBoss = Instantiate(prefab, new Vector2(Random.Range(-9, 9), Random.Range(-4, 4)), Quaternion.identity);
-        //total = total + 1;
-        //totalCount.text = "Total Enemy Count: " + total;
-
+ 
         //StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));
-        
+       
         //player = gameObject.transform;
         //newBoss.GetComponent("Player");
         //newBoss = GameObject.AddComponent<Player>();
-
-
-
     }
     
     
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

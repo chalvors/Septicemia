@@ -31,6 +31,7 @@ public class Boss_Spawner : MonoBehaviour
     private IEnumerator spawnBoss(float interval, GameObject boss)
     {
         yield return new WaitForSeconds(interval);
+        //GameObject Iboss boss = new Boss();
         GameObject newBoss = Instantiate(prefab, new Vector2(Random.Range(-20,-14),Random.Range(-4, -8)), Quaternion.identity);
 
          StartCoroutine(spawnBoss(swarmerInterval, swarmerPrefab));

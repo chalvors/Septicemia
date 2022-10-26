@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DecoratorPattern;
 
 
 namespace DecoratorPattern
@@ -77,7 +78,7 @@ namespace DecoratorPattern
 
 public class Boss_Test : MonoBehaviour
 {
-   
+
 
 
 
@@ -90,6 +91,6 @@ public class Boss_Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }
