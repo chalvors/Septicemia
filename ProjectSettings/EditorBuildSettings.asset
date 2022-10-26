@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Matias Stress Test A.unity
     guid: 4c81c286a4f0df240bf595cd238b33e5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Matias Stress Test B.unity
     guid: d82ad862ba4661445825031624553b55
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 27e61f187b261f448a64b72e6f2309a0
+  - enabled: 1
+    path: Assets/Scenes/SR0.unity
+    guid: 9253895f3c1c69441b56ebbf462fbd8d
   m_configObjects: {}

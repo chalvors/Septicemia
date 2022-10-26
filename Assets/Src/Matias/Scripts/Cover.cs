@@ -6,13 +6,14 @@ public class Cover : Interactible
 {
 
     bool isInteract = false;
+    private GameObject cover;
 
     void Start()
     {
-
+        cover = GameObject.Find("Cover");
     }
 
-    void OnTriggerEnter2D(Collider2D interBox)
+    void OnTriggerStay2D(Collider2D interBox)
     {
         if (interBox.tag == "PLAYER")
         {
@@ -27,6 +28,7 @@ public class Cover : Interactible
 
     void BreakWall()
     {
-        print("someday, this will be destroyed when you do that");
+        //cool animation happens here
+        Destroy(cover);
     }
 }
