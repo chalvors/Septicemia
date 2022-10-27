@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public int AttackUpgrade()
     {
-        attackstat = attackstat + 1;
+        attackstat++;
         return attackstat;
     }
 
