@@ -4,8 +4,8 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class attack_change_test : MonoBehaviour
-{
+public class attack_change_test : Enemy
+{/*
     [Test]
     public void take_5_damage()
     {
@@ -40,5 +40,5 @@ public class attack_change_test : MonoBehaviour
         float newHealth = E1.TakeDamage(E1.damage);
 
         Assert.AreEqual(0, newHealth);
-    }
+    }*/
 }

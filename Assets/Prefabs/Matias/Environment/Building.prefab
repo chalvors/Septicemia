@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4062147164722657368}
   - component: {fileID: 2842459875178694196}
   - component: {fileID: 676542534574887701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Building
   m_TagString: Impassable
   m_Icon: {fileID: 0}

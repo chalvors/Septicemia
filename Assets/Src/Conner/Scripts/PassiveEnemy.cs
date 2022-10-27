@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-
 public class PassiveEnemy : Enemy
 {
     // EnemyData data;
@@ -16,12 +15,12 @@ public class PassiveEnemy : Enemy
         data.speed = 1;
 
         //Find Player GameObject
-        player = GameObject.FindGameObjectWithTag("PLAYER");
+        //player = GameObject.FindGameObjectWithTag("PLAYER");
     }
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * data.speed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * data.speed * Time.deltaTime);
     }
 
     public int TakeDamage(int damage)

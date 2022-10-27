@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7468918886888033827}
   - component: {fileID: -4706629210080985832}
   - component: {fileID: 7756801842355992746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cover
   m_TagString: Breakable
   m_Icon: {fileID: 0}

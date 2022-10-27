@@ -8,7 +8,6 @@ using Debug = System.Diagnostics.Debug;
 
 namespace Enemies
 {
-
     public interface IEnemy
     {
         string GetDetails();
@@ -69,3 +68,17 @@ namespace Enemies
         }
     }
 }
+
+/*
+ * 
+ * 
+ * instantiate a new enemy
+ * script to override the base stats
+ * make your new enemy getcomponents of the base enemy
+ * base enemy stats must be protected
+ * you can create a temporary enemy
+ * override function to change enemy into temp enemy
+ * 
+ * 
+ * 
+ */
