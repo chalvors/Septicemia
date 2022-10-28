@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
+    /*
     private void Start()
     {
         data.health = 100;
@@ -32,4 +33,5 @@ public class MeleeEnemy : Enemy
     {
         print("i'll get you for that in the full game!");
     }
+    */
 }

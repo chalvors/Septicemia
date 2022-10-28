@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BaseEnemy : Enemy
 {
+
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = 200;
         damage = 0;
     }
 }

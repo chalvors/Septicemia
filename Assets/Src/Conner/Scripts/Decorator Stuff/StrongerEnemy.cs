@@ -5,14 +5,13 @@ using UnityEngine;
 public class StrongerEnemy : Enemy
 {
     // Start is called before the first frame update
-    void Start()
+    public void IncreaseHealth()
     {
-        
+        health += 10;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void IncreaseDamage()
     {
-        
+        damage += 10;
     }
 }

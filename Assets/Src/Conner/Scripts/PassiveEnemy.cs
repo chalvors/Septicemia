@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 public class PassiveEnemy : Enemy
 {
+    /*
     // EnemyData data;
     //private GameObject player;
 
@@ -23,7 +24,7 @@ public class PassiveEnemy : Enemy
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * data.speed * Time.deltaTime);
     }
 
-    public int TakeDamage(int damage)
+    new public int TakeDamage(int damage)
     {
         health -= damage;
 
@@ -33,5 +34,5 @@ public class PassiveEnemy : Enemy
         }
         else
             return health;
-    }
+    }*/
 }
