@@ -9,7 +9,7 @@ public class StrongerEnemy : Enemy
 
     void Awake()
     {
-        baseEnemy = GameObject.Find("MeleeEnemy").GetComponent<BaseEnemy>();
+        //baseEnemy = GameObject.Find("MeleeEnemy").GetComponent<BaseEnemy>();
     }
 
     private void Start()
@@ -21,7 +21,7 @@ public class StrongerEnemy : Enemy
     // Start is called before the first frame update
     public override void IncreaseHealth()
     {
-        baseEnemy.health += 20;
+        //baseEnemy.health += 20;
     }
 
     protected override void IncreaseDamage()
