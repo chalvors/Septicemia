@@ -35,7 +35,23 @@ public class Bosses : MonoBehaviour
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
         Debug.Log("Boss's Health: " + health);
+        if (health <= 0){
+            //Die(bossCollider);
+            Debug.Log("You just killed a boss!!!");
+        }
         return health;
+    }
+
+    void Die(Collider2D interBox)
+    {
+        print("You killed the biggest enemy");
+        if (interBox.tag == "BOSS")
+        {
+            Destroy(interBox.gameObject);
+            
+
+            bossCollider.enabled = false;
+        }
     }
      void OnTriggerEnter2D(Collider2D interBox)
     {
@@ -44,4 +60,5 @@ public class Bosses : MonoBehaviour
             takeDamage(attackDamage);
         }
     }
+
 }
