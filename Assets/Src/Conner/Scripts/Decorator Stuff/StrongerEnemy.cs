@@ -2,16 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class StrongerEnemy : Enemy
 {
-    // Start is called before the first frame update
-    public void IncreaseHealth()
+    BaseEnemy baseEnemy;
+
+    void Awake()
     {
-        health += 10;
+        baseEnemy = GameObject.Find("MeleeEnemy").GetComponent<BaseEnemy>();
     }
 
-    protected void IncreaseDamage()
+    private void Start()
     {
-        damage += 10;
+        health = 50;
+        damage = 0;
     }
+
+    // Start is called before the first frame update
+    public override void IncreaseHealth()
+    {
+        baseEnemy.health += 20;
+    }
+
+    protected override void IncreaseDamage()
+    {
+        damage += 20;
+    }
+
+
 }

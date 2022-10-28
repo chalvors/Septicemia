@@ -8,12 +8,13 @@ public class Enemy : MonoBehaviour
     //Set default values if data is not set
     protected int health = 100;
     protected int damage = 0;
+    protected float maxSpeed = 1f;
 
     protected bool canDealDamage = true;
-    protected EnemyData data;
+    //protected EnemyData data;
 
-    
-    protected void OnTriggerEnter2D(Collider2D collider)
+
+    virtual protected void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("PLAYER"))
         {
@@ -32,13 +33,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected IEnumerator DamageCooldown()
+    virtual protected IEnumerator DamageCooldown()
     {
         yield return new WaitForSeconds(0.5f);
         canDealDamage = true;
     }
 
-    protected int TakeDamage(int playerDamage)
+    virtual protected int TakeDamage(int playerDamage)
     {
         health = health - playerDamage;
         Debug.Log("Enemy health: " + health);
@@ -50,5 +51,15 @@ public class Enemy : MonoBehaviour
         }
 
         return health;
+    }
+
+    virtual public void IncreaseHealth()
+    {
+        health += 10;
+    }
+
+    virtual protected void IncreaseDamage()
+    {
+        damage += 10;
     }
 }

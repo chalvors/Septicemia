@@ -11,6 +11,8 @@ TagManager:
   - Sensor
   - TestEnemy
   - TestBoss
+  - MeleeEnemy
+  - PistolEnemy
   layers:
   - Default
   - TransparentFX
