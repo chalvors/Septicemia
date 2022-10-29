@@ -1,3 +1,4 @@
+using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,5 +13,15 @@ public class BaseEnemy : Enemy
 
         //IncreaseHealth();
         
+    }
+
+    public override int GetDamage()
+    {
+        return damage;
+    }
+
+    public override int GetHealth()
+    {
+        return damage;
     }
 }

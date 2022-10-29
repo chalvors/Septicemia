@@ -1,9 +1,10 @@
+using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     //Set default values if data is not set
     protected int health = 100;
@@ -53,13 +54,13 @@ public class Enemy : MonoBehaviour
         return health;
     }
 
-    virtual public void IncreaseHealth()
+    public virtual int GetHealth()
     {
-        health += 10;
+        return health;
     }
 
-    virtual protected void IncreaseDamage()
+    public virtual int GetDamage()
     {
-        damage += 10;
+        return damage;
     }
 }

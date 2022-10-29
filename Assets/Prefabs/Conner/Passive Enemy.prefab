@@ -69,7 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1674217843467360789, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
       propertyPath: m_Name
-      value: enemy Variant
+      value: Passive Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674217843467360789, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
+      propertyPath: m_TagString
+      value: PistolEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848d4c30fbec70f49aca1b2f398a0f79, type: 3}
@@ -90,7 +94,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfa65698b4478b48a262976092ebb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  damage: 15
-  data: {fileID: 11400000, guid: b38f32fff5101bd4b8063f5fc558e0c1, type: 2}
-  player: {fileID: 0}
