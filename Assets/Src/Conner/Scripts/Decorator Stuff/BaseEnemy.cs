@@ -2,6 +2,7 @@ using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BaseEnemy : Enemy
 {
@@ -12,7 +13,7 @@ public class BaseEnemy : Enemy
         damage = 0;
 
         //IncreaseHealth();
-        
+
     }
 
     public override int GetDamage()
