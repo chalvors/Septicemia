@@ -5,60 +5,72 @@ using UnityEngine;
 public class Bosses : MonoBehaviour
 {
     // ---------- Creating Stats for Boss -----------------
-    protected float moveSpeed;
-    [SerializeField]
+    //protected float moveSpeed;
+    //[SerializeField]
     protected int health;
-    [SerializeField]
+    //[SerializeField]
     protected int attackDamage;
+    Bosses myBoss;
+
     private Rigidbody2D rb;
     private Vector2 movement; //Wont need this after getting pathfinding
     private CircleCollider2D bossCollider;
     
 
-    // Start is called before the first frame update
-    void Start()
+   
+    // ----------------- Player Takes Damage From Boss ---------------------
+    virtual protected void OnTriggerEnter2D(Collider2D collider)
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        bossCollider = GetComponent<CircleCollider2D>();
+        if (collider.CompareTag("PLAYER"))
+        {
+            //Deal Damage to Player if enemy collides with Player GameObject
+
+
+            if (collider.GetComponent<Player>() != null)
+            {
+                collider.GetComponent<Player>().TakeDamage(attackDamage);
+                takeDamage(collider.GetComponent<Player>().attackstat);
+                //canDealDamage = false;
+                //StartCoroutine(DamageCooldown());
+            }
+            Debug.Log("Damage dealt to the player!");
+            Debug.Log("Player health: " + collider.GetComponent<Player>().health);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // ------------ Boss Takes Damage Dealt from the Player ------------------------
+    virtual protected int takeDamage(int playerAttack){
 
-    public virtual void attackPlayer(){
-        //Player.TakeDamage(attackDamage);
-    }
-    public virtual int takeDamage(int playerAttack){
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
         Debug.Log("Boss's Health: " + health);
+
+        // --- Check to see if Boss Died ---
         if (health <= 0){
-            //Die(bossCollider);
+            Destroy(gameObject);
             Debug.Log("You just killed a boss!!!");
         }
         return health;
     }
 
-    void Die(Collider2D interBox)
+    // --------------- Returns the Boss's Current Health -----------------------
+    public virtual int GetHealth()
     {
-        print("You killed the biggest enemy");
-        if (interBox.tag == "BOSS")
-        {
-            Destroy(interBox.gameObject);
-            
+        return health;
+    }
+    // ---------------- Returns the Boss's Current Attack Damage ---------------------
+    public virtual int GetDamage()
+    {
+        return attackDamage;
+    }
 
-            bossCollider.enabled = false;
-        }
-    }
-     void OnTriggerEnter2D(Collider2D interBox)
+    /*
+    public virtual int IncreaseHealth()
     {
-        if (interBox.tag == "PLAYER")
-        {
-            takeDamage(attackDamage);
-        }
+        return health;
     }
+    */
+
+
 
 }
