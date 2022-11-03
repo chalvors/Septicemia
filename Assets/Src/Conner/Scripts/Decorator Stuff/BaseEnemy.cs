@@ -16,8 +16,9 @@ public class BaseEnemy : Enemy
     {
         health = 50;
         damage = 0;
-
-        //IncreaseHealth();
+        Debug.Log(health);
+        GetHealth();
+        Debug.Log(health);
     }
 
     private void FixedUpdate()
@@ -39,7 +40,7 @@ public class BaseEnemy : Enemy
 
         isMoving = (p1 != p2);
     }
-
+    /*
     public override int GetDamage()
     {
         return damage;
@@ -48,5 +49,5 @@ public class BaseEnemy : Enemy
     public override int GetHealth()
     {
         return health;
-    }
+    }*/
 }
