@@ -18,7 +18,7 @@ public class Interactible : MonoBehaviour
 
     public bool CheckAct()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.K))
         {
             return true;
         }

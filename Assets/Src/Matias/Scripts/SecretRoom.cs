@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SecretRoom : Interactible
 {
+    [SerializeField]
     int roomID;
+
     bool isInteract = false;
     public bool Shop = false;
     // Start is called before the first frame update
     void Start()
     {
-        roomID = SelectRoom();
+     
     }
 
     // Update is called once per frame
@@ -49,7 +51,15 @@ public class SecretRoom : Interactible
 
     void GoToRoom(int room)
     {
-        string ID = "SR" + room;
-        SceneManager.LoadScene(ID);
+        if (roomID == 99)
+        {
+            SceneManager.LoadScene("Gameplay");
+        }
+        else
+        {
+            string ID = "SR" + room;
+            SceneManager.LoadScene(ID);
+
+        }
     }
 }
