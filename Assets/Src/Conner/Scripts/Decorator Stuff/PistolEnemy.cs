@@ -14,6 +14,9 @@ public class PistolEnemy : Enemy
     [SerializeField]
     private GameObject bullet;
 
+    [SerializeField]
+    private AudioClip gunfire;
+
     //Position that the bullet prefab will be placed
     [SerializeField]
     private Transform bulletPos;
@@ -85,7 +88,16 @@ public class PistolEnemy : Enemy
     void shoot()
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound(gunfire);
         Debug.Log("Shooting");
+    }
+
+    override protected void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("PLAYER"))
+        {
+            TakeDamage(collider.GetComponent<Player>().attackstat);
+        }
     }
 
     //Returns the damage

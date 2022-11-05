@@ -34,7 +34,6 @@ public class EnemyBulletScript : MonoBehaviour
         Physics2D.IgnoreCollision(this.GetComponent<CircleCollider2D>(), player.GetComponent<CircleCollider2D>());
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         timer += Time.deltaTime;

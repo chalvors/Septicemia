@@ -14,6 +14,12 @@ public abstract class Enemy : MonoBehaviour
     protected bool canDealDamage = true;
     //protected EnemyData data;
 
+    [SerializeField]
+    private AudioClip takeDamage;
+
+    [SerializeField]
+    private AudioClip death;
+
 
     virtual protected void OnTriggerEnter2D(Collider2D collider)
     {

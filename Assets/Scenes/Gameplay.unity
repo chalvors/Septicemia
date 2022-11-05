@@ -6940,7 +6940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5834a1a3c31ce7f4cbb5585abf3745ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeDamage: {fileID: 0}
+  death: {fileID: 0}
   bullet: {fileID: 589803363360790841, guid: 090f3dc7d495a074e86db7d1c9d80a27, type: 3}
+  gunfire: {fileID: 0}
   bulletPos: {fileID: 284002448}
 --- !u!1001 &1967048857
 PrefabInstance:
