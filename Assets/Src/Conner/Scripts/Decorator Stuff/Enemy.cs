@@ -29,8 +29,8 @@ public abstract class Enemy : MonoBehaviour
                 canDealDamage = false;
                 StartCoroutine(DamageCooldown());
             }
-            Debug.Log("Damage dealt to the player!");
-            Debug.Log("Player health: " + collider.GetComponent<Player>().health);
+            //Debug.Log("Damage dealt to the player!");
+            //Debug.Log("Player health: " + collider.GetComponent<Player>().health);
         }
     }
 
@@ -43,12 +43,12 @@ public abstract class Enemy : MonoBehaviour
     virtual protected int TakeDamage(int playerDamage)
     {
         health = health - playerDamage;
-        Debug.Log("Enemy health: " + health);
+        //Debug.Log("Enemy health: " + health);
 
         if (health <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("Enemy has died");
+            //Debug.Log("Enemy has died");
         }
 
         return health;
