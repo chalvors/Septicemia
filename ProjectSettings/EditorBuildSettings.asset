@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SR0.unity
     guid: 9253895f3c1c69441b56ebbf462fbd8d
+  - enabled: 1
+    path: Assets/Scenes/SR1.unity
+    guid: 28f2d57c7c9be4343bc7474d53049636
   m_configObjects: {}
