@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
+using Unity.VisualScripting.YamlDotNet.Serialization.ObjectGraphTraversalStrategies;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+//These are the stats of every enemy upon instantiation
 public class EnemyStats
 {
     public virtual int GetDamage()
     {
-        return 50;
+        return 0;
     }
 
     public virtual int GetHealth()
@@ -19,11 +21,13 @@ public class EnemyStats
     }
 }
 
+
+//These are the base stats of the melee enemy, which override the values from EnemyStats
 public class EnemyStatsBasic : EnemyStats
 {
     public override int GetDamage()
     {
-        return 50;
+        return 10;
     }
 
     public override int GetHealth()
@@ -32,12 +36,20 @@ public class EnemyStatsBasic : EnemyStats
     }
 }
 
+//Creates an object with the base stats of the melee enemy, which is decided in EnemyStatsBasic
 public class EnemyStatsUpgrade : EnemyStats
 {
     public EnemyStats wrapee;
 
-    public override int GetDamage() { return wrapee.GetDamage(); }
-    public override int GetHealth() { return wrapee.GetHealth(); }
+    public override int GetDamage() 
+    { 
+        return wrapee.GetDamage(); 
+    }
+
+    public override int GetHealth() 
+    { 
+        return wrapee.GetHealth(); 
+    }
 }
 
 public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
@@ -49,7 +61,7 @@ public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
 
     public override int GetDamage()
     {
-        return wrapee.GetDamage() + 10;
+        return wrapee.GetDamage() + 5;
     }
 }
 
@@ -62,7 +74,7 @@ public class EnemyStatsUpgradeHealth : EnemyStatsUpgrade
 
     public override int GetHealth()
     {
-        return wrapee.GetHealth() + 10;
+        return wrapee.GetHealth() + 5;
     }
 }
 
@@ -91,21 +103,24 @@ public class BaseEnemy : Enemy
         health = 50;
         damage = 0;
 
-        Debug.Log("Damage: " + damage);
         damage = GetDamage();
-        Debug.Log("Damage: " + damage);
-        wrapDamage();
-        damage = GetDamage();
-        Debug.Log("Damage: " + damage);
-        wrapDamage();
-        damage = GetDamage();
-        Debug.Log("Damage: " + damage);
+        health = GetHealth();
+    }
 
-        health = GetHealth();
-        Debug.Log("Health: " + health);
-        wrapHealth();
-        health = GetHealth();
-        Debug.Log("Health: " + health);
+    private void FixedUpdate()
+    {
+        int upgradeCount = 0;
+        
+        if (GameManager.round > upgradeCount)
+        {
+            wrapDamage();
+            damage = GetDamage();
+            Debug.Log("Upgraded Damage: " + damage);
+
+            wrapHealth();
+            health = GetHealth();
+            Debug.Log("Upgraded Health: " + health);
+        }
     }
 
     //Returns the damage

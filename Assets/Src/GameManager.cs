@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
    private PauseMenu pausemenu;
 
+   public static int round = 1;
+
     // Start is called before the first frame update
    void Start()
    {
-
+        
    }
 
     // Update is called once per frame

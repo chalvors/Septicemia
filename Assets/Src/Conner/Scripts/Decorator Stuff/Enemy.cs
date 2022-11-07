@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     //Set default values if data is not set
     protected int health = 100;
     protected int damage = 0;
-    protected float maxSpeed = 1f;
+    protected float maxSpeed = 2f;
 
     protected bool canDealDamage = true;
     //protected EnemyData data;
