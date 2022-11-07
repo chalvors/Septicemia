@@ -7,10 +7,10 @@ public class Bosses : MonoBehaviour
     // ---------- Creating Stats for Boss -----------------
     //protected float moveSpeed;
     //[SerializeField]
-    protected int health;
+    public int health; // Needed to make public for bounds tests
     //[SerializeField]
-    protected int attackDamage;
-    Bosses myBoss;
+    public int attackDamage; // Needed to make public for bounds tests
+
 
     private Rigidbody2D rb;
     private Vector2 movement; //Wont need this after getting pathfinding
@@ -39,7 +39,8 @@ public class Bosses : MonoBehaviour
     }
 
     // ------------ Boss Takes Damage Dealt from the Player ------------------------
-    virtual protected int takeDamage(int playerAttack){
+    // --------- Had to be a public function for bounds testing --------------
+    virtual public int takeDamage(int playerAttack){
 
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
@@ -64,12 +65,7 @@ public class Bosses : MonoBehaviour
         return attackDamage;
     }
 
-    /*
-    public virtual int IncreaseHealth()
-    {
-        return health;
-    }
-    */
+
 
 
 
