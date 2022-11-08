@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float activeMoveSpeed;
 
     [SerializeField] private float dashSpeed;
+    [SerializeField] private float rotationSpeed;
 
     private float dashLength = 0.5f, dashcooldown = 2f;
 
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(dashCounter > 0)
         {
-            Debug.Log("delta time is " + Time.deltaTime);
+            //Debug.Log("delta time is " + Time.deltaTime);
             dashCounter -= Time.deltaTime;
 
             if(dashCounter <= 0)
@@ -64,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
     {
         dashSpeed = speed + 4;
         rb.velocity = new Vector2(player_direction.x * activeMoveSpeed, player_direction.y * activeMoveSpeed);
-
+        
+        if (player_direction != Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, player_direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }

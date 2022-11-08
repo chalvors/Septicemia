@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class AttackUpgrade_Test
+/*public class AttackUpgrade_Test
 {
     // A Test behaves as an ordinary method
     [Test]
@@ -38,3 +38,4 @@ public class AttackUpgrade_Test
         Assert.AreEqual(13, attack);
     }
 }
+*/
