@@ -8120,7 +8120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 52310505321454914, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 8.5
+      value: 5.9
       objectReference: {fileID: 0}
     - target: {fileID: 410370906416401486, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
       propertyPath: m_Name
@@ -8222,7 +8222,8 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 720
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 52310505321454914, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
 --- !u!1001 &5011991012529249537
 PrefabInstance:
