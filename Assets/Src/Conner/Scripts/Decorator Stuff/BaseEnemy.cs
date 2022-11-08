@@ -82,6 +82,8 @@ public class BaseEnemy : Enemy
 {
     EnemyStats stats;
 
+    int upgradeCount;
+
     private void wrapDamage()
     {
         stats = new EnemyStatsUpgradeDamage(stats);
@@ -98,6 +100,7 @@ public class BaseEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        upgradeCount = 0;
         stats = new EnemyStatsBasic();
 
         health = 50;
@@ -109,8 +112,6 @@ public class BaseEnemy : Enemy
 
     private void FixedUpdate()
     {
-        int upgradeCount = 0;
-        
         if (GameManager.round > upgradeCount)
         {
             wrapDamage();
@@ -120,6 +121,8 @@ public class BaseEnemy : Enemy
             wrapHealth();
             health = GetHealth();
             Debug.Log("Upgraded Health: " + health);
+
+            upgradeCount++;
         }
     }
 
