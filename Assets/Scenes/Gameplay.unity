@@ -741,12 +741,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19903207
+      objectReference: {fileID: 0}
+    - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2174442
+      objectReference: {fileID: 0}
+    - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0025806
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0078833
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3159,12 +3167,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.20841306
+      objectReference: {fileID: 0}
+    - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.21794309
+      objectReference: {fileID: 0}
+    - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0025806
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0078833
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811108328662230318, guid: 03d4041ce5c535e40ba5e3857715c46b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4037,7 +4053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ff0ebb9b4fde141aacc68f86d8afc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  health: 0
+  attackDamage: 0
 --- !u!114 &1079446253
 MonoBehaviour:
   m_ObjectHideFlags: 0
