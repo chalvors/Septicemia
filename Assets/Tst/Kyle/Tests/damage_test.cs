@@ -33,8 +33,8 @@ public class damage_tests
         
         int finalHealth = B2.takeDamage(51);
         //Debug.Log("++++++++++++++++++++++++++++++++++++++++");
-        //Debug.Log(finalHealth);
-        Assert.AreEqual(-1, finalHealth);
+        Debug.Log(finalHealth);
+        Assert.AreEqual(0, finalHealth);
     }
     [Test]
     public void sets_health_to_50_and_take_50_damage()

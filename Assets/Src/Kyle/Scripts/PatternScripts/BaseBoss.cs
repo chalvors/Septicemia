@@ -78,12 +78,16 @@ public class BossStatsUpgradeHealth : BossStatsUpgrade
 public class BaseBoss : Bosses
 {
     BossStats stats;
+    int upgradeCount = 0;
+    
 
+    //-------- Uses the wrapee created in BossStatsUpgradeDamage and applies it to stats object -----------
     private void wrapDamage()
     {
         stats = new BossStatsUpgradeDamage(stats);
     }
 
+    //-------- Uses the wrapee created in BossStatsUpgradeHealth and applies it to stats object -----------
     private void wrapHealth()
     {
         stats = new BossStatsUpgradeHealth(stats);
@@ -99,10 +103,10 @@ public class BaseBoss : Bosses
 
     private void FixedUpdate()
     {
-        //int upgradeCount = 0;
+        
 
-        //if (GameManager.round > upgradeCount)
-        //{
+        if (GameManager.round > upgradeCount)
+        {
             wrapDamage();
             attackDamage = GetDamage();
             Debug.Log("Boss Upgraded Damage: " + attackDamage);
@@ -110,7 +114,8 @@ public class BaseBoss : Bosses
             wrapHealth();
             health = GetHealth();
             Debug.Log("Boss Upgraded Health: " + health);
-        //}
+            upgradeCount++;
+        }
     }
 
     //Returns the damage
