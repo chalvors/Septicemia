@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashSpeed;
 
-    private float dashLength = 10f, dashcooldown = 20f;
+    private float dashLength = 0.5f, dashcooldown = 2f;
 
     private float dashCounter;
     private float dashCoolCounter;
@@ -43,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
         if(dashCounter > 0)
         {
-            Debug.Log("delta time is " + Time.fixedDeltaTime);
-            dashCounter -= Time.fixedDeltaTime;
+            Debug.Log("delta time is " + Time.deltaTime);
+            dashCounter -= Time.deltaTime;
 
             if(dashCounter <= 0)
             {
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(dashCoolCounter > 0)
         {
-            dashCoolCounter -= Time.fixedDeltaTime;
+            dashCoolCounter -= Time.deltaTime;
         }
 
     }
