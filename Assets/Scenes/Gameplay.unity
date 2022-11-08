@@ -4815,8 +4815,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 814692417}
   - {fileID: 738005853}
+  - {fileID: 814692417}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6164,6 +6164,11 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
+--- !u!1 &1720335759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1215794779016490927, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
+  m_PrefabInstance: {fileID: 1215794777180243286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1725560528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7814,12 +7819,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1513387341}
     - target: {fileID: 3209177040167014186, guid: fb879f1f279f2dc4abdc5f1ad63f41fb, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1720335759}
+    - target: {fileID: 3209177040167014186, guid: fb879f1f279f2dc4abdc5f1ad63f41fb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209177040167014186, guid: fb879f1f279f2dc4abdc5f1ad63f41fb, type: 3}
+      propertyPath: swarmerPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3209177040167014186, guid: fb879f1f279f2dc4abdc5f1ad63f41fb, type: 3}
       propertyPath: swarmerInterval
-      value: 6
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3209177040167014189, guid: fb879f1f279f2dc4abdc5f1ad63f41fb, type: 3}
       propertyPath: m_Name
