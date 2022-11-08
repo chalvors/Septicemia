@@ -5,15 +5,12 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 public class PassiveEnemy : Enemy
 {
-    /*
-    // EnemyData data;
-    //private GameObject player;
+    private GameObject player;
 
     private void Start()
     {
-        data.health = 100;
-        data.damage = 0;
-        data.speed = 1;
+        health = 100;
+        damage = 0;
 
         //Find Player GameObject
         //player = GameObject.FindGameObjectWithTag("PLAYER");
@@ -34,5 +31,5 @@ public class PassiveEnemy : Enemy
         }
         else
             return health;
-    }*/
+    }
 }

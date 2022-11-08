@@ -1,11 +1,12 @@
-using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using Unity.VisualScripting.YamlDotNet.Serialization.ObjectGraphTraversalStrategies;
 using UnityEngine;
+using Pathfinding;
 using static UnityEngine.GraphicsBuffer;
+
 
 //These are the stats of every enemy upon instantiation
 public class EnemyStats
@@ -108,6 +109,9 @@ public class BaseEnemy : Enemy
 
         damage = GetDamage();
         health = GetHealth();
+
+        //var aiDestSetter = GetComponent<AIDestinationSetter>();
+        //aiDestSetter.target = GetComponent<Player>().transform;
     }
 
     private void FixedUpdate()

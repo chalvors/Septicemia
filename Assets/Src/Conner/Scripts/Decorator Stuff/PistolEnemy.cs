@@ -1,4 +1,3 @@
-using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -45,7 +44,7 @@ public class PistolEnemy : Enemy
         //
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance <= 10)
+        if (distance <= 3)
         {
             attackDelay += Time.deltaTime;
 
