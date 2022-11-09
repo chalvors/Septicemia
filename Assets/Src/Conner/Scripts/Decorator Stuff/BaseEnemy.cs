@@ -1,27 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
-using Unity.VisualScripting.YamlDotNet.Serialization.ObjectGraphTraversalStrategies;
 using UnityEngine;
 using Pathfinding;
 using static UnityEngine.GraphicsBuffer;
-
-
-//These are the stats of every enemy upon instantiation
-public class EnemyStats
-{
-    public virtual int GetDamage()
-    {
-        return 0;
-    }
-
-    public virtual int GetHealth()
-    {
-        return 50;
-    }
-}
-
 
 //These are the base stats of the melee enemy, which override the values from EnemyStats
 public class EnemyStatsBasic : EnemyStats

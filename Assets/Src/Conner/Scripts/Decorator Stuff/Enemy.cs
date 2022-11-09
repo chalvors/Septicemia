@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
+
+//These are the stats of every enemy upon instantiation
+public class EnemyStats
+{
+    public virtual int GetDamage()
+    {
+        return 0;
+    }
+
+    public virtual int GetHealth()
+    {
+        return 50;
+    }
+}
 public abstract class Enemy : MonoBehaviour
 {
     //Set default values if data is not set
