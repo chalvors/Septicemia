@@ -5,6 +5,20 @@ using UnityEngine;
 using Pathfinding;
 using static UnityEngine.GraphicsBuffer;
 
+//These are the stats of every enemy upon instantiation
+public class EnemyStats
+{
+    public virtual int GetDamage()
+    {
+        return 0;
+    }
+
+    public virtual int GetHealth()
+    {
+        return 50;
+    }
+}
+
 //These are the base stats of the melee enemy, which override the values from EnemyStats
 public class EnemyStatsBasic : EnemyStats
 {
@@ -83,7 +97,7 @@ public class BaseEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        upgradeCount = 0;
+        upgradeCount = 1;
         stats = new EnemyStatsBasic();
 
         health = 50;
@@ -102,11 +116,11 @@ public class BaseEnemy : Enemy
         {
             wrapDamage();
             damage = GetDamage();
-            Debug.Log("Upgraded Damage: " + damage);
 
             wrapHealth();
             health = GetHealth();
-            Debug.Log("Upgraded Health: " + health);
+            Debug.Log("Current Enemy Health: " + health);
+            Debug.Log("Current Enemy Damage: " + damage);
 
             upgradeCount++;
         }
