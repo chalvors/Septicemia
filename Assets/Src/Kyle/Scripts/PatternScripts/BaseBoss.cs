@@ -1,29 +1,48 @@
+/*
+* BaseBoss.cs
+* Kyle Hash
+* Part of my decorator patter
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 //----------- Boss stats for a boss upon first instantiation -----------
+/*
+* Contains base functions for initiating a boss
+* GetDamage() - Sets base damage (virtual function)
+* GetHealth() - Sets the base health (virtual funciton)
+*/
 public class BossStats
 {
+    // --- Sets the base damage initially ---
     public virtual int GetDamage()
     {
         return 0;
     }
 
+    // --- Sets the base health initially ---
     public virtual int GetHealth()
     {
         return 50;
     }
 }
 //----------- Boss stats for a basic boss in the early stages of the game -----------
+/*
+* This class is a child of BossStats and contains function to overwrite BossStats funcions
+* GetDamage() - Overrides and sets new base damage (virtual function)
+* GetHealth() - Overrides and sets new base damage (virtual function)
+*/
 public class BasicBossStats : BossStats
 {
+    // --- Overwrites the base damage when boss spawns in ---
     public override int GetDamage()
     {
         return 10;
     }
 
+    // --- Overwrites the base health when boss spawns in ---
     public override int GetHealth()
     {
         return 100;
@@ -32,15 +51,21 @@ public class BasicBossStats : BossStats
 
 //----------- Creates an object with the base stats of a basic boss ------------------
 //------------------- The stats are set in BasicBossStats -------------------
+/*
+* This class is a child of BossStats and contains functions to wrap my Boss Object
+* GetDamage() - Overrides and sets new base damage (override function)
+* GetHealth() - Overrides and sets new base damage (override function)
+*/
 public class BossStatsUpgrade : BossStats
 {
     public BossStats wrapee;
 
+    // --- Overwrites the base damage when an upgrade is needed ---
     public override int GetDamage()
     {
         return wrapee.GetDamage();
     }
-
+    // --- Overwrites the base health when an upgrade is needed ---
     public override int GetHealth()
     {
         return wrapee.GetHealth();
@@ -48,6 +73,11 @@ public class BossStatsUpgrade : BossStats
 }
 
 // --------- Takes game object and creates a wrapee to upgrade the damage stat -----------
+/*
+* This class is a child of BossStatsUpgrade and contains functions set this.wrapee = wrapee
+* BossStatsUpgradeDamage() - 
+* BossStatsUpgradeHealth() - 
+*/
 public class BossStatsUpgradeDamage : BossStatsUpgrade
 {
     public BossStatsUpgradeDamage(BossStats wrapee)
