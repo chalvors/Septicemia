@@ -6858,6 +6858,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1215794779016490924, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
   m_PrefabInstance: {fileID: 1215794777180243286}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1989667587
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720335759}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1991910645
 GameObject:
   m_ObjectHideFlags: 0
@@ -7644,6 +7660,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1513387353}
+    - target: {fileID: 1215794778257330106, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
+      propertyPath: _takeDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: ba1167893cea5ef43bcad243edeebecf, type: 3}
     - target: {fileID: 1215794779016490924, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7691,6 +7711,14 @@ PrefabInstance:
     - target: {fileID: 1215794779016490927, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
       propertyPath: m_Name
       value: Boss(test)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073873383717649355, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910440697372051448, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
@@ -8113,6 +8141,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1310893643}
     m_Modifications:
+    - target: {fileID: 6010125746760221596, guid: 1f5faf705855cd54296557101a1eee49, type: 3}
+      propertyPath: takeDamage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6010125746760221597, guid: 1f5faf705855cd54296557101a1eee49, type: 3}
       propertyPath: target
       value: 

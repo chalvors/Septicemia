@@ -23,35 +23,39 @@ public class Bosses : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement; //Wont need this after getting pathfinding
     private CircleCollider2D bossCollider;
-    
 
-   
+    [SerializeField] private AudioClip _takeDamage;
+
+
+
     // ----------------- Player Takes Damage From Boss ---------------------
     virtual protected void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("PLAYER"))
         {
             //Deal Damage to Player if enemy collides with Player GameObject
-
+   
 
             if (collider.GetComponent<Player>() != null)
             {
-                collider.GetComponent<Player>().TakeDamage(attackDamage);
-                takeDamage(collider.GetComponent<Player>().attackstat);
+                collider.GetComponent<Player>().TakeDamage(attackDamage); // Calls Triston's TakeDamage function for the player
+                
+                //takeDamage(collider.GetComponent<Player>().attackstat);    // Calls my takeDamage function for the boss
                 //canDealDamage = false;
                 //StartCoroutine(DamageCooldown());
             }
-            Debug.Log("Damage dealt to the player!");
-            Debug.Log("Player health: " + collider.GetComponent<Player>().health);
+            //Debug.Log("Damage dealt to the player!");
+            //Debug.Log("Player health: " + collider.GetComponent<Player>().health);
         }
     }
 
     // ------------ Boss Takes Damage Dealt from the Player ------------------------
     // --------- Had to be a public function for bounds testing --------------
-    virtual public int takeDamage(int playerAttack){
+    virtual public int TakeDamage(int playerAttack){
 
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
+        AudioManager.Instance.PlaySound(_takeDamage);
         if (health < 0)
         {
             health = 0;

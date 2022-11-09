@@ -17,7 +17,7 @@ public class damage_tests
         B1.health = 50;
         
         
-        int finalHealth = B1.takeDamage(49);
+        int finalHealth = B1.TakeDamage(49);
         //Debug.Log(finalHealth);
         Assert.AreEqual(1, finalHealth);
     }
@@ -31,7 +31,7 @@ public class damage_tests
         B2.health = 50;
         //Debug.Log(B2.health);
         
-        int finalHealth = B2.takeDamage(51);
+        int finalHealth = B2.TakeDamage(51);
         //Debug.Log("++++++++++++++++++++++++++++++++++++++++");
         Debug.Log(finalHealth);
         Assert.AreEqual(0, finalHealth);
@@ -45,7 +45,7 @@ public class damage_tests
         B3.health = 50;
         //Debug.Log(B3.health);
 
-        int finalHealth = B3.takeDamage(50);
+        int finalHealth = B3.TakeDamage(50);
 
         Assert.AreEqual(0, finalHealth);
     }
