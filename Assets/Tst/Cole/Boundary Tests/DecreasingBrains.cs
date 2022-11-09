@@ -8,18 +8,18 @@ public class DecreasingBrains : MonoBehaviour
     [Test]
     public void set_brains_to_50_decrease_by_50() {
         HUD h1 = new HUD();
-        h1.num_brains = 50;
+        h1.numBrains = 50;
         h1.purchase(50);
 
-        Assert.AreEqual(0, h1.num_brains);
+        Assert.AreEqual(0, h1.numBrains);
     }
 
     [Test]
     public void set_brains_to_50_decrease_by_51() {
         HUD h1 = new HUD();
-        h1.num_brains = 50;
+        h1.numBrains = 50;
         h1.purchase(51);
 
-        Assert.AreEqual(50, h1.num_brains);
+        Assert.AreEqual(50, h1.numBrains);
     }
 }

@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class HUD : MonoBehaviour
 {
-    public int num_brains = 0;
+    public int numBrains = 0;
+    public TextMeshProUGUI brainsText;
+    public TextMeshProUGUI roundText;
 
     void Update() {
-        
+        brainsText.text = numBrains.ToString();
+        roundText.text = "Round: " + GameManager.round.ToString();
     }
 
     public int purchase(int cost) {
-        if (cost <= num_brains) {
-            num_brains -= cost;
+        if (cost <= numBrains) {
+            numBrains -= cost;
         } 
         else {
             Debug.Log("not enough brains");
         }
-        return num_brains;
+        return numBrains;
     }
 }
