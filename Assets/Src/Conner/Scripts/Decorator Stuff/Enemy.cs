@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Pathfinding;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
