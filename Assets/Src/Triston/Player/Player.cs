@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
     private int Alive = 1;
     PlayerStats stats;
 
+    public Animator animator;
+    public float delay = 0.3f;
+    private bool attackBlocked;
     
     public void heal() 
     {
@@ -26,9 +30,20 @@ public class Player : MonoBehaviour
         return health;
     }
 
-    public void attack()
+    public void Attack()
     {
+        if(attackBlocked)
+            return;
+        animator.SetTrigger("Attack");
+        attackBlocked = true;
         Debug.Log("attack strength is: " + stats.GetDamage());
+        StartCoroutine(DelayAttack());
+    }
+
+    private IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(delay);
+        attackBlocked = false;
     }
 
     void Die()
@@ -54,20 +69,15 @@ public class Player : MonoBehaviour
         stats = new DecorateDamage(stats);
     }
 
-    private float timer = 0.0f;
-
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > 2.0)
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            timer = 0.0f;
-            Debug.Log("Current health is: " + stats.GetHealth() + " current damage is: " + stats.GetDamage());
-            decorateHealth();
-            decorateDamage();
-            Debug.Log("Current health is: " + stats.GetHealth() + " current damage is: " + stats.GetDamage());
+            Attack();
         }
     }
+
+
 }

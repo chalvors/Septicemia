@@ -2080,6 +2080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 496624984}
   - component: {fileID: 496624983}
+  - component: {fileID: 496624985}
   m_Layer: 0
   m_Name: playerarm (4)
   m_TagString: Untagged
@@ -2154,6 +2155,26 @@ Transform:
   m_Father: {fileID: 1513387353}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 38.21}
+--- !u!95 &496624985
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496624982}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9517a3f8a277c2549addd82a58258845, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &519345525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5391638747773385315, guid: d66f3f794afd2454e800b5cbd5f261d8, type: 3}
@@ -3349,6 +3370,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6757962224127320345, guid: 6f5d39ccff238184aa94b894141ae6cd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757962224127320347, guid: 6f5d39ccff238184aa94b894141ae6cd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757962224127320348, guid: 6f5d39ccff238184aa94b894141ae6cd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6757962224127320350, guid: 6f5d39ccff238184aa94b894141ae6cd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5977,6 +6010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attackstat: 10
+  animator: {fileID: 0}
+  delay: 0.5
 --- !u!4 &1529220709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6134189818426059282, guid: dbb0d9882d493b34a82bd3ef01561ca1, type: 3}
@@ -8118,6 +8153,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2891736259073977027, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 496624985}
     - target: {fileID: 52310505321454914, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8228,7 +8267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8677142310944294025, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
       propertyPath: rotationSpeed
-      value: 720
+      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 52310505321454914, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
