@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health;
-    public int attackstat = 10;
+    public int attackstat = 20;
     private int Alive = 1;
     PlayerStats stats;
     public GameObject HealthBar;
@@ -21,7 +21,10 @@ public class Player : MonoBehaviour
     private Transform circleOrigin;
     [SerializeField]
     private float radius;
-    
+
+    [SerializeField]
+    private int roundcounter;
+
     public void heal() 
     {
         health = stats.GetHealth();
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        roundcounter = 1;
         health = 150;
         HealthBar.GetComponent<HealthBar>().setMaxHealth(health);
         stats = new BaseStats();
@@ -91,6 +95,12 @@ public class Player : MonoBehaviour
         {
             Attack();
         }
+        if(roundcounter < GameManager.round)
+        {
+            heal();
+            roundcounter = GameManager.round;
+        }
+        
     }
 
 
