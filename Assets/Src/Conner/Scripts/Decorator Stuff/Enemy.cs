@@ -4,19 +4,6 @@ using System.Security.Cryptography;
 using UnityEngine;
 
 
-//These are the stats of every enemy upon instantiation
-public class EnemyStats
-{
-    public virtual int GetDamage()
-    {
-        return 0;
-    }
-
-    public virtual int GetHealth()
-    {
-        return 50;
-    }
-}
 public abstract class Enemy : MonoBehaviour
 {
     //Set default values if data is not set
@@ -44,11 +31,11 @@ public abstract class Enemy : MonoBehaviour
             if(collider.GetComponent<Player>() != null && canDealDamage)
             {
                 collider.GetComponent<Player>().TakeDamage(damage);
-                TakeDamage(collider.GetComponent<Player>().attackstat);
+                //TakeDamage(collider.GetComponent<Player>().attackstat);
                 canDealDamage = false;
                 StartCoroutine(DamageCooldown());
             }
-            //Debug.Log("Damage dealt to the player!");
+            Debug.Log("Damage dealt to the player!");
             //Debug.Log("Player health: " + collider.GetComponent<Player>().health);
         }
     }
@@ -59,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
         canDealDamage = true;
     }
 
-    virtual protected int TakeDamage(int playerDamage)
+    virtual public int TakeDamage(int playerDamage)
     {
         health = health - playerDamage;
         //Debug.Log("Enemy health: " + health);
@@ -67,6 +54,7 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            GetComponent<SpawnScript>().enemiesRemaining--;
             //Debug.Log("Enemy has died");
         }
 
