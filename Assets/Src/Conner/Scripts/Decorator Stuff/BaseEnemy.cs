@@ -101,13 +101,7 @@ public class BaseEnemy : Enemy
         stats = new EnemyStatsBasic();
 
         health = 50;
-        damage = 0;
-
-        damage = GetDamage();
-        health = GetHealth();
-
-        //var aiDestSetter = GetComponent<AIDestinationSetter>();
-        //aiDestSetter.target = GetComponent<Player>().transform;
+        damage = 5;
     }
 
     private void FixedUpdate()

@@ -14,6 +14,8 @@ public abstract class Enemy : MonoBehaviour
     protected bool canDealDamage = true;
     //protected EnemyData data;
 
+    public GameObject counter;
+
     [SerializeField]
     private AudioClip takeDamage;
 
@@ -49,13 +51,14 @@ public abstract class Enemy : MonoBehaviour
     virtual public int TakeDamage(int playerDamage)
     {
         health = health - playerDamage;
-        //Debug.Log("Enemy health: " + health);
+        Debug.Log("Enemy health: " + health);
 
         if (health <= 0)
         {
+            AudioManager.Instance.PlaySound(death);
             Destroy(gameObject);
-            GetComponent<SpawnScript>().enemiesRemaining--;
-            //Debug.Log("Enemy has died");
+            counter.GetComponent<SpawnScript>().enemiesRemaining--;
+            Debug.Log("Enemies remaining: " + counter.GetComponent<SpawnScript>().enemiesRemaining);
         }
 
         return health;

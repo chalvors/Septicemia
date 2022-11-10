@@ -7,6 +7,18 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PistolEnemy : Enemy
 {
+    EnemyStats stats;
+    int upgradeCount;
+    private void wrapDamage()
+    {
+        stats = new EnemyStatsUpgradeDamage(stats);
+    }
+
+    private void wrapHealth()
+    {
+        stats = new EnemyStatsUpgradeHealth(stats);
+    }
+
     private GameObject player;
 
     //Holds a prefab for bullets fired by the enemies
@@ -28,15 +40,14 @@ public class PistolEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        upgradeCount = 1;
+        stats = new EnemyStatsBasic();
+
         health = 50;
         damage = 0;
 
         //Find the player
         player = GameObject.FindGameObjectWithTag("PLAYER");
-
-        //Debug.Log(health);
-        GetHealth();
-        //Debug.Log(health);
     }
 
     private void FixedUpdate()
@@ -56,9 +67,6 @@ public class PistolEnemy : Enemy
             }
         }
 
-        //Check if the enemy is moving
-        //StartCoroutine(moveCheck());
-
         //Rotate the enemy to face the player when it is not moving
         if (player != null && distance <= 3)
         {
@@ -66,21 +74,19 @@ public class PistolEnemy : Enemy
             rotation *= Quaternion.Euler(90, 0, 0);
             transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         }
-    }
 
-    IEnumerator moveCheck()
-    {
-        //Get the initial position
-        var p1 = transform.position;
+        if (GameManager.round > upgradeCount)
+        {
+            wrapDamage();
+            damage = GetDamage();
 
-        //Wait for a 10th of a second
-        yield return new WaitForSeconds(0.1f);
+            wrapHealth();
+            health = GetHealth();
+            Debug.Log("Current PistolEnemy Health: " + health);
+            Debug.Log("Current PistolEnemy Damage: " + damage);
 
-        //Get the current position
-        var p2 = transform.position;
-
-        //Check if both positions are the same. If they are, then moving is false
-        moving = (p1 != p2);
+            upgradeCount++;
+        }
     }
 
     //Creates a bullet using a bullet prefab, spawn position. Quaternion.identity tells the bullet not to rotate after instantiation
@@ -88,26 +94,24 @@ public class PistolEnemy : Enemy
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
         AudioManager.Instance.PlaySound(gunfire);
-        Debug.Log("Shooting");
+        //Debug.Log("Shooting");
     }
 
     override protected void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("PLAYER"))
-        {
-            TakeDamage(collider.GetComponent<Player>().attackstat);
-        }
+        //Pistol enemies will not deal damage on collision with the player
+        return;
     }
 
     //Returns the damage
     public override int GetDamage()
     {
-        return damage;
+        return stats.GetDamage();
     }
 
     //Returns the health
     public override int GetHealth()
     {
-        return health;
+        return stats.GetHealth();
     }
 }

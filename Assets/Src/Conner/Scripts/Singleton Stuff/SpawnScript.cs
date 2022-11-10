@@ -52,10 +52,11 @@ public class SpawnScript : MonoBehaviour
         GameManager.round = 1;
         enemiesRemaining = 8;
 
-        //Boss();
+        yield return new WaitForSeconds(10);
+
         for (int i = 0; i < 8; i++) {
             MeleeEnemy();
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(8);
             //Debug.Log("Enemies Remaining: " + enemiesRemaining);
         }
         
@@ -73,7 +74,7 @@ public class SpawnScript : MonoBehaviour
         
         for (int i = 0; i < 10; i++)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(8);
             MeleeEnemy();
         }
 
@@ -93,7 +94,7 @@ public class SpawnScript : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(8);
             MeleeEnemy();
         }
 
@@ -102,16 +103,9 @@ public class SpawnScript : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(8);
             PistolEnemy();
         }
-
-        //Waiting for all of the enemies to be killed
-        while (enemiesRemaining > 0)
-        {
-            yield return new WaitForSeconds(1);
-        }
-        Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //Waiting for all of the enemies to be killed
         while (enemiesRemaining > 0)
@@ -147,7 +141,7 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Fifth Round ************************** 
         GameManager.round = 5;
-        enemiesRemaining = 20;
+        enemiesRemaining = 21;
 
         for (int i = 0; i < 10; i++)
         {
@@ -156,6 +150,7 @@ public class SpawnScript : MonoBehaviour
             yield return new WaitForSeconds(5);
             PistolEnemy();
         }
+        Boss();
 
         //Waiting for all of the enemies to be killed
         while (enemiesRemaining > 0)
@@ -274,20 +269,38 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
-        Debug.Log("You have survived round " + GameManager.round + "! Well done!");
+        Debug.Log("You have beat the game!! Congratulations!");
 
     }
-
+    
+    /*
+    //Instantiates an enemy within the borders of the map
     public void BaseEnemy()
     {
-        float spawnPosX = Random.Range(-25, 21);
-        float spawnPosY = Random.Range(-18, 20);
-        Vector3 spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+        Vector3 spawnPos = new Vector3(0, 0, 0);
+        bool canSpawnHere = false;
+
+        //Loop that looks for a location to spawn the new enemy at
+        while (!canSpawnHere)
+        {
+            //Picks a spawn location randomly within the borders of the map
+            float spawnPosX = Random.Range(-25, 21);
+            float spawnPosY = Random.Range(-18, 20);
+
+            spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+            canSpawnHere = PreventSpawnOverlap(spawnPos);
+
+            //If canSpawnHere, then the location is good and we can break the loop
+            if (canSpawnHere)
+            {
+                break;
+            }
+        }
 
         GameObject newEnemy = Instantiate(enemies[0], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
-        //shortWait();
     }
+    */
 
     public void MeleeEnemy()
     {
@@ -310,14 +323,26 @@ public class SpawnScript : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemies[0], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
-        //shortWait();
     }
 
     public void PistolEnemy()
     {
-        float spawnPosX = Random.Range(-3, 3);
-        float spawnPosY = Random.Range(-6, -1);
-        Vector3 spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+        Vector3 spawnPos = new Vector3(0, 0, 0);
+        bool canSpawnHere = false;
+
+        while (!canSpawnHere)
+        {
+            float spawnPosX = Random.Range(-25, 21);
+            float spawnPosY = Random.Range(-18, 20);
+
+            spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+            canSpawnHere = PreventSpawnOverlap(spawnPos);
+
+            if (canSpawnHere)
+            {
+                break;
+            }
+        }
 
         GameObject newEnemy = Instantiate(enemies[1], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
@@ -325,14 +350,28 @@ public class SpawnScript : MonoBehaviour
 
     public void Boss()
     {
-        float spawnPosX = Random.Range(-3, 3);
-        float spawnPosY = Random.Range(-6, -1);
-        Vector3 spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+        Vector3 spawnPos = new Vector3(0, 0, 0);
+        bool canSpawnHere = false;
+
+        while (!canSpawnHere)
+        {
+            float spawnPosX = Random.Range(-25, 21);
+            float spawnPosY = Random.Range(-18, 20);
+
+            spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+            canSpawnHere = PreventSpawnOverlap(spawnPos);
+
+            if (canSpawnHere)
+            {
+                break;
+            }
+        }
 
         GameObject newBoss = Instantiate(boss, spawnPos, Quaternion.identity) as GameObject;
         newBoss.transform.parent = bossContainer.transform;
     }
 
+    //Check if there is overlap between two objects for enemy instantiation
     bool PreventSpawnOverlap(Vector3 spawnPos)
     {
         colliders = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -347,6 +386,7 @@ public class SpawnScript : MonoBehaviour
             float lowerExtent = centerPoint.y - height;
             float upperExtent = centerPoint.y + height;
 
+            //If there is an obstacle at this location, then the enemy cannot spawn here
             if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
             {
                 if (spawnPos.y >= lowerExtent && spawnPos.y <= upperExtent)
@@ -356,6 +396,7 @@ public class SpawnScript : MonoBehaviour
             }
         }
 
+        //If this location is empty, then the enemy can spawn here
         return true;
     }
 }
