@@ -22,7 +22,7 @@ public class BaseStats: PlayerStats
     
     public override int GetHealth()
     {
-        return 100;
+        return 150;
     }
 
     public override int GetDamage()
