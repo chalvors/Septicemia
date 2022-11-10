@@ -32,16 +32,16 @@ public class Bosses : MonoBehaviour
 
 
     // ----------------- Player Takes Damage From Boss ---------------------
-    virtual protected void OnTriggerEnter2D(Collider2D collider)
+    virtual protected void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.CompareTag("PLAYER"))
+        if (collider.gameObject.CompareTag("PLAYER"))
         {
             //Deal Damage to Player if enemy collides with Player GameObject
    
 
-            if (collider.GetComponent<Player>() != null)
+            if (collider.gameObject.GetComponent<Player>() != null)
             {
-                collider.GetComponent<Player>().TakeDamage(attackDamage); // Calls Triston's TakeDamage function for the player
+                collider.gameObject.GetComponent<Player>().TakeDamage(attackDamage); // Calls Triston's TakeDamage function for the player
                 
                 //takeDamage(collider.GetComponent<Player>().attackstat);    // Calls my takeDamage function for the boss
                 //canDealDamage = false;

@@ -52,10 +52,6 @@ public class SpawnScript : MonoBehaviour
         GameManager.round = 1;
         enemiesRemaining = 8;
 
-        PistolEnemy();
-        MeleeEnemy();
-        //Boss();
-
         yield return new WaitForSeconds(10);
 
         for (int i = 0; i < 8; i++) {
