@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class PlayerStats
+public abstract class PlayerStats
 {
     public PlayerStats P1;
     public int Maxhealth;
 
-    public virtual int GetHealth()
-    {
-        Debug.Log("This should not have happened!!!!!!");
-        return 100;
-    }
+    public abstract int GetHealth();
 
-    public virtual int GetDamage()
-    {
-        Debug.Log("This should not have happened!!!!!!");
-        return 10;
-    }
+
+    public abstract int GetDamage();
+    
 
 
 }

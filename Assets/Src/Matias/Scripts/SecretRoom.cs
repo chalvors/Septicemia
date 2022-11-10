@@ -6,14 +6,21 @@ using UnityEngine.SceneManagement;
 public class SecretRoom : Interactible
 {
     [SerializeField]
-    int roomID;
+    public int roomID = 0;
 
+    private GameObject destination;
+    private GameObject player;
+    Vector3 roomPosition;
+    string fullID;
     bool isInteract = false;
     public bool Shop = false;
     // Start is called before the first frame update
     void Start()
     {
-     
+        fullID = "Secret Door " + roomID;
+        destination = GameObject.Find(fullID);
+        roomPosition = destination.transform.position;
+        player = GameObject.FindWithTag("PLAYER");
     }
 
     // Update is called once per frame
@@ -29,7 +36,7 @@ public class SecretRoom : Interactible
             isInteract = CheckAct();
             if (isInteract == true)
             {
-                GoToRoom(roomID);
+                GoToRoom(roomPosition);
                 isInteract = false;
             }
         }
@@ -49,17 +56,8 @@ public class SecretRoom : Interactible
         return roomID;
     }
 
-    void GoToRoom(int room)
+    void GoToRoom(Vector3 room)
     {
-        if (roomID == 99)
-        {
-            SceneManager.LoadScene("Gameplay");
-        }
-        else
-        {
-            string ID = "SR" + room;
-            SceneManager.LoadScene(ID);
-
-        }
+        player.transform.position = room;
     }
 }

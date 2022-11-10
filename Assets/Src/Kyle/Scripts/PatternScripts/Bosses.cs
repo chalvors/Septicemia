@@ -24,6 +24,9 @@ public class Bosses : MonoBehaviour
     private Vector2 movement; //Wont need this after getting pathfinding
     private CircleCollider2D bossCollider;
 
+    [SerializeField]
+    private GameObject Counter;
+
     [SerializeField] private AudioClip _takeDamage;
 
 
@@ -51,7 +54,7 @@ public class Bosses : MonoBehaviour
 
     // ------------ Boss Takes Damage Dealt from the Player ------------------------
     // --------- Had to be a public function for bounds testing --------------
-    virtual public int TakeDamage(int playerAttack){
+    virtual public void TakeDamage(int playerAttack){
 
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
@@ -66,12 +69,13 @@ public class Bosses : MonoBehaviour
         if (health <= 0){
             //return health; // Uncomment if you want to run the test for boss health, uncommenting this will give unreachable code warning
             isAlive = false;
-            dropBrain();
+            //dropBrain();
             Destroy(gameObject);
+            Counter.GetComponent<SpawnScript>().enemiesRemaining--;
             Debug.Log("You just killed a boss!!!");
             
         }
-        return health;
+        //return health;
     }
     private void dropBrain()
     {
