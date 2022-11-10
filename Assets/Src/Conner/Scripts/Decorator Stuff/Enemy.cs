@@ -46,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
         canDealDamage = true;
     }
 
-    virtual protected int TakeDamage(int playerDamage)
+    virtual public int TakeDamage(int playerDamage)
     {
         health = health - playerDamage;
         //Debug.Log("Enemy health: " + health);

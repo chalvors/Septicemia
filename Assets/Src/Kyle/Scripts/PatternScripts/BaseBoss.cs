@@ -101,7 +101,7 @@ public class BossStatsUpgradeHealth : BossStatsUpgrade
 
     public override int GetHealth()
     {
-        return wrapee.GetHealth() + 5;
+        return wrapee.GetHealth() + 10;
     }
 }
 
@@ -134,7 +134,6 @@ public class BaseBoss : Bosses
     private void FixedUpdate()
     {
         
-
         if (GameManager.round > upgradeCount)
         {
             wrapDamage();

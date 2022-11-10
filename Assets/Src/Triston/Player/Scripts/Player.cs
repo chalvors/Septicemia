@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
     public Animator animator;
     public float delay = 0.3f;
     private bool attackBlocked;
+
+    [SerializeField]
+    private Transform circleOrigin;
+    [SerializeField]
+    private float radius;
     
     public void heal() 
     {
@@ -79,5 +84,41 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
+        Gizmos.DrawWireSphere(position, radius);
+    }
+
+    public void DetectColliders()
+    {
+
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position,radius))
+        {
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                continue;
+            }
+
+            BaseEnemy enemy;
+            BaseBoss boss;
+
+            if (enemy = collider.GetComponent<BaseEnemy>())
+            {
+                enemy.TakeDamage(stats.GetDamage());
+                Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
+
+            }
+
+            if (boss = collider.GetComponent<BaseBoss>())
+            {
+                boss.TakeDamage(stats.GetDamage());
+                Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
+
+            }
+        }
+    }
 
 }
