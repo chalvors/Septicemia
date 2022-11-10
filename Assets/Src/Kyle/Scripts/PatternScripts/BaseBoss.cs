@@ -134,7 +134,6 @@ public class BaseBoss : Bosses
     private void FixedUpdate()
     {
         
-
         if (GameManager.round > upgradeCount)
         {
             wrapDamage();

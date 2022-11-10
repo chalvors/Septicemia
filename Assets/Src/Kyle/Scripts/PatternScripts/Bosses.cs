@@ -66,7 +66,8 @@ public class Bosses : MonoBehaviour
         if (health <= 0){
             //return health; // Uncomment if you want to run the test for boss health, uncommenting this will give unreachable code warning
             isAlive = false;
-            dropBrain();
+            //dropBrain();
+            GetComponent<SpawnScript>().enemiesRemaining--;
             Destroy(gameObject);
             Debug.Log("You just killed a boss!!!");
             
