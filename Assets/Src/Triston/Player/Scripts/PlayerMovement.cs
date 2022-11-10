@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D rb;
     private Vector2 player_direction;
+    public Joystick joystick;
 
     private float activeMoveSpeed;
 
@@ -28,18 +29,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float x_dir = Input.GetAxisRaw("Horizontal");
-        float y_dir = Input.GetAxisRaw("Vertical");
+        float x_dir = joystick.Horizontal;
+        float y_dir = joystick.Vertical;
 
         player_direction = new Vector2(x_dir, y_dir).normalized;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (dashCoolCounter <=0 && dashCounter <= 0)
-            {
-                activeMoveSpeed = dashSpeed;
-                dashCounter = dashLength;
-            }
+            dash();
         }
 
         if(dashCounter > 0)
@@ -59,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
             dashCoolCounter -= Time.deltaTime;
         }
 
+    }
+
+    public void dash()
+    {
+        if (dashCoolCounter <= 0 && dashCounter <= 0)
+        {
+            activeMoveSpeed = dashSpeed;
+            dashCounter = dashLength;
+        }
     }
 
     void FixedUpdate()
