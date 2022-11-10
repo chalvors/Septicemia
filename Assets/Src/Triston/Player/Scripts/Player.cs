@@ -103,11 +103,20 @@ public class Player : MonoBehaviour
             }
 
             BaseEnemy enemy;
+            BaseBoss boss;
 
             if (enemy = collider.GetComponent<BaseEnemy>())
             {
-                Debug.Log(collider.name);
-                //enemy.TakeDamage(stats.GetDamage());
+                enemy.TakeDamage(stats.GetDamage());
+                Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
+
+            }
+
+            if (boss = collider.GetComponent<BaseBoss>())
+            {
+                boss.TakeDamage(stats.GetDamage());
+                Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
+
             }
         }
     }
