@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6010125746760221596}
   m_Layer: 0
   m_Name: Melee Enemy
-  m_TagString: PistolEnemy
+  m_TagString: MeleeEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

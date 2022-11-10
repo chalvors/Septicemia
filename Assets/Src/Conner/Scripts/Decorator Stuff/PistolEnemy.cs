@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -97,7 +96,7 @@ public class PistolEnemy : Enemy
         //Debug.Log("Shooting");
     }
 
-    override protected void OnTriggerEnter2D(Collider2D collider)
+    override protected void OnCollisionEnter2D(Collision2D collider)
     {
         //Pistol enemies will not deal damage on collision with the player
         return;

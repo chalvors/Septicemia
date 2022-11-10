@@ -49,7 +49,7 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PLAYER"))
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(20);
+            collision.gameObject.GetComponent<Player>().TakeDamage(15);
             Debug.Log("Player hit!!!");
             Destroy(gameObject);
         }

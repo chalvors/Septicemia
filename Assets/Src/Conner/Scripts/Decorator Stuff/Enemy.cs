@@ -23,16 +23,16 @@ public abstract class Enemy : MonoBehaviour
     private AudioClip death;
 
 
-    virtual protected void OnTriggerEnter2D(Collider2D collider)
+    virtual protected void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.CompareTag("PLAYER"))
+        Debug.Log(collider.gameObject.tag);
+        if (collider.gameObject.CompareTag("PLAYER"))
         {
             //Deal Damage to Player if enemy collides with Player GameObject
-
-            
-            if(collider.GetComponent<Player>() != null && canDealDamage)
+            if(collider.gameObject.GetComponent<Player>() != null && canDealDamage)
             {
-                collider.GetComponent<Player>().TakeDamage(damage);
+                Debug.Log("Got here, damage is " + damage);
+                collider.gameObject.GetComponent<Player>().TakeDamage(damage);
                 //TakeDamage(collider.GetComponent<Player>().attackstat);
                 canDealDamage = false;
                 StartCoroutine(DamageCooldown());
@@ -44,7 +44,7 @@ public abstract class Enemy : MonoBehaviour
 
     virtual protected IEnumerator DamageCooldown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         canDealDamage = true;
     }
 
@@ -52,6 +52,7 @@ public abstract class Enemy : MonoBehaviour
     {
         health = health - playerDamage;
         Debug.Log("Enemy health: " + health);
+        AudioManager.Instance.PlaySound(takeDamage);
 
         if (health <= 0)
         {

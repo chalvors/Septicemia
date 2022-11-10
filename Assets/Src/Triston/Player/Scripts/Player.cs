@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public int TakeDamage(int Damage)
     {
         health = health - Damage;
+        Debug.Log("Player Health: " + health);
+
         if (health <= 0)
         {
             Die();
