@@ -10259,9 +10259,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 496624985}
     - target: {fileID: -2891736259073977027, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
+      propertyPath: HealthBar
+      value: 
+      objectReference: {fileID: 1093826512}
+    - target: {fileID: -2891736259073977027, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
       propertyPath: circleOrigin
       value: 
       objectReference: {fileID: 2118480915}
+    - target: {fileID: -2891736259073977027, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
+      propertyPath: GameOverScreen
+      value: 
+      objectReference: {fileID: 1322370125}
     - target: {fileID: 52310505321454914, guid: 00959a32a99971c4082bcb95c1c0319a, type: 3}
       propertyPath: m_Size.x
       value: 3.3356519

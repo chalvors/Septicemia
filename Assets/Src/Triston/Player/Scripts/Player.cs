@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public int attackstat = 10;
     private int Alive = 1;
     PlayerStats stats;
+    public GameObject HealthBar;
+    public GameObject GameOverScreen;
 
     public Animator animator;
     public float delay = 0.3f;
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
     public void heal() 
     {
         health = stats.GetHealth();
+        HealthBar.GetComponent<HealthBar>().setHealth(health);
     }
 
     public int TakeDamage(int Damage)
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+        HealthBar.GetComponent<HealthBar>().setHealth(health);
         return health;
     }
 
@@ -55,14 +59,17 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        Time.timeScale = 0f;
         Alive=0;
+        GameOverScreen.SetActive(true);
         print("YOU DIED! GAME OVER!");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = 150;
+        HealthBar.GetComponent<HealthBar>().setMaxHealth(health);
         stats = new BaseStats();
     }
 

@@ -86,7 +86,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         //************************** Third Round ************************** 
         GameManager.round = 3;
@@ -115,7 +115,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //Wait for 30 seconds
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         //************************** Fourth Round ************************** 
         GameManager.round = 4;
@@ -137,7 +137,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //Wait for 30 seconds
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         //************************** Fifth Round ************************** 
         GameManager.round = 5;
@@ -182,7 +182,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //Wait for 30 seconds
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         //************************** Seventh Round ************************** 
         GameManager.round = 7;
@@ -204,7 +204,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //Wait for 30 seconds
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         //************************** Eighth Round ************************** 
         GameManager.round = 8;
@@ -248,7 +248,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //Wait for 30 seconds
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         //************************** Final Round ************************** 
         GameManager.round = 10;
