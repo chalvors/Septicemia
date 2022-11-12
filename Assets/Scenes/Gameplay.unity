@@ -8628,6 +8628,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6010125746760221598, guid: 1f5faf705855cd54296557101a1eee49, type: 3}
   m_PrefabInstance: {fileID: 6010125747127029954}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1910784935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910784927}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b90caae066b0d40a8adf02b0f0054b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 16
+  delay: 0.15
 --- !u!1 &1913887437
 GameObject:
   m_ObjectHideFlags: 0
@@ -10637,7 +10651,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010125746760221602, guid: 1f5faf705855cd54296557101a1eee49, type: 3}
       propertyPath: slowdownDistance
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010125746760221602, guid: 1f5faf705855cd54296557101a1eee49, type: 3}
+      propertyPath: endReachedDistance
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f5faf705855cd54296557101a1eee49, type: 3}

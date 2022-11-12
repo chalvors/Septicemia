@@ -12,7 +12,6 @@ public abstract class Enemy : MonoBehaviour
     protected float maxSpeed = 2f;
 
     protected bool canDealDamage = true;
-    //protected EnemyData data;
 
     public GameObject counter;
 
@@ -22,8 +21,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip death;
 
-
-    virtual protected void OnCollisionEnter2D(Collision2D collider)
+    virtual protected void OnCollisionStay2D(Collision2D collider)
     {
         Debug.Log(collider.gameObject.tag);
         if (collider.gameObject.CompareTag("PLAYER"))
@@ -31,7 +29,8 @@ public abstract class Enemy : MonoBehaviour
             //Deal Damage to Player if enemy collides with Player GameObject
             if(collider.gameObject.GetComponent<Player>() != null && canDealDamage)
             {
-                Debug.Log("Got here, damage is " + damage);
+                Vector2 direction = (transform.position - collider.transform.position).normalized;
+                gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 16, ForceMode2D.Impulse);
                 collider.gameObject.GetComponent<Player>().TakeDamage(damage);
                 //TakeDamage(collider.GetComponent<Player>().attackstat);
                 canDealDamage = false;

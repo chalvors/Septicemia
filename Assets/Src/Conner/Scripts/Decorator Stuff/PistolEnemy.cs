@@ -34,15 +34,13 @@ public class PistolEnemy : Enemy
     //Enemy attack delay
     private float attackDelay;
 
-    bool moving = true;
-
     // Start is called before the first frame update
     void Start()
     {
         upgradeCount = 1;
         stats = new EnemyStatsBasic();
 
-        health = 50;
+        health = 30;
         damage = 0;
 
         //Find the player
@@ -96,7 +94,7 @@ public class PistolEnemy : Enemy
         //Debug.Log("Shooting");
     }
 
-    override protected void OnCollisionEnter2D(Collision2D collider)
+    override protected void OnCollisionStay2D(Collision2D collider)
     {
         //Pistol enemies will not deal damage on collision with the player
         return;

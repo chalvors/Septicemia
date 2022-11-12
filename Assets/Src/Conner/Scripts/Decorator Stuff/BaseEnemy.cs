@@ -24,12 +24,12 @@ public class EnemyStatsBasic : EnemyStats
 {
     public override int GetDamage()
     {
-        return 10;
+        return 5;
     }
 
     public override int GetHealth()
     {
-        return 50;
+        return 30;
     }
 }
 
@@ -58,7 +58,7 @@ public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
 
     public override int GetDamage()
     {
-        return wrapee.GetDamage() + 5;
+        return wrapee.GetDamage() + 2;
     }
 }
 
