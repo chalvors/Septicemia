@@ -6,15 +6,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int health;
-    public int attackstat = 10;
+    private int health;
+    private int attackstat = 10;
     private int Alive = 1;
     PlayerStats stats;
-    public GameObject HealthBar;
-    public GameObject GameOverScreen;
-
-    public Animator animator;
-    public float delay = 0.3f;
+    [SerializeField]
+    private GameObject HealthBar;
+    [SerializeField]
+    private GameObject GameOverScreen;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private float delay = 0.3f;
     private bool attackBlocked;
 
     [SerializeField]
@@ -47,7 +50,7 @@ public class Player : MonoBehaviour
             return;
         animator.SetTrigger("Attack");
         attackBlocked = true;
-        Debug.Log("attack strength is: " + stats.GetDamage());
+        //Debug.Log("attack strength is: " + stats.GetDamage());
         StartCoroutine(DelayAttack());
     }
 
