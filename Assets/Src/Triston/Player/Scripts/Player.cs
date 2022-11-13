@@ -113,6 +113,7 @@ public class Player : MonoBehaviour
 
             BaseEnemy enemy;
             BaseBoss boss;
+            PistolEnemy pistol;
 
             if (enemy = collider.GetComponent<BaseEnemy>())
             {
@@ -124,6 +125,13 @@ public class Player : MonoBehaviour
             if (boss = collider.GetComponent<BaseBoss>())
             {
                 boss.TakeDamage(stats.GetDamage());
+                Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
+
+            }
+
+            if (pistol = collider.GetComponent<PistolEnemy>())
+            {
+                pistol.TakeDamage(stats.GetDamage());
                 Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
 
             }
