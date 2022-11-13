@@ -19,6 +19,9 @@ public abstract class Enemy : MonoBehaviour
     private AudioClip takeDamage;
 
     [SerializeField]
+    private GameObject brain;
+
+    [SerializeField]
     private AudioClip death;
 
     virtual protected void OnCollisionStay2D(Collision2D collider)
@@ -56,6 +59,7 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             AudioManager.Instance.PlaySound(death);
+            GameObject newObj = Instantiate(brain, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             Destroy(gameObject);
             counter.GetComponent<SpawnScript>().enemiesRemaining--;
             Debug.Log("Enemies remaining: " + counter.GetComponent<SpawnScript>().enemiesRemaining);

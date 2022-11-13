@@ -13,6 +13,7 @@ TagManager:
   - TestBoss
   - MeleeEnemy
   - PistolEnemy
+  - Brain
   layers:
   - Default
   - TransparentFX
