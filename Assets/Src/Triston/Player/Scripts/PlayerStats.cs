@@ -1,8 +1,19 @@
+/*
+ * PlayerStats.cs
+ * Triston Hardcastle Peck
+ * Handles the player stat upgrades utilizing the decorator pattern
+ */
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
+/*
+ * Abstract class that the subclasses inherit from
+ * 
+ * member variables:
+ * P1 - the instance of PlayerStats used to wrap
+ */
 public abstract class PlayerStats
 {
     public PlayerStats P1;
@@ -11,42 +22,57 @@ public abstract class PlayerStats
    // [SerializeField]
     //private int Maxhealth;
 
-    public abstract int GetHealth();
+    public abstract int getHealth();
 
 
-    public abstract int GetDamage();
+    public abstract int getDamage();
     
 
 
 }
 
+
+/*
+ * BaseStats class containes the starting values for the health and attack
+ */
 public class BaseStats: PlayerStats
 {
-    
-    public override int GetHealth()
+    //return base health
+    public override int getHealth()
     {
         return 150;
     }
 
-    public override int GetDamage()
+    //return base damage
+    public override int getDamage()
     {
         return 10;
     }
 }
 
+
+/*
+ * Base decorator class
+ */
 public class Decorator: PlayerStats
 {
-    public override int GetHealth()
+    //get base health
+    public override int getHealth()
     {
-        return P1.GetHealth();
+        return P1.getHealth();
     }
 
-    public override int GetDamage()
+    //get base damage
+    public override int getDamage()
     {
-        return P1.GetDamage();
+        return P1.getDamage();
     }
 }
 
+
+/*
+ * Health decorator used to wrap an upgrade for health
+ */
 public class DecorateHealth: Decorator
 {
     public DecorateHealth(PlayerStats P3)
@@ -54,12 +80,17 @@ public class DecorateHealth: Decorator
         P1 = P3;
     }
 
-    public override int GetHealth()
+    //decorate base health
+    public override int getHealth()
     {
-        return P1.GetHealth() + 10;
+        return P1.getHealth() + 10;
     }
 }
 
+
+/*
+ * Damage decorator used to wrap an upgrade for damage
+ */
 public class DecorateDamage : Decorator
 {
     public DecorateDamage(PlayerStats P3)
@@ -67,8 +98,10 @@ public class DecorateDamage : Decorator
         P1 = P3;
     }
 
-    public override int GetDamage()
+    //decorate base damage
+    public override int getDamage()
     {
-        return P1.GetDamage() + 10;
+        return P1.getDamage() + 10;
     }
 }
+

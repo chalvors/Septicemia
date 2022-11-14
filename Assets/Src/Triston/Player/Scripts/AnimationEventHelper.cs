@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/*
+ * triggers player events to run functions from animations
+ */
 public class AnimationEventHelper : MonoBehaviour
 {
     public UnityEvent OnAttackPerformed;
 
     public void TriggerAttack()
     {
-        OnAttackPerformed?.Invoke();
+        //invokes the player attack function
+        OnAttackPerformed?.Invoke(); 
     }
 }

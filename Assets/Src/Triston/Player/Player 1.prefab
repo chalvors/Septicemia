@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 3623451588774347533}
   - component: {fileID: 6678843428423476255}
   - component: {fileID: 6678843428423476268}
-  - component: {fileID: 6678843428423476248}
   - component: {fileID: 6678843428423476264}
   m_Layer: 7
   m_Name: Player 1
@@ -305,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb5512ac38daf94ea9c88cf9961db4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeDamage: {fileID: 0}
   HealthBar: {fileID: 0}
   GameOverScreen: {fileID: 0}
   animator: {fileID: 6678843427289805845}
@@ -343,18 +343,6 @@ CircleCollider2D:
   m_Offset: {x: -0.23521091, y: 0.03563747}
   serializedVersion: 2
   m_Radius: 2.1152856
---- !u!114 &6678843428423476248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928371442453437054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07ae893aea3b8e5409f2bd9874158bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6678843428423476264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,4 +355,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b73ebad8cbc4442954a3e3b616e210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: 0

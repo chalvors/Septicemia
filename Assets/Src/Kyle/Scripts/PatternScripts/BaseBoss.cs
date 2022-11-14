@@ -17,13 +17,13 @@ using UnityEngine;
 public class BossStats
 {
     // --- Sets the base damage initially ---
-    public virtual int GetDamage()
+    public virtual int getDamage()
     {
         return 0;
     }
 
     // --- Sets the base health initially ---
-    public virtual int GetHealth()
+    public virtual int getHealth()
     {
         return 50;
     }
@@ -37,13 +37,13 @@ public class BossStats
 public class BasicBossStats : BossStats
 {
     // --- Overwrites the base damage when boss spawns in ---
-    public override int GetDamage()
+    public override int getDamage()
     {
         return 10;
     }
 
     // --- Overwrites the base health when boss spawns in ---
-    public override int GetHealth()
+    public override int getHealth()
     {
         return 100;
     }
@@ -61,14 +61,14 @@ public class BossStatsUpgrade : BossStats
     public BossStats wrapee;
 
     // --- Overwrites the base damage when an upgrade is needed ---
-    public override int GetDamage()
+    public override int getDamage()
     {
-        return wrapee.GetDamage();
+        return wrapee.getDamage();
     }
     // --- Overwrites the base health when an upgrade is needed ---
-    public override int GetHealth()
+    public override int getHealth()
     {
-        return wrapee.GetHealth();
+        return wrapee.getHealth();
     }
 }
 
@@ -85,13 +85,18 @@ public class BossStatsUpgradeDamage : BossStatsUpgrade
         this.wrapee = wrapee;
     }
 
-    public override int GetDamage()
+    public override int getDamage()
     {
-        return wrapee.GetDamage() + 5;
+        return wrapee.getDamage() + 5;
     }
 }
 
 // --------- Takes game object and creates a wrapee to upgrade the health stat -----------
+/*
+* This class is a child of BossStatsUpgrade and contains functions set this.wrapee = wrapee
+* BossStatsUpgradeDamage() - 
+* BossStatsUpgradeHealth() - 
+*/
 public class BossStatsUpgradeHealth : BossStatsUpgrade
 {
     public BossStatsUpgradeHealth(BossStats wrapee)
@@ -99,12 +104,21 @@ public class BossStatsUpgradeHealth : BossStatsUpgrade
         this.wrapee = wrapee;
     }
 
-    public override int GetHealth()
+    public override int getHealth()
     {
-        return wrapee.GetHealth() + 10;
+        return wrapee.getHealth() + 10;
     }
 }
 
+/*
+* This class is a child of Bosses and contains functions to set the stats of a boss to what the wrapee has 
+* WrapDamage() - Updates the damage for the boss
+* WrapHealth() - Updates the health for the boss
+* Start() - Initializes bases stats
+* FixedUpdate() - Updates Boss's stats, scales with round number
+* GetDamage() - Gets the Boss's current damage
+* GetHealth() - Gets the BOss's current health
+*/
 public class BaseBoss : Bosses
 {
     BossStats stats;
@@ -123,40 +137,43 @@ public class BaseBoss : Bosses
         stats = new BossStatsUpgradeHealth(stats);
     }
 
+    //----------- On startup, it sets the a normal base boss's stats ------------------
     void Start()
     {
+        counter = GameObject.FindGameObjectWithTag("EnemySpawner");
         stats = new BasicBossStats();
 
-        attackDamage = GetDamage();
-        health = GetHealth();
+        attackDamage = getDamage();
+        health = getHealth();
     }
 
+    //----------- Updates the boss's health and attack damage, scales with the round number ------------------------
     private void FixedUpdate()
     {
         
         if (GameManager.round > upgradeCount)
         {
             wrapDamage();
-            attackDamage = GetDamage();
-            Debug.Log("Boss Upgraded Damage: " + attackDamage);
+            attackDamage = getDamage();
+            //Debug.Log("Boss Upgraded Damage: " + attackDamage);
 
             wrapHealth();
-            health = GetHealth();
-            Debug.Log("Boss Upgraded Health: " + health);
+            health = getHealth();
+            //Debug.Log("Boss Upgraded Health: " + health);
             upgradeCount++;
         }
     }
 
     //Returns the damage
-    public override int GetDamage()
+    public override int getDamage()
     {
-        return stats.GetDamage();
+        return stats.getDamage();
     }
 
     //Returns the health
-    public override int GetHealth()
+    public override int getHealth()
     {
-        return stats.GetHealth();
+        return stats.getHealth();
     }
 }
     
