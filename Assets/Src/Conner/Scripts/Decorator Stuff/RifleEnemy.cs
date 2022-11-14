@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class PistolEnemy : Enemy
+public class RifleEnemy : Enemy
 {
     EnemyStats stats;
     int upgradeCount;
@@ -63,8 +61,8 @@ public class PistolEnemy : Enemy
             //Begin charging the attack
             attackTimer += Time.deltaTime;
 
-            //If the enemy is a PistolEnemy, shoot after having waited the required time between attacks
-            if (attackTimer > attackDelay && (gameObject.tag == "RifleEnemy" || gameObject.tag == "PistolEnemy"))
+            //If the enemy is a RifleEnemy, shoot after having waited the required time between attacks
+            if (attackTimer > (attackDelay+1.5f) && (gameObject.tag == "RifleEnemy"))
             {
                 StartCoroutine(shoot());
             }
@@ -92,8 +90,8 @@ public class PistolEnemy : Enemy
 
             wrapHealth();
             health = GetHealth();
-            Debug.Log("Current PistolEnemy Health: " + health);
-            Debug.Log("Current PistolEnemy Damage: " + damage);
+            Debug.Log("Current RifleEnemy Health: " + health);
+            Debug.Log("Current RifleEnemy Damage: " + damage);
 
             upgradeCount++;
         }
@@ -105,12 +103,19 @@ public class PistolEnemy : Enemy
         attackTimer = 0;
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
         AudioManager.Instance.PlaySound(gunfire);
-        yield return null;
+        yield return new WaitForSeconds(.5f);
+        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound(gunfire);
+        yield return new WaitForSeconds(.5f);
+        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound(gunfire);
+        yield return new WaitForSeconds(.5f);
+
     }
 
     override protected void OnCollisionStay2D(Collision2D collider)
     {
-        //Pistol enemies will not deal damage on collision with the player
+        //Rifle enemies will not deal damage on collision with the player
         return;
     }
 

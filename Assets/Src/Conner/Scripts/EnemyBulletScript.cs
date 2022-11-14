@@ -10,7 +10,17 @@ public class EnemyBulletScript : MonoBehaviour
     [SerializeField]
     private float force;
 
+    private int damage;
+    private float speed;
+
+    private Vector2 startPosition;
+
     private float timer;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +35,10 @@ public class EnemyBulletScript : MonoBehaviour
 
         //Determines the speed of the bullet
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
-
+        
         //Rotates the bullets to face the direction that they will travel in. Can rotate the sprite by adding or subtracting from rot
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
-
-        //Bullet collisions with the player's circle collider will do nothing since that is used for player attacks
-        Physics2D.IgnoreCollision(this.GetComponent<CircleCollider2D>(), player.GetComponent<CircleCollider2D>());
     }
 
     void FixedUpdate()

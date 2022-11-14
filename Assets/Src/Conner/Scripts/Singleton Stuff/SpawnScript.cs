@@ -1,11 +1,12 @@
+using Pathfinding;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class SpawnScript : MonoBehaviour
 {
     public static SpawnScript Instance;
+
+    private Transform player;
 
     [SerializeField]
     private GameObject[] enemies;
@@ -210,12 +211,14 @@ public class SpawnScript : MonoBehaviour
         GameManager.round = 8;
         enemiesRemaining = 34;
 
-        for (int i = 0; i < 17; i++)
+        for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(4);
             MeleeEnemy();
             yield return new WaitForSeconds(4);
             PistolEnemy();
+            yield return new WaitForSeconds(4);
+            RifleEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -232,12 +235,14 @@ public class SpawnScript : MonoBehaviour
         GameManager.round = 9;
         enemiesRemaining = 38;
 
-        for (int i = 0; i < 19; i++)
+        for (int i = 0; i < 12; i++)
         {
             yield return new WaitForSeconds(4);
             MeleeEnemy();
             yield return new WaitForSeconds(4);
             PistolEnemy();
+            yield return new WaitForSeconds(4);
+            RifleEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -255,12 +260,14 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining = 42;
 
         Boss();
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 13; i++)
         {
             yield return new WaitForSeconds(4);
             MeleeEnemy();
             yield return new WaitForSeconds(4);
             PistolEnemy();
+            yield return new WaitForSeconds(4);
+            RifleEnemy();
         }
         Boss();
 
@@ -270,43 +277,13 @@ public class SpawnScript : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         Debug.Log("You have beat the game!! Congratulations!");
-
     }
-    
-    /*
-    //Instantiates an enemy within the borders of the map
-    public void BaseEnemy()
+
+    public void MeleeEnemy()
     {
         Vector3 spawnPos = new Vector3(0, 0, 0);
         bool canSpawnHere = false;
 
-        //Loop that looks for a location to spawn the new enemy at
-        while (!canSpawnHere)
-        {
-            //Picks a spawn location randomly within the borders of the map
-            float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 20);
-
-            spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
-            canSpawnHere = PreventSpawnOverlap(spawnPos);
-
-            //If canSpawnHere, then the location is good and we can break the loop
-            if (canSpawnHere)
-            {
-                break;
-            }
-        }
-
-        GameObject newEnemy = Instantiate(enemies[0], spawnPos, Quaternion.identity) as GameObject;
-        newEnemy.transform.parent = enemyContainer.transform;
-    }
-    */
-
-    public void MeleeEnemy()
-    {
-        Vector3 spawnPos = new Vector3(0,0,0);
-        bool canSpawnHere = false;
-
         while (!canSpawnHere)
         {
             float spawnPosX = Random.Range(-25, 21);
@@ -320,9 +297,12 @@ public class SpawnScript : MonoBehaviour
                 break;
             }
         }
-
         GameObject newEnemy = Instantiate(enemies[0], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
+
+        player = GameObject.FindWithTag("PLAYER").transform;
+        AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
+        aiDestSetter.target = player;
     }
 
     public void PistolEnemy()
@@ -346,6 +326,37 @@ public class SpawnScript : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemies[1], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
+
+        player = GameObject.FindWithTag("PLAYER").transform;
+        AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
+        aiDestSetter.target = player;
+    }
+
+    public void RifleEnemy()
+    {
+        Vector3 spawnPos = new Vector3(0, 0, 0);
+        bool canSpawnHere = false;
+
+        while (!canSpawnHere)
+        {
+            float spawnPosX = Random.Range(-25, 21);
+            float spawnPosY = Random.Range(-18, 20);
+
+            spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+            canSpawnHere = PreventSpawnOverlap(spawnPos);
+
+            if (canSpawnHere)
+            {
+                break;
+            }
+        }
+
+        GameObject newEnemy = Instantiate(enemies[2], spawnPos, Quaternion.identity) as GameObject;
+        newEnemy.transform.parent = enemyContainer.transform;
+
+        player = GameObject.FindWithTag("PLAYER").transform;
+        AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
+        aiDestSetter.target = player;
     }
 
     public void Boss()
@@ -381,10 +392,10 @@ public class SpawnScript : MonoBehaviour
             float width = colliders[i].bounds.extents.x;
             float height = colliders[i].bounds.extents.y;
 
-            float leftExtent = centerPoint.x - width;
-            float rightExtent = centerPoint.x + width;
-            float lowerExtent = centerPoint.y - height;
-            float upperExtent = centerPoint.y + height;
+            float leftExtent = centerPoint.x - width - 1;
+            float rightExtent = centerPoint.x + width + 1;
+            float lowerExtent = centerPoint.y - height - 1;
+            float upperExtent = centerPoint.y + height + 1;
 
             //If there is an obstacle at this location, then the enemy cannot spawn here
             if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)

@@ -1,4 +1,17 @@
 {
-	"name": "TestReference",
-	"references": [ "Unity.TextMeshPro" ]
+    "name": "TestReference",
+    "rootNamespace": "",
+    "references": [
+        "Unity.TextMeshPro",
+        "AstarPathfindingProject"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

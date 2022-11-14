@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using Pathfinding;
-using static UnityEngine.GraphicsBuffer;
 
 //These are the stats of every enemy upon instantiation
 public class EnemyStats
@@ -97,6 +92,7 @@ public class BaseEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        counter = GameObject.FindGameObjectWithTag("EnemySpawner");
         upgradeCount = 1;
         stats = new EnemyStatsBasic();
 

@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -13,7 +10,8 @@ public abstract class Enemy : MonoBehaviour
 
     protected bool canDealDamage = true;
 
-    public GameObject counter;
+    [SerializeField]
+    protected GameObject counter;
 
     [SerializeField]
     private AudioClip takeDamage;
@@ -33,13 +31,12 @@ public abstract class Enemy : MonoBehaviour
             if(collider.gameObject.GetComponent<Player>() != null && canDealDamage)
             {
                 Vector2 direction = (transform.position - collider.transform.position).normalized;
-                gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 16, ForceMode2D.Impulse);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 1600f, ForceMode2D.Impulse);
                 collider.gameObject.GetComponent<Player>().TakeDamage(damage);
                 //TakeDamage(collider.GetComponent<Player>().attackstat);
                 canDealDamage = false;
                 StartCoroutine(DamageCooldown());
             }
-            Debug.Log("Damage dealt to the player!");
             //Debug.Log("Player health: " + collider.GetComponent<Player>().health);
         }
     }

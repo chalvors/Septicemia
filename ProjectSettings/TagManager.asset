@@ -14,6 +14,8 @@ TagManager:
   - MeleeEnemy
   - PistolEnemy
   - Brain
+  - RifleEnemy
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

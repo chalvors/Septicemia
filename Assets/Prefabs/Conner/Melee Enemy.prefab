@@ -124,9 +124,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.15}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.262861
+  m_Radius: 2.942623
 --- !u!114 &6010125746760221603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,8 +190,8 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 4
-  pickNextWaypointDist: 2
+  slowdownDistance: 5
+  pickNextWaypointDist: 1
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 6757962224127320350, guid: 6f5d39ccff238184aa94b894141ae6cd, type: 3}
+  target: {fileID: 0}
 --- !u!114 &6010125746760221596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,5 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: {fileID: 0}
-  takeDamage: {fileID: 0}
-  death: {fileID: 0}
+  takeDamage: {fileID: 8300000, guid: dc55d03c411dc9543a4fa936d4bc6a59, type: 3}
+  brain: {fileID: 4888840418814722309, guid: 3aa928c37518fc446b8513d94f99f795, type: 3}
+  death: {fileID: 8300000, guid: a9ae65721e2eda948a734e4b2beafed6, type: 3}
