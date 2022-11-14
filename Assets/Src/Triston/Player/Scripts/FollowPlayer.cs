@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * ensures the camera follows the players position
+ * 
+ * member variables: 
+ * Player - reference to the player
+ * x_min, x_max, y_min, y_max - limits of the camera
+ * x, y - cameras position coordinates
+ */
 public class FollowPlayer : MonoBehaviour
 {
 
@@ -11,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
     // this will be the limits in which we want our camera to stay.
     // we don't want the camera following the player if it falls off screen!
     [SerializeField]
-    public float x_min, x_max, y_min, y_max;
+    private float x_min, x_max, y_min, y_max;
 
     void Start()
     {
