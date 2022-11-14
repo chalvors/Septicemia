@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -139,8 +139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   attackDamage: 0
-  brain: {fileID: 0}
-  _takeDamage: {fileID: 0}
+  brain: {fileID: 4888840418814722309, guid: 3aa928c37518fc446b8513d94f99f795, type: 3}
+  Counter: {fileID: 0}
+  _takeDamage: {fileID: 8300000, guid: ba1167893cea5ef43bcad243edeebecf, type: 3}
 --- !u!114 &1215794778257330107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 1
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1

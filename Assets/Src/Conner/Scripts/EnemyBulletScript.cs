@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour
 {
     private GameObject player;
+    private GameObject enemy;
+
     private Rigidbody2D rb;
 
     [SerializeField]
     private float force;
 
-    private int damage;
+    private int bulletDamage;
     private float speed;
 
     private Vector2 startPosition;
@@ -29,6 +29,10 @@ public class EnemyBulletScript : MonoBehaviour
 
         //Finds the player, who is our target
         player = GameObject.FindGameObjectWithTag("PLAYER");
+        enemy = GameObject.FindGameObjectWithTag("PistolEnemy");
+
+        
+        bulletDamage = enemy.GetComponent<PistolEnemy>().damage;
 
         //Sends the bullet in the direction of the player
         Vector3 direction = player.transform.position - transform.position;
@@ -56,14 +60,14 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PLAYER"))
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(15);
-            Debug.Log("Player hit!!!");
+            collision.gameObject.GetComponent<Player>().TakeDamage(bulletDamage);
+            ///Debug.Log("Player hit!!!");
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Impassable") || collision.gameObject.CompareTag("Breakable"))
         {
             Destroy(gameObject);
-            Debug.Log("Miss!!!");
+            ///Debug.Log("Miss!!!");
         }
     }
 }

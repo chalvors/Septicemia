@@ -1,13 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
+//These are the base stats of the pistol enemy, which override the values from EnemyStats
+public class EnemyPistolStats : EnemyStats
+{
+    public override int getDamage()
+    {
+        return 15;
+    }
+
+    public override int getHealth()
+    {
+        return 30;
+    }
+}
 
 public class PistolEnemy : Enemy
 {
     EnemyStats stats;
     int upgradeCount;
+
     private void wrapDamage()
     {
         stats = new EnemyStatsUpgradeDamage(stats);
@@ -43,10 +55,10 @@ public class PistolEnemy : Enemy
     {
         counter = GameObject.FindGameObjectWithTag("EnemySpawner");
         upgradeCount = 1;
-        stats = new EnemyStatsBasic();
+        stats = new EnemyPistolStats();
 
-        health = 30;
-        damage = 0;
+        damage = getDamage();
+        health = getHealth();
 
         //Find the player
         player = GameObject.FindGameObjectWithTag("PLAYER");
@@ -88,10 +100,10 @@ public class PistolEnemy : Enemy
         if (GameManager.round > upgradeCount)
         {
             wrapDamage();
-            damage = GetDamage();
+            damage = getDamage();
 
             wrapHealth();
-            health = GetHealth();
+            health = getHealth();
             Debug.Log("Current PistolEnemy Health: " + health);
             Debug.Log("Current PistolEnemy Damage: " + damage);
 
@@ -115,14 +127,14 @@ public class PistolEnemy : Enemy
     }
 
     //Returns the damage
-    public override int GetDamage()
+    public override int getDamage()
     {
-        return stats.GetDamage();
+        return stats.getDamage();
     }
 
     //Returns the health
-    public override int GetHealth()
+    public override int getHealth()
     {
-        return stats.GetHealth();
+        return stats.getHealth();
     }
 }

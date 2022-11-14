@@ -4033,6 +4033,8 @@ MonoBehaviour:
   enemyContainer: {fileID: 1310893642}
   bossContainer: {fileID: 191380856}
   spawnPoint: {fileID: 2016562189}
+  startRound: {fileID: 0}
+  gameplayMusic: {fileID: 0}
   enemiesRemaining: 0
   colliders: []
   radius: 0
@@ -20952,6 +20954,14 @@ PrefabInstance:
       propertyPath: GameOverScreen
       value: 
       objectReference: {fileID: 258083155}
+    - target: {fileID: 6678843428423476255, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678843428423476268, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6928371442453437054, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -21000,5 +21010,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6678843428423476268, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}

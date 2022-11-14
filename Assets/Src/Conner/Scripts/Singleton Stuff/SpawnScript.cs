@@ -23,6 +23,12 @@ public class SpawnScript : MonoBehaviour
     [SerializeField]
     private GameObject spawnPoint;
 
+    [SerializeField]
+    private AudioClip startRound;
+
+    [SerializeField]
+    private AudioClip gameplayMusic;
+
     public int enemiesRemaining = 0;
 
     public Collider2D[] colliders;
@@ -36,7 +42,7 @@ public class SpawnScript : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            StartCoroutine(SpawnEnemies());
+            StartCoroutine(spawnEnemies());
         }
 
         // There is already an instance, so delete this one
@@ -47,16 +53,16 @@ public class SpawnScript : MonoBehaviour
     }
 
     //This is how each of the enemy waves will be spawned, at least for now
-    IEnumerator SpawnEnemies()
+    IEnumerator spawnEnemies()
     {
         //************************** First round ************************** 
         GameManager.round = 1;
-        enemiesRemaining = 8;
+        enemiesRemaining = 0;
 
         yield return new WaitForSeconds(10);
 
         for (int i = 0; i < 8; i++) {
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(8);
             //Debug.Log("Enemies Remaining: " + enemiesRemaining);
         }
@@ -71,12 +77,12 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Second Round ************************** 
         GameManager.round = 2;
-        enemiesRemaining = 10;
-        
+        enemiesRemaining = 0;
+
         for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(8);
-            MeleeEnemy();
+            meleeEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -91,12 +97,12 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Third Round ************************** 
         GameManager.round = 3;
-        enemiesRemaining = 13;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 8; i++)
         {
             yield return new WaitForSeconds(8);
-            MeleeEnemy();
+            meleeEnemy();
         }
 
         //Wait for 10 seconds
@@ -105,7 +111,7 @@ public class SpawnScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(8);
-            PistolEnemy();
+            pistolEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -120,14 +126,14 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Fourth Round ************************** 
         GameManager.round = 4;
-        enemiesRemaining = 16;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 8; i++)
         {
             yield return new WaitForSeconds(5);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(5);
-            PistolEnemy();
+            pistolEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -142,14 +148,14 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Fifth Round ************************** 
         GameManager.round = 5;
-        enemiesRemaining = 21;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(5);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(5);
-            PistolEnemy();
+            pistolEnemy();
         }
         Boss();
 
@@ -165,14 +171,14 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Sixth Round ************************** 
         GameManager.round = 6;
-        enemiesRemaining = 26;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 13; i++)
         {
             yield return new WaitForSeconds(5);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(5);
-            PistolEnemy();
+            pistolEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -187,14 +193,14 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Seventh Round ************************** 
         GameManager.round = 7;
-        enemiesRemaining = 30;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 15; i++)
         {
             yield return new WaitForSeconds(5);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(5);
-            PistolEnemy();
+            pistolEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -209,16 +215,16 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Eighth Round ************************** 
         GameManager.round = 8;
-        enemiesRemaining = 34;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(4);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(4);
-            PistolEnemy();
+            pistolEnemy();
             yield return new WaitForSeconds(4);
-            RifleEnemy();
+            rifleEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -233,16 +239,16 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Ninth Round ************************** 
         GameManager.round = 9;
-        enemiesRemaining = 38;
+        enemiesRemaining = 0;
 
         for (int i = 0; i < 12; i++)
         {
             yield return new WaitForSeconds(4);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(4);
-            PistolEnemy();
+            pistolEnemy();
             yield return new WaitForSeconds(4);
-            RifleEnemy();
+            rifleEnemy();
         }
 
         //Waiting for all of the enemies to be killed
@@ -257,17 +263,17 @@ public class SpawnScript : MonoBehaviour
 
         //************************** Final Round ************************** 
         GameManager.round = 10;
-        enemiesRemaining = 42;
+        enemiesRemaining = 0;
 
         Boss();
         for (int i = 0; i < 13; i++)
         {
             yield return new WaitForSeconds(4);
-            MeleeEnemy();
+            meleeEnemy();
             yield return new WaitForSeconds(4);
-            PistolEnemy();
+            pistolEnemy();
             yield return new WaitForSeconds(4);
-            RifleEnemy();
+            rifleEnemy();
         }
         Boss();
 
@@ -279,7 +285,7 @@ public class SpawnScript : MonoBehaviour
         Debug.Log("You have beat the game!! Congratulations!");
     }
 
-    public void MeleeEnemy()
+    public void meleeEnemy()
     {
         Vector3 spawnPos = new Vector3(0, 0, 0);
         bool canSpawnHere = false;
@@ -299,13 +305,14 @@ public class SpawnScript : MonoBehaviour
         }
         GameObject newEnemy = Instantiate(enemies[0], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
+        enemiesRemaining++;
 
         player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
         aiDestSetter.target = player;
     }
 
-    public void PistolEnemy()
+    public void pistolEnemy()
     {
         Vector3 spawnPos = new Vector3(0, 0, 0);
         bool canSpawnHere = false;
@@ -326,13 +333,14 @@ public class SpawnScript : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemies[1], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
+        enemiesRemaining++;
 
         player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
         aiDestSetter.target = player;
     }
 
-    public void RifleEnemy()
+    public void rifleEnemy()
     {
         Vector3 spawnPos = new Vector3(0, 0, 0);
         bool canSpawnHere = false;
@@ -353,6 +361,7 @@ public class SpawnScript : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemies[2], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
+        enemiesRemaining++;
 
         player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
@@ -380,6 +389,11 @@ public class SpawnScript : MonoBehaviour
 
         GameObject newBoss = Instantiate(boss, spawnPos, Quaternion.identity) as GameObject;
         newBoss.transform.parent = bossContainer.transform;
+        enemiesRemaining++;
+
+        player = GameObject.FindWithTag("PLAYER").transform;
+        AIDestinationSetter aiDestSetter = newBoss.GetComponent<AIDestinationSetter>();
+        aiDestSetter.target = player;
     }
 
     //Check if there is overlap between two objects for enemy instantiation
@@ -411,4 +425,3 @@ public class SpawnScript : MonoBehaviour
         return true;
     }
 }
-

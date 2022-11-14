@@ -1,72 +1,16 @@
 using UnityEngine;
 
-//These are the stats of every enemy upon instantiation
-public class EnemyStats
-{
-    public virtual int GetDamage()
-    {
-        return 0;
-    }
-
-    public virtual int GetHealth()
-    {
-        return 50;
-    }
-}
-
 //These are the base stats of the melee enemy, which override the values from EnemyStats
-public class EnemyStatsBasic : EnemyStats
+public class EnemyMeleeStats : EnemyStats
 {
-    public override int GetDamage()
+    public override int getDamage()
     {
         return 5;
     }
 
-    public override int GetHealth()
+    public override int getHealth()
     {
         return 30;
-    }
-}
-
-//Creates an object with the base stats of the melee enemy, which is decided in EnemyStatsBasic
-public class EnemyStatsUpgrade : EnemyStats
-{
-    public EnemyStats wrapee;
-
-    public override int GetDamage() 
-    { 
-        return wrapee.GetDamage(); 
-    }
-
-    public override int GetHealth() 
-    { 
-        return wrapee.GetHealth(); 
-    }
-}
-
-public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
-{
-    public EnemyStatsUpgradeDamage(EnemyStats wrapee)
-    {
-        this.wrapee = wrapee;
-    }
-
-    public override int GetDamage()
-    {
-        return wrapee.GetDamage() + 2;
-    }
-}
-
-public class EnemyStatsUpgradeHealth : EnemyStatsUpgrade
-{
-    public EnemyStatsUpgradeHealth(EnemyStats wrapee)
-    {
-        this.wrapee = wrapee;
-    }
-
-    public override int GetHealth()
-    {
-        return wrapee.GetHealth() + 5;
     }
 }
 
@@ -94,10 +38,10 @@ public class BaseEnemy : Enemy
     {
         counter = GameObject.FindGameObjectWithTag("EnemySpawner");
         upgradeCount = 1;
-        stats = new EnemyStatsBasic();
+        stats = new EnemyMeleeStats();
 
-        health = 50;
-        damage = 5;
+        damage = getDamage();
+        health = getHealth();
     }
 
     private void FixedUpdate()
@@ -105,10 +49,10 @@ public class BaseEnemy : Enemy
         if (GameManager.round > upgradeCount)
         {
             wrapDamage();
-            damage = GetDamage();
+            damage = getDamage();
 
             wrapHealth();
-            health = GetHealth();
+            health = getHealth();
             Debug.Log("Current Enemy Health: " + health);
             Debug.Log("Current Enemy Damage: " + damage);
 
@@ -117,14 +61,14 @@ public class BaseEnemy : Enemy
     }
 
     //Returns the damage
-    public override int GetDamage()
+    public override int getDamage()
     {
-        return stats.GetDamage();
+        return stats.getDamage();
     }
 
     //Returns the health
-    public override int GetHealth()
+    public override int getHealth()
     {
-        return stats.GetHealth();
+        return stats.getHealth();
     }
 }
