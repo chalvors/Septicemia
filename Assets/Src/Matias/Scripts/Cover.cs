@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Cover : Interactible
 {
@@ -29,5 +30,6 @@ public class Cover : Interactible
     {
         //cool animation happens here
         Destroy(gameObject);
+        AstarPath.active.Scan();
     }
 }
