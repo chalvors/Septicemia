@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
     }
 
     //detect what enemies the player hit and deal damage to them
-    public void detectColliders()
+    public void DetectColliders()
     {
 
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position,radius))

@@ -1,5 +1,11 @@
+/*
+* PistolEnemy.cs
+* Conner Mullins
+* The script that determines the behavior of the PistolEnemy
+*/
 using System.Collections;
 using UnityEngine;
+
 
 //These are the base stats of the pistol enemy, which override the values from EnemyStats
 public class EnemyPistolStats : EnemyStats

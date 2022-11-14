@@ -1,6 +1,13 @@
+/*
+* SpawnScript.cs
+* Conner Mullins
+* A spawner that instantiates enemies and bosses in waves
+*/
 using Pathfinding;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
+
 
 public class SpawnScript : MonoBehaviour
 {
@@ -24,10 +31,7 @@ public class SpawnScript : MonoBehaviour
     private GameObject spawnPoint;
 
     [SerializeField]
-    private AudioClip startRound;
-
-    [SerializeField]
-    private AudioClip gameplayMusic;
+    private AudioClip gameMusic;
 
     public int enemiesRemaining = 0;
 

@@ -1,4 +1,10 @@
+/*
+* EnemyBulletScript.cs
+* Conner Mullins
+* A script to determine the behavior and damage of the enemy bullets
+*/
 using UnityEngine;
+
 
 public class EnemyBulletScript : MonoBehaviour
 {
@@ -60,7 +66,7 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PLAYER"))
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(bulletDamage);
+            collision.gameObject.GetComponent<Player>().takeDamage(bulletDamage);
             ///Debug.Log("Player hit!!!");
             Destroy(gameObject);
         }

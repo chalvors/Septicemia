@@ -1,4 +1,10 @@
+/*
+* BaseEnemy.cs
+* Conner Mullins
+* The script that determines the behavior of the BaseEnemy
+*/
 using UnityEngine;
+
 
 //These are the base stats of the melee enemy, which override the values from EnemyStats
 public class EnemyMeleeStats : EnemyStats
@@ -53,8 +59,8 @@ public class BaseEnemy : Enemy
 
             wrapHealth();
             health = getHealth();
-            Debug.Log("Current Enemy Health: " + health);
-            Debug.Log("Current Enemy Damage: " + damage);
+            Debug.Log("Current MeleeEnemy Health: " + health);
+            Debug.Log("Current MeleeEnemy Damage: " + damage);
 
             upgradeCount++;
         }

@@ -1,6 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+* SensorScript.cs
+* Conner Mullins
+* A script for a sensor that checks to see if a TestEnemy has escaped the map
+*/
 using UnityEngine;
+
 
 public class SensorScript : MonoBehaviour
 {

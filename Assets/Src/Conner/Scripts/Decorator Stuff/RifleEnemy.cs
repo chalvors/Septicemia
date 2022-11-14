@@ -1,5 +1,11 @@
+/*
+* RifleEnemy.cs
+* Conner Mullins
+* The script that determines the behavior of the RifleEnemy
+*/
 using System.Collections;
 using UnityEngine;
+
 
 //These are the base stats of the rifle enemy, which override the values from EnemyStats
 public class EnemyRifleStats : EnemyStats

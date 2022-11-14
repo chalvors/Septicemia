@@ -1,8 +1,10 @@
-using Codice.CM.Common;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+/*
+* TestEnemy.cs
+* Conner Mullins
+* A script to make a test enemy that only moves upward
+*/
 using UnityEngine;
+
 
 public class TestEnemy : MonoBehaviour
 {

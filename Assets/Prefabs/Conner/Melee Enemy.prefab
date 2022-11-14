@@ -223,7 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea9e3d9e09d86c4eb2d05b10a0e35c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   counter: {fileID: 0}
-  takeDamage: {fileID: 8300000, guid: dc55d03c411dc9543a4fa936d4bc6a59, type: 3}
+  takingDamage: {fileID: 8300000, guid: dc55d03c411dc9543a4fa936d4bc6a59, type: 3}
   brain: {fileID: 4888840418814722309, guid: 3aa928c37518fc446b8513d94f99f795, type: 3}
   death: {fileID: 8300000, guid: a9ae65721e2eda948a734e4b2beafed6, type: 3}

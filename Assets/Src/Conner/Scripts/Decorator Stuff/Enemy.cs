@@ -1,9 +1,18 @@
+/*
+* Enemy.cs
+* Conner Mullins
+* The superclass to the BaseEnemy, PistolEnemy, and RifleEnemy which holds all of their variables and virtual functions
+*/
 using System.Collections;
 using UnityEngine;
 
-//These are the stats of every enemy upon instantiation
+
+/*
+ *The stats of every enemy upon instantiation 
+ */
 public class EnemyStats
 {
+
     public virtual int getDamage()
     {
         return 0;
@@ -15,6 +24,11 @@ public class EnemyStats
     }
 }
 
+
+/*
+ *
+ * 
+ */
 public class EnemyStatsUpgrade : EnemyStats
 {
     public EnemyStats wrapee;
@@ -30,8 +44,14 @@ public class EnemyStatsUpgrade : EnemyStats
     }
 }
 
+
+/*
+ *The stats of every enemy upon instantiation 
+ * 
+ */
 public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
 {
+
     public EnemyStatsUpgradeDamage(EnemyStats wrapee)
     {
         this.wrapee = wrapee;
@@ -43,8 +63,10 @@ public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
     }
 }
 
+
 public class EnemyStatsUpgradeHealth : EnemyStatsUpgrade
 {
+
     public EnemyStatsUpgradeHealth(EnemyStats wrapee)
     {
         this.wrapee = wrapee;
@@ -56,14 +78,15 @@ public class EnemyStatsUpgradeHealth : EnemyStatsUpgrade
     }
 }
 
+
 public abstract class Enemy : MonoBehaviour
 {
     //Set default values if data is not set
     protected int health = 50;
-    public int damage = 0;
     protected float maxSpeed = 2f;
-
     protected bool canDealDamage = true;
+
+    public int damage = 0;
 
     [SerializeField]
     protected GameObject counter;
@@ -79,7 +102,6 @@ public abstract class Enemy : MonoBehaviour
 
     virtual protected void OnCollisionStay2D(Collision2D collider)
     {
-        Debug.Log(collider.gameObject.tag);
         if (collider.gameObject.CompareTag("PLAYER"))
         {
             //Deal Damage to Player if enemy collides with Player GameObject
@@ -87,11 +109,10 @@ public abstract class Enemy : MonoBehaviour
             {
                 Vector2 direction = (transform.position - collider.transform.position).normalized;
                 gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 1600f, ForceMode2D.Impulse);
-                collider.gameObject.GetComponent<Player>().TakeDamage(damage);
+                collider.gameObject.GetComponent<Player>().takeDamage(damage);
                 canDealDamage = false;
                 StartCoroutine(damageCooldown());
             }
-            //Debug.Log("Player health: " + collider.GetComponent<Player>().health);
         }
     }
 
@@ -129,3 +150,4 @@ public abstract class Enemy : MonoBehaviour
         return damage;
     }
 }
+
