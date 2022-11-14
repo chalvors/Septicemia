@@ -6,7 +6,10 @@ using UnityEngine;
 public abstract class PlayerStats
 {
     public PlayerStats P1;
-    public int Maxhealth;
+    //[SerializeField]
+    //private int attack;
+   // [SerializeField]
+    //private int Maxhealth;
 
     public abstract int GetHealth();
 

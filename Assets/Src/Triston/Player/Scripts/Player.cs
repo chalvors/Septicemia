@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private int health;
-    private int attackstat = 10;
+    //private int attackstat = 10;
     private int Alive = 1;
     PlayerStats stats;
     [SerializeField]
@@ -120,6 +120,7 @@ public class Player : MonoBehaviour
             BaseEnemy enemy;
             BaseBoss boss;
             PistolEnemy pistol;
+            RifleEnemy rifle;
 
             if (enemy = collider.GetComponent<BaseEnemy>())
             {
@@ -138,6 +139,13 @@ public class Player : MonoBehaviour
             if (pistol = collider.GetComponent<PistolEnemy>())
             {
                 pistol.TakeDamage(stats.GetDamage());
+                Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
+
+            }
+
+            if (rifle = collider.GetComponent<RifleEnemy>())
+            {
+                rifle.TakeDamage(stats.GetDamage());
                 Debug.Log("Dealt " + stats.GetDamage() + " to " + collider.name);
 
             }
