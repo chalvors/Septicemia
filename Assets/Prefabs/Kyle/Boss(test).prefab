@@ -139,8 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   attackDamage: 0
-  brain: {fileID: 0}
-  _takeDamage: {fileID: 0}
+  brain: {fileID: 4888840418814722309, guid: 3aa928c37518fc446b8513d94f99f795, type: 3}
+  _takeDamage: {fileID: 8300000, guid: ba1167893cea5ef43bcad243edeebecf, type: 3}
 --- !u!114 &1215794778257330107
 MonoBehaviour:
   m_ObjectHideFlags: 0

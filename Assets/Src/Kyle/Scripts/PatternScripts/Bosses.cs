@@ -1,34 +1,40 @@
+/*
+* Bosses.cs
+* Kyle Hash
+* Part of my decorator patter
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+* This class is the parent for all of the other Boss Classes I will be using
+* OnCollisionEnter2D(Collision2D collider) - Deals damage to the player when Boss collides
+* DamageCooldown() - Sets a delay so Boss can't do damage quickly
+* TakeDamage(int playerAttack) - Called in the player scripts when Boss needs to take damage from an attack
+* dropBrain() -  Drops a brain object to be picked up by the player
+* GetHealth() - Returns the Boss's current Health
+* GetDamage() - Returns the Boss's current Damage
+*/
 public class Bosses : MonoBehaviour
 {
     // ---------- Creating Stats for Boss -----------------
-    //protected float moveSpeed;
-    //[SerializeField]
+    
     public int health; // Needed to make public for bounds tests
-    //[SerializeField]
     public int attackDamage; // Needed to make public for bounds tests
 
     [SerializeField]
     private GameObject brain;    // Boss item drop
-
+    [SerializeField]
+    private AudioClip _takeDamage;      //Auido for taking damage
     private GameObject BossObj = null;  // Used to get boss's location
     private float PosX = 0f;            // Boss's X coord
     private float PosY = 0f;            // Boss's Y coord
     private bool isAlive = true;        // Is the boss alive?
-
-
-    private Rigidbody2D rb;
-    private Vector2 movement; //Wont need this after getting pathfinding
-    private CircleCollider2D bossCollider;
-
-    [SerializeField]
-    private GameObject Counter;
-
-    [SerializeField] private AudioClip _takeDamage;
-
+   
+    protected bool canDealDamage = true;
+    protected GameObject counter;         // Counts how many enemies/bosses are left in the round
 
 
     // ----------------- Player Takes Damage From Boss ---------------------
@@ -44,14 +50,20 @@ public class Bosses : MonoBehaviour
                 collider.gameObject.GetComponent<Player>().TakeDamage(attackDamage); // Calls Triston's TakeDamage function for the player
                 
                 //takeDamage(collider.GetComponent<Player>().attackstat);    // Calls my takeDamage function for the boss
-                //canDealDamage = false;
-                //StartCoroutine(DamageCooldown());
+                canDealDamage = false;
+                StartCoroutine(DamageCooldown());
             }
             //Debug.Log("Damage dealt to the player!");
             //Debug.Log("Player health: " + collider.GetComponent<Player>().health);
         }
     }
 
+    // ---------------- 1 second cooldown for a Boss Attack -----------------------------
+    virtual protected IEnumerator DamageCooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        canDealDamage = true;
+    }
     // ------------ Boss Takes Damage Dealt from the Player ------------------------
     // --------- Had to be a public function for bounds testing --------------
     virtual public void TakeDamage(int playerAttack){
@@ -71,7 +83,7 @@ public class Bosses : MonoBehaviour
             isAlive = false;
             dropBrain();
             Destroy(gameObject);
-            Counter.GetComponent<SpawnScript>().enemiesRemaining--;
+            counter.GetComponent<SpawnScript>().enemiesRemaining--;
             Debug.Log("You just killed a boss!!!");
             
         }

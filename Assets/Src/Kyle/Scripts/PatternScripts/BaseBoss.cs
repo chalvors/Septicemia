@@ -92,6 +92,11 @@ public class BossStatsUpgradeDamage : BossStatsUpgrade
 }
 
 // --------- Takes game object and creates a wrapee to upgrade the health stat -----------
+/*
+* This class is a child of BossStatsUpgrade and contains functions set this.wrapee = wrapee
+* BossStatsUpgradeDamage() - 
+* BossStatsUpgradeHealth() - 
+*/
 public class BossStatsUpgradeHealth : BossStatsUpgrade
 {
     public BossStatsUpgradeHealth(BossStats wrapee)
@@ -105,6 +110,15 @@ public class BossStatsUpgradeHealth : BossStatsUpgrade
     }
 }
 
+/*
+* This class is a child of Bosses and contains functions to set the stats of a boss to what the wrapee has 
+* WrapDamage() - Updates the damage for the boss
+* WrapHealth() - Updates the health for the boss
+* Start() - Initializes bases stats
+* FixedUpdate() - Updates Boss's stats, scales with round number
+* GetDamage() - Gets the Boss's current damage
+* GetHealth() - Gets the BOss's current health
+*/
 public class BaseBoss : Bosses
 {
     BossStats stats;
@@ -123,14 +137,17 @@ public class BaseBoss : Bosses
         stats = new BossStatsUpgradeHealth(stats);
     }
 
+    //----------- On startup, it sets the a normal base boss's stats ------------------
     void Start()
     {
+        counter = GameObject.FindGameObjectWithTag("EnemySpawner");
         stats = new BasicBossStats();
 
         attackDamage = GetDamage();
         health = GetHealth();
     }
 
+    //----------- Updates the boss's health and attack damage, scales with the round number ------------------------
     private void FixedUpdate()
     {
         
@@ -138,11 +155,11 @@ public class BaseBoss : Bosses
         {
             wrapDamage();
             attackDamage = GetDamage();
-            Debug.Log("Boss Upgraded Damage: " + attackDamage);
+            //Debug.Log("Boss Upgraded Damage: " + attackDamage);
 
             wrapHealth();
             health = GetHealth();
-            Debug.Log("Boss Upgraded Health: " + health);
+            //Debug.Log("Boss Upgraded Health: " + health);
             upgradeCount++;
         }
     }
