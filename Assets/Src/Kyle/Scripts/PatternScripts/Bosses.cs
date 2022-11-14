@@ -47,7 +47,7 @@ public class Bosses : MonoBehaviour
 
             if (collider.gameObject.GetComponent<Player>() != null)
             {
-                collider.gameObject.GetComponent<Player>().TakeDamage(attackDamage); // Calls Triston's TakeDamage function for the player
+                collider.gameObject.GetComponent<Player>().takeDamage(attackDamage); // Calls Triston's TakeDamage function for the player
                 
                 //takeDamage(collider.GetComponent<Player>().attackstat);    // Calls my takeDamage function for the boss
                 canDealDamage = false;
@@ -66,7 +66,7 @@ public class Bosses : MonoBehaviour
     }
     // ------------ Boss Takes Damage Dealt from the Player ------------------------
     // --------- Had to be a public function for bounds testing --------------
-    virtual public void TakeDamage(int playerAttack){
+    virtual public void takeDamage(int playerAttack){
 
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
@@ -97,12 +97,12 @@ public class Bosses : MonoBehaviour
         }
     }
     // --------------- Returns the Boss's Current Health -----------------------
-    public virtual int GetHealth()
+    public virtual int getHealth()
     {
         return health;
     }
     // ---------------- Returns the Boss's Current Attack Damage ---------------------
-    public virtual int GetDamage()
+    public virtual int getDamage()
     {
         return attackDamage;
     }
