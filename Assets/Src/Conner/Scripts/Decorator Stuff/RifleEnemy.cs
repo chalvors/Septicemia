@@ -10,17 +10,27 @@ using UnityEngine;
 //These are the base stats of the rifle enemy, which override the values from EnemyStats
 public class EnemyRifleStats : EnemyStats
 {
+    //Base damage for the rifle enemy
     public override int getDamage()
     {
         return 15;
     }
 
+    //Base health for the rifle enemy
     public override int getHealth()
     {
         return 30;
     }
 }
 
+
+/*
+ * This is the rifle enemy subclass of Enemy.cs, which determines the stats of all rifle enemies
+ * 
+ * member variables:
+ * stats - Placeholder for the damage and health stats. This is what is decorated by my decorator pattern
+ * upgradeCount - Keeps track of how many upgrades the enemies have had
+ */
 public class RifleEnemy : Enemy
 {
     EnemyStats stats;
@@ -151,3 +161,4 @@ public class RifleEnemy : Enemy
         return stats.getHealth();
     }
 }
+

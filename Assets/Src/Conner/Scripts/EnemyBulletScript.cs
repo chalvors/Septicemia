@@ -6,21 +6,27 @@
 using UnityEngine;
 
 
+/*
+ * This is the class for the bullets fired by pistol and rifle enemies which instantiates and determines their direction, speed, damage, and fire rate
+ * 
+ * member variables:
+ * player - Finds the player, which will be the target for our bullet
+ * enemy - Used to get the damage for the bullet
+ * rb - The rigidbody2d of the bullet
+ * force - Used to determine how fast the bullet will be traveling
+ * bulletDamage - The amount of health that will be removed from the player for each bullet
+ * timer - Used to check how long a bullet has existed within the scene
+ */
 public class EnemyBulletScript : MonoBehaviour
 {
     private GameObject player;
     private GameObject enemy;
-
     private Rigidbody2D rb;
 
     [SerializeField]
     private float force;
 
     private int bulletDamage;
-    private float speed;
-
-    private Vector2 startPosition;
-
     private float timer;
 
     private void Awake()
@@ -53,9 +59,10 @@ public class EnemyBulletScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Increment the local timer on each bullet
         timer += Time.deltaTime;
 
-        //If the bullet has existed for 5 seconds, destroy it
+        //If a bullet has existed for 5 seconds, destroy it
         if (timer > 5)
         {
             Destroy(gameObject);
@@ -64,16 +71,20 @@ public class EnemyBulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //If the bullet has collided with the Player
         if (collision.gameObject.CompareTag("PLAYER"))
         {
+            //Deal damage to the Player by calling the Player's takeDamage function, then destroy the bullet
             collision.gameObject.GetComponent<Player>().takeDamage(bulletDamage);
-            ///Debug.Log("Player hit!!!");
             Destroy(gameObject);
         }
+        //If the bullet has collided with cover, a wall, or a building
         else if (collision.gameObject.CompareTag("Impassable") || collision.gameObject.CompareTag("Breakable"))
         {
+            //Destroy the bullet
             Destroy(gameObject);
-            ///Debug.Log("Miss!!!");
         }
     }
 }
+
+
