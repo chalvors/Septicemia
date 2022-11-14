@@ -392,10 +392,10 @@ public class SpawnScript : MonoBehaviour
             float width = colliders[i].bounds.extents.x;
             float height = colliders[i].bounds.extents.y;
 
-            float leftExtent = centerPoint.x - width - 1;
-            float rightExtent = centerPoint.x + width + 1;
-            float lowerExtent = centerPoint.y - height - 1;
-            float upperExtent = centerPoint.y + height + 1;
+            float leftExtent = centerPoint.x - width;
+            float rightExtent = centerPoint.x + width;
+            float lowerExtent = centerPoint.y - height;
+            float upperExtent = centerPoint.y + height;
 
             //If there is an obstacle at this location, then the enemy cannot spawn here
             if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
