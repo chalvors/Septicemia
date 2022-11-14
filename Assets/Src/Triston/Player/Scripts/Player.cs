@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private int Alive = 1;
     PlayerStats stats;
     [SerializeField]
+    private AudioClip takeDamage;
+    [SerializeField]
     private GameObject HealthBar;
     [SerializeField]
     private GameObject GameOverScreen;
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
     public int TakeDamage(int Damage)
     {
         health = health - Damage;
+        AudioManager.Instance.PlaySound(takeDamage);
         Debug.Log("Player Health: " + health);
 
         if (health <= 0)

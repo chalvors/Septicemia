@@ -69,7 +69,7 @@ public class Bosses : MonoBehaviour
         if (health <= 0){
             //return health; // Uncomment if you want to run the test for boss health, uncommenting this will give unreachable code warning
             isAlive = false;
-            //dropBrain();
+            dropBrain();
             Destroy(gameObject);
             Counter.GetComponent<SpawnScript>().enemiesRemaining--;
             Debug.Log("You just killed a boss!!!");
@@ -81,10 +81,7 @@ public class Bosses : MonoBehaviour
     {
         if (!isAlive)
         {
-            BossObj = GameObject.FindGameObjectWithTag("BOSS");
-            PosX = BossObj.transform.position.x;
-            PosY = BossObj.transform.position.y;
-            GameObject newObj = Instantiate(brain, new Vector2(PosX, PosY), Quaternion.identity);
+            GameObject newObj = Instantiate(brain, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
         }
     }
     // --------------- Returns the Boss's Current Health -----------------------
