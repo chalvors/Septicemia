@@ -1,17 +1,26 @@
 WHAT IS THE GENERIC BOSS PREFAB?
 
 This prefab is an easy way for anyone to implement an enemy/boss object in their
-game. Enemies are vital for most games, since without them there would not be 
+game. Enemies/Bosses are vital for most games, since without them there would not be 
 much of a game to play.
 
-FEATURES?
+FEATURES?---------------------------------------------------------------------------------------------------
 
 A* Pathfinding
+- Allows the Boss object to avoid obsticles while tracking the player or whatever you set the reference to
+
 Fully functioning upgrade system using a decorator pattern
+- Upgrades for health and damage are already implemented
 
-FUNCTIONS/SCRIPTS
+Item drops
+- Allows you to put a prefab of an item that you want dropped on the Boss's death
 
-Bosses.cs
+Sprite Renderer
+- Allows you to put a sprite onto the Boss object
+
+FUNCTIONS/SCRIPTS/HOW TO USE?-------------------------------------------------------------------------------
+
+Bosses.cs 
 - This class is the parent for all of the other Boss Classes I will be using
 /*
 * OnCollisionEnter2D(Collision2D collider) - Deals damage to the player when Boss collides
@@ -62,8 +71,31 @@ BossStatsUpgradeHealth
 * BossStatsUpgradeHealth(BossStats wrapee) - Constructor and sets the wrapee sent into the class
 * GetDamage() - Returns wrapee's health + some value and applies it to the boss, "decorating it" 
 */
+BaseBoss
+/*
+* This class is a child of Bosses and contains functions to set the stats of a boss to what the wrapee has 
+* WrapDamage() - Updates the damage for the boss
+* WrapHealth() - Updates the health for the boss
+* Start() - Initializes bases stats
+* FixedUpdate() - Updates Boss's stats, scales with round number
+* GetDamage() - Gets the Boss's current damage
+* GetHealth() - Gets the Boss's current health
+*/
 
 AIPath.cs
+/*
+* Sets all of the movement setting for the Boss
+*/
 Seeker.cs
+/*
+* Sets the path calls for a single Boss object
+*/
 AIDestinationSetter.cs
+/*
+* Sets the destination for the Boss object
+*/
+
+TROUBLESHOOTING TIPS?-------------------------------------------------------------------------------------------
+- Make sure everything is referenced in the inspector if you are getting Null Reference Errors
+
 

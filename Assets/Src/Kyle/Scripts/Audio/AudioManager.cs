@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
     {
         _effectsSource.PlayOneShot(clip);
     }
-
+    // ------------- Function for main menu slider to change master volume ----------------------
     public void changeMasterVolume(float value)
     {
         AudioListener.volume = value;
