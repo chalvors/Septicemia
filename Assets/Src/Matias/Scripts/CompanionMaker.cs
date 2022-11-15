@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class CompanionMaker : Interactible
 {
     [SerializeField]
     int compType = 0;
-    
+
+    [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private GameObject zomDog;
+
+    [SerializeField]
+    private GameObject zomBee;
+
+    [SerializeField]
+    private GameObject zomGunman;
+
     bool isInteract = false;
 
     // Start is called before the first frame update
@@ -40,15 +53,21 @@ public class CompanionMaker : Interactible
 
         if(compType == 1)
         {
-            //spawn Zombie Dog
+            GameObject zom1 = Instantiate(zomDog, player.transform.position, Quaternion.identity);
+            AIDestinationSetter aiDestSetter = zom1.GetComponent<AIDestinationSetter>();
+            aiDestSetter.target = player.transform;
         }
         else if (compType == 2)
         {
-            //spawn ZomBee
+            GameObject zom2 = Instantiate(zomBee, player.transform.position, Quaternion.identity);
+            AIDestinationSetter aiDestSetter = zom2.GetComponent<AIDestinationSetter>();
+            aiDestSetter.target = player.transform;
         }
         else if (compType == 3)
         {
-            //spawn Zombie Gunman
+            GameObject zom3 = Instantiate(zomGunman, player.transform.position, Quaternion.identity);
+            AIDestinationSetter aiDestSetter = zom3.GetComponent<AIDestinationSetter>();
+            aiDestSetter.target = player.transform;
         }
     }
 }

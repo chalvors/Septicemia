@@ -11,16 +11,13 @@ public class SecretRoom : Interactible
     [SerializeField]
     private AudioClip opening; 
 
-    [SerializeField]
-    public Player zombie;
-
     private GameObject destination;
     private GameObject player;
     Vector3 roomPosition;
     string fullID;
     bool isInteract = false;
     public bool Shop = false;
-    public bool boolFlip;
+    private bool delay = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +25,7 @@ public class SecretRoom : Interactible
         destination = GameObject.Find(fullID);
         roomPosition = destination.transform.position;
         player = GameObject.FindWithTag("PLAYER");
-        boolFlip = zombie.inSecretRoom;
-        boolFlip = !boolFlip;
+        player.GetComponent<Player>().inSecretRoom = false;
     }
 
     // Update is called once per frame
@@ -43,8 +39,9 @@ public class SecretRoom : Interactible
         if (interBox.tag == "PLAYER")
         {
             isInteract = CheckAct();
-            if (isInteract == true)
+            if (isInteract == true && delay == false && !SpawnScript.Instance.enemiesSpawning)
             {
+                delay = true;
                 AudioManager.Instance.PlaySound(opening);
                 StartCoroutine(switchDelay());
             }
@@ -73,9 +70,8 @@ public class SecretRoom : Interactible
     IEnumerator switchDelay()
     {
         isInteract = false;
-        zombie.inSecretRoom = !zombie.inSecretRoom;
         yield return new WaitForSeconds(.5f);
         GoToRoom(roomPosition);
-        
+        delay = false;
     }
 }
