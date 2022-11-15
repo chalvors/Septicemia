@@ -6,7 +6,6 @@
 using Pathfinding;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 /*
@@ -26,9 +25,10 @@ using UnityEngine.SceneManagement;
  * enemies - Array that holds enemy prefabs
  * bossPrefab - Holds the boss prefab
  * enemyContainer - Places enemies under "enemies" empty gameObject in the heirarchy to keep the inspector view organized
- * enemyContainer - Places bosses under "Bosses" empty gameObject in the heirarchy to keep the inspector view organized
+ * bossContainer - Places bosses under "Bosses" empty gameObject in the heirarchy to keep the inspector view organized
  * gameMusic - Holds the gameplay music audio clip
  * enemiesRemaining - Keeps track of how many enemies are spawned, which is used to determine whether or not the current round can end
+ * enemiesSpawning - Bool used to determine if the next round has started
  * colliders - An array that holds all of the colliders within the radius at the selected random location
  * radius - Used to check for colliders in a circular area
  */
@@ -37,6 +37,7 @@ public class SpawnScript : MonoBehaviour
     public static SpawnScript Instance;
 
     private GameObject player;
+    private GameObject secretRoom;
 
     [SerializeField]
     private GameObject[] enemies;
@@ -83,20 +84,16 @@ public class SpawnScript : MonoBehaviour
     {
         // -------------------------- First round --------------------------
         GameManager.round = 1;
-        enemiesRemaining = 0;
+        enemiesRemaining = 8;
 
-        meleeEnemy();
         yield return new WaitForSeconds(10);
 
-        //StopAllCoroutines();
-        /*
         Debug.Log(player.GetComponent<Player>().inSecretRoom);
 
         while (player.GetComponent<Player>().inSecretRoom == true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1);
         }
-        */
 
         enemiesSpawning = true;
 
@@ -119,7 +116,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Second Round --------------------------
         GameManager.round = 2;
-        enemiesRemaining = 0;
+        enemiesRemaining = 10;
         enemiesSpawning = true;
 
         for (int i = 0; i < 10; i++)
@@ -144,13 +141,13 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Third Round -------------------------- 
         GameManager.round = 3;
-        enemiesRemaining = 0;
+        enemiesRemaining = 13;
         enemiesSpawning = true;
 
         //Spawning melee enemies
         for (int i = 0; i < 8; i++)
         {
-            yield return new WaitForSeconds(8);
+            yield return new WaitForSeconds(7);
             meleeEnemy();
         }
 
@@ -160,7 +157,7 @@ public class SpawnScript : MonoBehaviour
         //Spawning pistol enemies
         for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(8);
+            yield return new WaitForSeconds(7);
             pistolEnemy();
         }
 
@@ -178,7 +175,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Fourth Round -------------------------- 
         GameManager.round = 4;
-        enemiesRemaining = 0;
+        enemiesRemaining = 16;
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
@@ -204,7 +201,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Fifth Round -------------------------- 
         GameManager.round = 5;
-        enemiesRemaining = 0;
+        enemiesRemaining = 21;
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies, pistol enemies, and a boss
@@ -231,7 +228,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Sixth Round -------------------------- 
         GameManager.round = 6;
-        enemiesRemaining = 0;
+        enemiesRemaining = 26;
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
@@ -257,7 +254,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Seventh Round -------------------------- 
         GameManager.round = 7;
-        enemiesRemaining = 0;
+        enemiesRemaining = 30;
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
@@ -283,7 +280,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Eighth Round -------------------------- 
         GameManager.round = 8;
-        enemiesRemaining = 0;
+        enemiesRemaining = 30;
         enemiesSpawning = true;
 
         for (int i = 0; i < 10; i++)
@@ -310,7 +307,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Ninth Round -------------------------- 
         GameManager.round = 9;
-        enemiesRemaining = 0;
+        enemiesRemaining = 36;
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies, pistol enemies, and rifle enemies
@@ -338,7 +335,7 @@ public class SpawnScript : MonoBehaviour
 
         //-------------------------- Final Round -------------------------- 
         GameManager.round = 10;
-        enemiesRemaining = 0;
+        enemiesRemaining = 41;
 
         enemiesSpawning = true;
 
@@ -397,7 +394,7 @@ public class SpawnScript : MonoBehaviour
         //Instantiate new enemy and increment the enemy counter
         GameObject newEnemy = Instantiate(enemies[0], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
-        enemiesRemaining++;
+        //enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
@@ -435,7 +432,7 @@ public class SpawnScript : MonoBehaviour
         //Instantiate new enemy and increment the enemy counter
         GameObject newEnemy = Instantiate(enemies[1], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
-        enemiesRemaining++;
+        //enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
@@ -473,7 +470,7 @@ public class SpawnScript : MonoBehaviour
         //Instantiate new enemy and increment the enemy counter
         GameObject newEnemy = Instantiate(enemies[2], spawnPos, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = enemyContainer.transform;
-        enemiesRemaining++;
+        //enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
@@ -511,7 +508,7 @@ public class SpawnScript : MonoBehaviour
         //Instantiate new enemy and increment the enemy counter
         GameObject newBoss = Instantiate(bossPrefab, spawnPos, Quaternion.identity) as GameObject;
         newBoss.transform.parent = bossContainer.transform;
-        enemiesRemaining++;
+        //enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
         AIDestinationSetter aiDestSetter = newBoss.GetComponent<AIDestinationSetter>();

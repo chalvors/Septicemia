@@ -3,6 +3,7 @@
 * Conner Mullins
 * The script that determines the behavior of the BaseEnemy
 */
+using System;
 using UnityEngine;
 
 
@@ -48,13 +49,19 @@ public class BaseEnemy : Enemy
         stats = new EnemyStatsUpgradeHealth(stats);
     }
 
-    //Enemy attack delay
-    private float attackDelay;
-
     // Start is called before the first frame update
     void Start()
     {
-        counter = GameObject.FindGameObjectWithTag("EnemySpawner");
+        try
+        {
+            //Find the enemy counter
+            counter = GameObject.FindGameObjectWithTag("EnemySpawner");
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+        }
+
         upgradeCount = 1;
 
         //Set the damage and health placeholder

@@ -3,6 +3,7 @@
 * Conner Mullins
 * The script that determines the behavior of the PistolEnemy
 */
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -69,15 +70,26 @@ public class PistolEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        counter = GameObject.FindGameObjectWithTag("EnemySpawner");
+        //Error catching
+        try
+        {
+            //Find the player
+            player = GameObject.FindGameObjectWithTag("PLAYER");
+            //Find the enemy counter
+            counter = GameObject.FindGameObjectWithTag("EnemySpawner");
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+        }
+        
         upgradeCount = 1;
         stats = new EnemyPistolStats();
 
         damage = getDamage();
         health = getHealth();
 
-        //Find the player
-        player = GameObject.FindGameObjectWithTag("PLAYER");
+        
     }
 
     private void FixedUpdate()

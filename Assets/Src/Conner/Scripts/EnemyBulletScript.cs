@@ -3,6 +3,7 @@
 * Conner Mullins
 * A script to determine the behavior and damage of the enemy bullets
 */
+using System;
 using UnityEngine;
 
 
@@ -39,11 +40,19 @@ public class EnemyBulletScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        //Finds the player, who is our target
-        player = GameObject.FindGameObjectWithTag("PLAYER");
-        enemy = GameObject.FindGameObjectWithTag("PistolEnemy");
+        //Error catching
+        try
+        {
+            //Finds the player, who is our target
+            player = GameObject.FindGameObjectWithTag("PLAYER");
+            //Finds the enemy who fired the bullet
+            enemy = GameObject.FindGameObjectWithTag("PistolEnemy");
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+        }
 
-        
         bulletDamage = enemy.GetComponent<PistolEnemy>().damage;
 
         //Sends the bullet in the direction of the player
