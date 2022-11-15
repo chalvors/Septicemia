@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /*
@@ -192,6 +193,13 @@ public class Player : MonoBehaviour
     {
         stats = new DecorateDamage(stats);
     }
+
+    public void BCModeToggle(bool toggle)
+    {
+        DrBCMode = toggle;
+        Debug.Log("BC Mode ON");
+    }
+
 }
 
 
