@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -8,39 +8,35 @@ public class player_damage_tests
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void sets_health_to_100_and_take_99_damage()
+    public void sets_health_to_150_and_take_149_damage()
     {
-        Player P1 = new Player();
-        P1.health = 100;
+        TestPlayer P1 = new();
         
-        int finalHealth = P1.TakeDamage(99);
+        int finalHealth = P1.takeDamage(149);
 
         Assert.AreEqual(1, finalHealth);
     }
     [Test]
     
-    public void sets_health_to_100_and_take_101_damage()
+    public void sets_health_to_150_and_take_151_damage()
     {
 
-        Player P1 = new Player();
-        P1.health = 100;
+        TestPlayer P1 = new();
 
-        int finalHealth = P1.TakeDamage(101);
+        int finalHealth = P1.takeDamage(151);
 
         Assert.AreEqual(-1, finalHealth);
     }
     [Test]
-    public void sets_health_to_100_and_take_100_damage()
+    public void sets_health_to_150_and_take_150_damage()
     {
 
-        Player P1 = new Player();
-        P1.health = 100;
+        TestPlayer P1 = new();
 
-        int finalHealth = P1.TakeDamage(100);
+        int finalHealth = P1.takeDamage(150);
 
         Assert.AreEqual(0, finalHealth);
     }
 
 
 }
-*/

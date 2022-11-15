@@ -5,37 +5,36 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-/*public class AttackUpgrade_Test
+public class AttackUpgrade_Test
 {
     // A Test behaves as an ordinary method
     [Test]
     public void Upgrade_Attack_Stat_Once()
     {
-        Player P1 = new();
-        P1.attackstat = 10;
-        int attack = P1.AttackUpgrade();
-        Assert.AreEqual(11, attack);
+        TestPlayer P1 = new();
+        P1.decorateDamage();
+        int attack = P1.stats.getDamage();
+        Assert.AreEqual(15, attack);
     }
 
     [Test]
     public void Upgrade_Attack_Stat_Twice()
     {
-        Player P1 = new();
-        P1.attackstat = 10;
-        P1.AttackUpgrade();
-        int attack = P1.AttackUpgrade();
-        Assert.AreEqual(12, attack);
+        TestPlayer P1 = new();
+        P1.decorateDamage();
+        P1.decorateDamage();
+        int attack = P1.stats.getDamage();
+        Assert.AreEqual(20, attack);
     }
 
     [Test]
     public void Upgrade_Attack_Stat_ThreeTimes()
     {
-        Player P1 = new();
-        P1.attackstat = 10;
-        P1.AttackUpgrade();
-        P1.AttackUpgrade();
-        int attack = P1.AttackUpgrade();
-        Assert.AreEqual(13, attack);
+        TestPlayer P1 = new();
+        P1.decorateDamage();
+        P1.decorateDamage();
+        P1.decorateDamage();
+        int attack = P1.stats.getDamage();
+        Assert.AreEqual(25, attack);
     }
 }
-*/

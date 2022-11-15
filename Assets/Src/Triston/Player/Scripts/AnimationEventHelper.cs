@@ -14,6 +14,6 @@ public class AnimationEventHelper : MonoBehaviour
     public void TriggerAttack()
     {
         //invokes the player attack function
-        OnAttackPerformed?.Invoke(); 
+        OnAttackPerformed?.Invoke();
     }
 }
