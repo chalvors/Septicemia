@@ -1,3 +1,8 @@
+//Cole Halvorson
+//SettingsMenu.cs
+//Unity
+//Controls the settings menu
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
