@@ -1,3 +1,8 @@
+//Cole Halvorson
+//GameOverScreen.cs
+//Unity
+//Controls the game over screen
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

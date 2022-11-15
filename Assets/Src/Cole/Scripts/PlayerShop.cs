@@ -1,3 +1,8 @@
+//Cole Halvorson
+//PlayerShop.cs
+//Unity
+//Allows for player interaction with the shop
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,8 @@
+//Cole Halvorson
+//ShopMenu.cs
+//Unity
+//Controls the shop menu
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

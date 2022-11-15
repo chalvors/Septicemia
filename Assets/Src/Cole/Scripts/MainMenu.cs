@@ -1,3 +1,9 @@
+//Cole Halvorson
+//MainMenu.cs
+//Unity
+//Controls the main menu
+//Extends Menu.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

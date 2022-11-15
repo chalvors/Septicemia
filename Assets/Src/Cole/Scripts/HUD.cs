@@ -1,8 +1,12 @@
+//Cole Halvorson
+//HUD.cs
+//Unity
+//Controls what is displayed on the HUD
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 
 public class HUD : MonoBehaviour
 {

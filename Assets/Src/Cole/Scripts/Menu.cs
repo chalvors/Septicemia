@@ -1,3 +1,8 @@
+//Cole Halvorson
+//Menu.cs
+//Unity
+//Supplies basic functions to menus
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

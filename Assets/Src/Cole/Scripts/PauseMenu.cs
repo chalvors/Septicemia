@@ -2,6 +2,7 @@
 //PauseMenu.cs
 //Unity
 //Controls the pause menu
+//Extends Menu.cs
 
 using System.Collections;
 using System.Collections.Generic;

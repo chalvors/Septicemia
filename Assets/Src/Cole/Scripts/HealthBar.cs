@@ -1,3 +1,8 @@
+//Cole Halvorson
+//HealthBar.cs
+//Unity
+//Controls the player health bar
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
