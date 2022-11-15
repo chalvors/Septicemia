@@ -43,11 +43,6 @@ public class ShopMenu : MonoBehaviour
         Time.timeScale = 1.0f;      //resume the game
     }
 
-    public void enterShop() {
-        shopMenu.SetActive(true);  //show shop menu
-        Time.timeScale = 0.0f;     //pause the game
-    }
-
     public void Update() {
         brainCounter.text = "Brains: " + GameManager.numBrains;   //update brain counter
     }

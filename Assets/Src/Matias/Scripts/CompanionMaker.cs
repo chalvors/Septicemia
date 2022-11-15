@@ -49,23 +49,25 @@ public class CompanionMaker : Interactible
 
     void CreateCompanion()
     {
+        Vector3 spawn = new Vector3(0, 0, 0);
+
         Destroy(gameObject);
 
         if(compType == 1)
         {
-            GameObject zom1 = Instantiate(zomDog, player.transform.position, Quaternion.identity);
+            GameObject zom1 = Instantiate(zomDog, spawn, Quaternion.identity);
             AIDestinationSetter aiDestSetter = zom1.GetComponent<AIDestinationSetter>();
             aiDestSetter.target = player.transform;
         }
         else if (compType == 2)
         {
-            GameObject zom2 = Instantiate(zomBee, player.transform.position, Quaternion.identity);
+            GameObject zom2 = Instantiate(zomBee, spawn, Quaternion.identity);
             AIDestinationSetter aiDestSetter = zom2.GetComponent<AIDestinationSetter>();
             aiDestSetter.target = player.transform;
         }
         else if (compType == 3)
         {
-            GameObject zom3 = Instantiate(zomGunman, player.transform.position, Quaternion.identity);
+            GameObject zom3 = Instantiate(zomGunman, spawn, Quaternion.identity);
             AIDestinationSetter aiDestSetter = zom3.GetComponent<AIDestinationSetter>();
             aiDestSetter.target = player.transform;
         }
