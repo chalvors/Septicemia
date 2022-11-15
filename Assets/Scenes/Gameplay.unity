@@ -7265,6 +7265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea58d3e9a2f974048a2a9e987b113c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopMenu: {fileID: 349900998}
 --- !u!50 &678288581
 Rigidbody2D:
   serializedVersion: 4
