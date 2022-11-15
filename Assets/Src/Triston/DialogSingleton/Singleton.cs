@@ -9,6 +9,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * singleton class to display the opening help message
+ * 
+ * member variables:
+ * instance - the instance of the singleton
+ * dialog - the message that will be shown in the game
+ */
+
 public class Singleton : MonoBehaviour
 {
     public static Singleton Instance;
