@@ -1,7 +1,14 @@
 /*
 * BaseBoss.cs
 * Kyle Hash
-* Part of my decorator patter
+* Main Part of my decorator patter
+* Contains Multiple Classes:
+*   BossStats
+*   BasicBossStats
+*   BossStatsUpgrade
+*   BossStatsUpgradeDamage
+*   BossStatsUpgradeHealth
+*   BaseBoss - Child of Bosses class in Bosses.cs
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -25,14 +32,14 @@ public class BossStats
     // --- Sets the base health initially ---
     public virtual int getHealth()
     {
-        return 50;
+        return 100;
     }
 }
 //----------- Boss stats for a basic boss in the early stages of the game -----------
 /*
-* This class is a child of BossStats and contains function to overwrite BossStats funcions
-* GetDamage() - Overrides and sets new base damage (virtual function)
-* GetHealth() - Overrides and sets new base damage (virtual function)
+* This class is a child of BossStats and contains function to override BossStats funcions
+* GetDamage() - Overrides and sets new base damage (override function)
+* GetHealth() - Overrides and sets new base damage (override function)
 */
 public class BasicBossStats : BossStats
 {
@@ -52,9 +59,9 @@ public class BasicBossStats : BossStats
 //----------- Creates an object with the base stats of a basic boss ------------------
 //------------------- The stats are set in BasicBossStats -------------------
 /*
-* This class is a child of BossStats and contains functions to wrap my Boss Object
-* GetDamage() - Overrides and sets new base damage (override function)
-* GetHealth() - Overrides and sets new base damage (override function)
+* This class is a child of BossStats and contains functions to set up a wrapee Object
+* GetDamage() - Overrides and sets wrapee new base damage (override function)
+* GetHealth() - Overrides and sets wrapee new base health (override function)
 */
 public class BossStatsUpgrade : BossStats
 {
@@ -75,8 +82,8 @@ public class BossStatsUpgrade : BossStats
 // --------- Takes game object and creates a wrapee to upgrade the damage stat -----------
 /*
 * This class is a child of BossStatsUpgrade and contains functions set this.wrapee = wrapee
-* BossStatsUpgradeDamage() - 
-* BossStatsUpgradeHealth() - 
+* BossStatsUpgradeDamage(BossStats wrapee) - Constructor and sets the wrapee sent into the class
+* GetDamage() - Returns wrapee's damage + some value and applies it to the boss, "decorating it" 
 */
 public class BossStatsUpgradeDamage : BossStatsUpgrade
 {
@@ -94,8 +101,8 @@ public class BossStatsUpgradeDamage : BossStatsUpgrade
 // --------- Takes game object and creates a wrapee to upgrade the health stat -----------
 /*
 * This class is a child of BossStatsUpgrade and contains functions set this.wrapee = wrapee
-* BossStatsUpgradeDamage() - 
-* BossStatsUpgradeHealth() - 
+* BossStatsUpgradeHealth(BossStats wrapee) - Constructor and sets the wrapee sent into the class
+* GetDamage() - Returns wrapee's health + some value and applies it to the boss, "decorating it" 
 */
 public class BossStatsUpgradeHealth : BossStatsUpgrade
 {
@@ -117,7 +124,7 @@ public class BossStatsUpgradeHealth : BossStatsUpgrade
 * Start() - Initializes bases stats
 * FixedUpdate() - Updates Boss's stats, scales with round number
 * GetDamage() - Gets the Boss's current damage
-* GetHealth() - Gets the BOss's current health
+* GetHealth() - Gets the Boss's current health
 */
 public class BaseBoss : Bosses
 {

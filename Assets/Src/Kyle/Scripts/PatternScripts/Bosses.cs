@@ -28,9 +28,7 @@ public class Bosses : MonoBehaviour
     private GameObject brain;    // Boss item drop
     [SerializeField]
     private AudioClip _takeDamage;      //Auido for taking damage
-    private GameObject BossObj = null;  // Used to get boss's location
-    private float PosX = 0f;            // Boss's X coord
-    private float PosY = 0f;            // Boss's Y coord
+    
     private bool isAlive = true;        // Is the boss alive?
    
     protected bool canDealDamage = true;
@@ -66,7 +64,7 @@ public class Bosses : MonoBehaviour
     }
     // ------------ Boss Takes Damage Dealt from the Player ------------------------
     // --------- Had to be a public function for bounds testing --------------
-    virtual public void takeDamage(int playerAttack){
+    virtual public int takeDamage(int playerAttack){
 
         //Take the player's attack stat and have it affect boss's health
         health = health - playerAttack;
@@ -85,9 +83,24 @@ public class Bosses : MonoBehaviour
             Destroy(gameObject);
             counter.GetComponent<SpawnScript>().enemiesRemaining--;
             Debug.Log("You just killed a boss!!!");
+            //health = 0;
             
         }
-        //return health;
+        return health;
+    }
+    virtual public int testTakeDamage(int playerAttack)
+    {
+
+        //Take the player's attack stat and have it affect boss's health
+        health = health - playerAttack;
+        //AudioManager.Instance.PlaySound(_takeDamage);
+        if (health < 0)
+        {
+            health = 0;
+        }
+        Debug.Log("Boss's Health: " + health);
+        
+        return health;
     }
     private void dropBrain()
     {
