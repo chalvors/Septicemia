@@ -103,7 +103,7 @@ public class SpawnScript : MonoBehaviour
 
         while (player.GetComponent<Player>().inSecretRoom == true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.01f);
         }
 
         enemiesSpawning = true;

@@ -65,6 +65,7 @@ public class SecretRoom : Interactible
     void GoToRoom(Vector3 room)
     {
         player.transform.position = room;
+        player.GetComponent<Player>().inSecretRoom = !player.GetComponent<Player>().inSecretRoom;
     }
 
     IEnumerator switchDelay()
