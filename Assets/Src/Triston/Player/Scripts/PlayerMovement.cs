@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void decorateSpeed()
+    public void decorateSpeed()
     {
         speed = speed++;
     }
