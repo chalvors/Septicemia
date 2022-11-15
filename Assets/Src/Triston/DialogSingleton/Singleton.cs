@@ -25,11 +25,15 @@ public class Singleton : MonoBehaviour
         {
             Destroy(dialog);
         }
+
+        StartCoroutine(HideMessage());
     }
 
 
-    public void HideMessage()
+    public IEnumerator HideMessage()
     {
+        
+        yield return new WaitForSeconds(10);
         dialog.SetActive(false);
     }
 }
