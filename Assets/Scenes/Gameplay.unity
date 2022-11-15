@@ -4214,12 +4214,13 @@ MonoBehaviour:
   enemies:
   - {fileID: 1910784927}
   - {fileID: 877651262}
-  boss: {fileID: 1720335759}
+  - {fileID: 754719904534981834, guid: 1dd21f727f1252e4287c2d2214bbd595, type: 3}
+  bossPrefab: {fileID: 1215794779016490927, guid: a8fd8900f1afd2a4bb70fac6e04d6518, type: 3}
   enemyContainer: {fileID: 1310893642}
   bossContainer: {fileID: 191380856}
-  spawnPoint: {fileID: 2016562189}
   gameMusic: {fileID: 0}
   enemiesRemaining: 0
+  enemiesSpawning: 0
   colliders: []
   radius: 0
 --- !u!4 &451962399

@@ -6,7 +6,6 @@
 using Pathfinding;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 
 
 /*
@@ -54,7 +53,7 @@ public class SpawnScript : MonoBehaviour
     private AudioClip gameMusic;
 
     public int enemiesRemaining = 0;
-
+    public bool enemiesSpawning = false;
     public Collider2D[] colliders;
     public float radius;
 
@@ -84,6 +83,7 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining = 0;
 
         yield return new WaitForSeconds(10);
+        enemiesSpawning = true;
 
         for (int i = 0; i < 8; i++) {
             meleeEnemy();
@@ -96,12 +96,16 @@ public class SpawnScript : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        enemiesSpawning = false;
+        Debug.Log("You have survived round " + GameManager.round + "! Well done!");
+
         //30 second grace period between rounds
         yield return new WaitForSeconds(30);
 
         //-------------------------- Second Round --------------------------
         GameManager.round = 2;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         for (int i = 0; i < 10; i++)
         {
@@ -114,6 +118,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -122,6 +128,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Third Round -------------------------- 
         GameManager.round = 3;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         //Spawning melee enemies
         for (int i = 0; i < 8; i++)
@@ -145,6 +152,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -153,6 +162,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Fourth Round -------------------------- 
         GameManager.round = 4;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
         for (int i = 0; i < 8; i++)
@@ -168,6 +178,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -176,6 +188,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Fifth Round -------------------------- 
         GameManager.round = 5;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         //Spawning a mix of melee enemies, pistol enemies, and a boss
         for (int i = 0; i < 10; i++)
@@ -192,6 +205,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -200,6 +215,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Sixth Round -------------------------- 
         GameManager.round = 6;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
         for (int i = 0; i < 13; i++)
@@ -215,6 +231,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -223,6 +241,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Seventh Round -------------------------- 
         GameManager.round = 7;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
         for (int i = 0; i < 15; i++)
@@ -238,6 +257,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -246,7 +267,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Eighth Round -------------------------- 
         GameManager.round = 8;
         enemiesRemaining = 0;
-
+        enemiesSpawning = true;
 
         for (int i = 0; i < 10; i++)
         {
@@ -263,6 +284,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -271,6 +294,7 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Ninth Round -------------------------- 
         GameManager.round = 9;
         enemiesRemaining = 0;
+        enemiesSpawning = true;
 
         //Spawning a mix of melee enemies, pistol enemies, and rifle enemies
         for (int i = 0; i < 12; i++)
@@ -288,6 +312,8 @@ public class SpawnScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
         }
+
+        enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
 
         //30 second grace period between rounds
@@ -296,6 +322,8 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Final Round -------------------------- 
         GameManager.round = 10;
         enemiesRemaining = 0;
+
+        enemiesSpawning = true;
 
         //Spawning a boss, a mix of melee enemies, pistol enemies, and rifle enemies, and another boss
         boss();
@@ -316,6 +344,7 @@ public class SpawnScript : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        enemiesSpawning = false;
         //Switch to win screen after all enemies have been defeated
         Debug.Log("You have beat the game!! Congratulations!");
     }
