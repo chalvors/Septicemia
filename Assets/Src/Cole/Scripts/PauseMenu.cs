@@ -1,13 +1,30 @@
-//Cole Halvorson
-//PauseMenu.cs
-//Unity
-//Controls the pause menu
-//Extends Menu.cs
+/*
+* PauseMenu.cs
+* Cole Halvorson
+* Controls the pause menu
+*/
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+* A class to control the pause menu
+* extends Menu
+*
+* member variables:
+* pauseMenu - GameObject for displaying the pause menu
+* settingsMenu - GameObject for displaying the settings menu
+* helpMenu - GameObject for displaying the help menu
+* mainMenu - GameObject for displaying the main menu
+* HUD - GameObject for displaying the HUD
+*
+* member functions:
+* resume() - resumes the game
+* settings() - opens the settings menu
+* help() - opens the help menu
+* main() - opens the main menu, disables the HUD
+*/
 public class PauseMenu : Menu
 {
     [SerializeField] private GameObject pauseMenu;
@@ -16,21 +33,26 @@ public class PauseMenu : Menu
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject HUD;
 
-    public void Resume() {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1.0f;
+    //unpauses the game
+    public void resume() {
+        pauseMenu.SetActive(false);  //hide pause menu
+        Time.timeScale = 1.0f;       //resume game
     }
 
-    public void Settings() {
-        changeMenu(pauseMenu, settingsMenu);
+    //opens the settings menu
+    public void settings() {
+        changeMenu(pauseMenu, settingsMenu);  //hide pause menu, show settings menu
     }
 
-    public void Help() {
-        changeMenu(pauseMenu, helpMenu);
+    //opens the help menu
+    public void help() {
+        changeMenu(pauseMenu, helpMenu);  //hide pause menu, show help menu
     }
 
-    public void Main() {
-        changeMenu(pauseMenu, mainMenu);
-        HUD.SetActive(false);
+    //opens the main menu
+    public void main() {
+        changeMenu(pauseMenu, mainMenu);  //hide pause menu, show main menu
+        HUD.SetActive(false);             //hide HUD
     }
 }
+

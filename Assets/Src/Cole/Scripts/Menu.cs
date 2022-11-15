@@ -1,21 +1,34 @@
-//Cole Halvorson
-//Menu.cs
-//Unity
-//Supplies basic functions to menus
+/*
+* Menu.cs
+* Cole Halvorson
+* Provides basic functions for other menus
+*/
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+* A class to provide common functions to menus
+*
+* member functions:
+* quit() - exits the application
+* changeMenu() - changes the active menu
+*/
 public class Menu : MonoBehaviour
 {
-    public void Quit() {
+
+    //exits the application
+    public void quit() {
         Debug.Log("quitting the game");
         Application.Quit();
     }
 
+    //changes active menu
+    //two GameObject parameters, a 'from' menu and a 'to' menu
     public void changeMenu(GameObject from, GameObject to) {
         from.SetActive(false);
         to.SetActive(true);
     }
 }
+

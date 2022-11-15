@@ -3206,8 +3206,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 459048489}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Help
+        m_TargetAssemblyTypeName: MainMenu, TestReference
+        m_MethodName: help
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5264,8 +5264,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 459048489}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: MainMenu, TestReference
+        m_MethodName: startGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5399,7 +5399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1786559591}
         m_TargetAssemblyTypeName: PauseMenu, TestReference
-        m_MethodName: Help
+        m_MethodName: help
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10692,7 +10692,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1786559591}
         m_TargetAssemblyTypeName: PauseMenu, TestReference
-        m_MethodName: Resume
+        m_MethodName: resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14460,7 +14460,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 459048489}
         m_TargetAssemblyTypeName: Menu, TestReference
-        m_MethodName: Quit
+        m_MethodName: quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19014,7 +19014,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1786559591}
         m_TargetAssemblyTypeName: PauseMenu, TestReference
-        m_MethodName: Main
+        m_MethodName: main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21724,8 +21724,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 459048489}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Settings
+        m_TargetAssemblyTypeName: MainMenu, TestReference
+        m_MethodName: settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23500,7 +23500,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1786559591}
         m_TargetAssemblyTypeName: PauseMenu, TestReference
-        m_MethodName: Settings
+        m_MethodName: settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23946,7 +23946,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1786559591}
         m_TargetAssemblyTypeName: Menu, TestReference
-        m_MethodName: Quit
+        m_MethodName: quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25269,8 +25269,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 713443788}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: Back
+        m_TargetAssemblyTypeName: SettingsMenu, TestReference
+        m_MethodName: back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

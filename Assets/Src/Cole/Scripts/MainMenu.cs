@@ -1,13 +1,32 @@
-//Cole Halvorson
-//MainMenu.cs
-//Unity
-//Controls the main menu
-//Extends Menu.cs
+/*
+* MainMenu.cs
+* Cole Halvorson
+* Controls the main menu
+*/
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+* A class to control the main menu
+* extends Menu
+*
+* member variables:
+* mainMenu - GameObject for displaying the main menu
+* settingsMenu - GameObject for displaying the settings menu
+* helpMenu - GameObject for displaying the help menu
+* HUD - GameObject for displaying the HUD
+* videoPlayer - GameObject for displaying the demo video
+* timeOut - how long before the demo video will start playing
+* idleTime - counter for how long the user has been idle in the main menu for 
+*
+* member functions:
+* startGame() - changes the menu from the main menu to the HUD, unpauses the game
+* settings() - opens the settings menu
+* help() - opens the help menu
+* FixedUpdate() - used to display the demo video
+*/
 public class MainMenu : Menu
 {
     [SerializeField] private GameObject mainMenu;
@@ -15,23 +34,26 @@ public class MainMenu : Menu
     [SerializeField] private GameObject helpMenu;
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject videoPlayer;
-
-    private int idleTime = 0;
     [SerializeField] private int timeOut;
+    private int idleTime = 0;
     
-    public void StartGame() {
+    //starts the game
+    public void startGame() {
         changeMenu(mainMenu, HUD);  //change from main menu to HUD
         Time.timeScale = 1.0f;   //unpause game on start
     }
 
-    public void Settings() {
+    //opens the settings menu
+    public void settings() {
         changeMenu(mainMenu, settingsMenu);  //change from main menu to settings menu
     }
 
-    public void Help() {
+    //opens the help menu
+    public void help() {
         changeMenu(mainMenu, helpMenu);  //change from main menu to help menu
     }
 
+    //controls the demo video
     public void FixedUpdate() {
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));  //detect mouse input
 
@@ -52,3 +74,4 @@ public class MainMenu : Menu
         }
     }
 }
+
