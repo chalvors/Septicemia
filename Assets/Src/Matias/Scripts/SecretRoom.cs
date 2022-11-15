@@ -36,8 +36,7 @@ public class SecretRoom : Interactible
             isInteract = CheckAct();
             if (isInteract == true)
             {
-                GoToRoom(roomPosition);
-                isInteract = false;
+                StartCoroutine(switchDelay());
             }
         }
     }
@@ -59,5 +58,13 @@ public class SecretRoom : Interactible
     void GoToRoom(Vector3 room)
     {
         player.transform.position = room;
+    }
+
+    IEnumerator switchDelay()
+    {
+        isInteract = false;
+        yield return new WaitForSeconds(.5f);
+        GoToRoom(roomPosition);
+        
     }
 }
