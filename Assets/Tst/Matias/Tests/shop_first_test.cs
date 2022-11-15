@@ -19,7 +19,7 @@ public class shop_first_test : MonoBehaviour
     public void after_shop_test()
     {
         SecretRoom SR2 = new SecretRoom();
-        SR2.Shop = true;
+        SR2.shop = true;
         int IDcheck = SR2.SelectRoom();
 
         Assert.AreNotEqual(0, IDcheck);
