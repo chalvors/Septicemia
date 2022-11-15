@@ -16,7 +16,6 @@ using UnityEngine.UI;
  * 
  * member variables:
  * health - players current health
- * Alive - indicates if the player has died
  * stats - used for wrapping with the decorator
  * playerDamage - audio clip that plays upon dying
  * healthBar - component that syncs ui healthbar with player health
@@ -36,7 +35,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private int health;
-    private int Alive = 1;
     PlayerStats stats;
     [SerializeField]
     private AudioClip playerDamage;
@@ -177,7 +175,6 @@ public class Player : MonoBehaviour
     void die()
     {
         Time.timeScale = 0f;
-        Alive = 0;
         gameOverScreen.SetActive(true);
         print("YOU DIED! GAME OVER!");
     }
@@ -197,7 +194,7 @@ public class Player : MonoBehaviour
     public void BCModeToggle(bool toggle)
     {
         DrBCMode = toggle;
-        Debug.Log("BC Mode ON");
+        Debug.Log("BC Mode: " + toggle);
     }
 
 }
