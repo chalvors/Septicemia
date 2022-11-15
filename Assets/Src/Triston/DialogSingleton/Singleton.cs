@@ -28,11 +28,6 @@ public class Singleton : MonoBehaviour
     }
 
 
-    public void ShowMessage()
-    {
-        dialog.SetActive(true);
-    }
-
     public void HideMessage()
     {
         dialog.SetActive(false);

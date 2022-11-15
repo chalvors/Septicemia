@@ -180,13 +180,13 @@ public class Player : MonoBehaviour
     }
 
     //upgrade the players maximum health
-    void decorateHealth()
+    public void decorateHealth()
     {
         stats = new DecorateHealth(stats);
     }
 
     //upgrade the players damage
-    void decorateDamage()
+    public void decorateDamage()
     {
         stats = new DecorateDamage(stats);
     }
