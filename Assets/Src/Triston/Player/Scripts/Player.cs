@@ -161,6 +161,7 @@ public class Player : MonoBehaviour
             return;
         animator.SetTrigger("Attack"); //trigger the attack animation
         attackBlocked = true;
+        Debug.Log("attack is: " + stats.getDamage());
         StartCoroutine(delayAttack());
     }
 
@@ -183,6 +184,9 @@ public class Player : MonoBehaviour
     public void decorateHealth()
     {
         stats = new DecorateHealth(stats);
+        health = stats.getHealth();
+        healthBar.GetComponent<HealthBar>().setHealth(health);
+        healthBar.GetComponent<HealthBar>().setMaxHealth(health);
     }
 
     //upgrade the players damage

@@ -29,15 +29,14 @@ public class ShopMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI brainCounter;
     [SerializeField] private GameObject shopMenu;
-    
-    Player p1 = new Player();
-    PlayerMovement pm1 = new PlayerMovement();
+    [SerializeField] private Player p1;
+    [SerializeField] private PlayerMovement player;
 
     //upgrades player health
     //int parameter of the cost of the upgrade
     public void upgradeHealth(int cost) {
         if (cost <= GameManager.numBrains) {  //if have enough brains
-            p1.decorateHealth();              //upgrade player health
+            p1.GetComponent<Player>().decorateHealth();      //upgrade player health
             GameManager.numBrains -= cost;    //subtract cost from brains
         } else {
             Debug.Log("Not enough brains!");
@@ -48,7 +47,7 @@ public class ShopMenu : MonoBehaviour
     //int parameter of the cost of the upgrade
     public void upgradeDamage(int cost) {
         if (cost <= GameManager.numBrains) {  //if have enough brains
-            p1.decorateDamage();              //upgrade player damage
+            p1.GetComponent<Player>().decorateDamage();              //upgrade player damage
             GameManager.numBrains -= cost;    //subtract cost from brains
         } else {
             Debug.Log("Not enough brains!");
@@ -59,7 +58,7 @@ public class ShopMenu : MonoBehaviour
     //int parameter of the cost of the upgrade
     public void upgradeSpeed(int cost) {
         if (cost <= GameManager.numBrains) {  //if have enough brains
-            pm1.decorateSpeed();              //upgrade player speed
+            player.GetComponent<PlayerMovement>().decorateSpeed();             //upgrade player speed
             GameManager.numBrains -= cost;    //subtract cost from brains
         } else {
             Debug.Log("Not enough brains!");

@@ -24,7 +24,7 @@ using UnityEngine;
  */
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 2;
     private Rigidbody2D rb;
     private Vector2 player_direction;
     private float activeMoveSpeed;
@@ -96,7 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void decorateSpeed()
     {
-        speed = speed++;
+        speed = speed+1;
+        activeMoveSpeed = speed;
     }
 }
 
