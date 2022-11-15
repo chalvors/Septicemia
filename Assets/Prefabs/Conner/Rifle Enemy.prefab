@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 29105666812899205, guid: e83ec8a94f092cf47ac103e085ff4b2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 29105666812899209, guid: e83ec8a94f092cf47ac103e085ff4b2f, type: 3}
       propertyPath: endReachedDistance
       value: 4
@@ -117,9 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  counter: {fileID: 0}
   brain: {fileID: 4888840418814722309, guid: 3aa928c37518fc446b8513d94f99f795, type: 3}
-  takingDamage: {fileID: 0}
+  takingDamage: {fileID: 8300000, guid: dc55d03c411dc9543a4fa936d4bc6a59, type: 3}
   death: {fileID: 8300000, guid: a9ae65721e2eda948a734e4b2beafed6, type: 3}
   bullet: {fileID: 589803363360790841, guid: 090f3dc7d495a074e86db7d1c9d80a27, type: 3}
   gunfire: {fileID: 8300000, guid: 62286a5febb7df04f99b922e209c7254, type: 3}

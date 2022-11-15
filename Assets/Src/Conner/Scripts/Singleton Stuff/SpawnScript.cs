@@ -4,8 +4,10 @@
 * A spawner that instantiates enemies and bosses in waves
 */
 using Pathfinding;
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 /*
@@ -67,7 +69,16 @@ public class SpawnScript : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            player = GameObject.FindWithTag("PLAYER");
+
+            try
+            {
+                player = GameObject.FindWithTag("PLAYER");
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+            
             StartCoroutine(spawnEnemies());
         }
 

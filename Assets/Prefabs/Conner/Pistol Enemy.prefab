@@ -110,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: a14a73f2441bbde4dbb33d348ef427b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -255,9 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5834a1a3c31ce7f4cbb5585abf3745ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counter: {fileID: 0}
-  takeDamage: {fileID: 8300000, guid: dc55d03c411dc9543a4fa936d4bc6a59, type: 3}
+  damage: 0
   brain: {fileID: 4888840418814722309, guid: 3aa928c37518fc446b8513d94f99f795, type: 3}
+  takingDamage: {fileID: 8300000, guid: dc55d03c411dc9543a4fa936d4bc6a59, type: 3}
   death: {fileID: 8300000, guid: a9ae65721e2eda948a734e4b2beafed6, type: 3}
   bullet: {fileID: 589803363360790841, guid: 090f3dc7d495a074e86db7d1c9d80a27, type: 3}
   gunfire: {fileID: 8300000, guid: 62286a5febb7df04f99b922e209c7254, type: 3}
