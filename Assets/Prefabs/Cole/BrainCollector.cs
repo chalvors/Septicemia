@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrainCollector : MonoBehaviour
 {
     //Total number of brains collected
-    private float brain = 0;
+    //public static int numBrains = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,8 +14,8 @@ public class BrainCollector : MonoBehaviour
         {
             //Destroy it and add to the brain counter
             Destroy(collision.gameObject);
-            brain++;
-            Debug.Log("Brains: " + brain);
+            GameManager.numBrains++;
+            Debug.Log("Brains: " + GameManager.numBrains);
         }
     }
 }

@@ -6,22 +6,23 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
-    public int numBrains = 0;
     public TextMeshProUGUI brainsText;
     public TextMeshProUGUI roundText;
 
+    public int testBrains = 0;
+
     void Update() {
-        brainsText.text = numBrains.ToString();
+        brainsText.text = GameManager.numBrains.ToString();
         roundText.text = "Round: " + GameManager.round.ToString();
     }
 
     public int purchase(int cost) {
-        if (cost <= numBrains) {
-            numBrains -= cost;
+        if (cost <= testBrains) {
+            testBrains -= cost;
         } 
         else {
             Debug.Log("not enough brains");
         }
-        return numBrains;
+        return testBrains;
     }
 }
