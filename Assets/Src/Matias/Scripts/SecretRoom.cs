@@ -14,6 +14,8 @@ public class SecretRoom : Interactible
     string fullID;
     bool isInteract = false;
     public bool Shop = false;
+    public Player zombie;
+    public bool boolFlip;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class SecretRoom : Interactible
         destination = GameObject.Find(fullID);
         roomPosition = destination.transform.position;
         player = GameObject.FindWithTag("PLAYER");
+        boolFlip = zombie.inSecretRoom;
+        boolFlip = !boolFlip;
     }
 
     // Update is called once per frame
@@ -63,6 +67,7 @@ public class SecretRoom : Interactible
     IEnumerator switchDelay()
     {
         isInteract = false;
+        zombie.inSecretRoom = !zombie.inSecretRoom;
         yield return new WaitForSeconds(.5f);
         GoToRoom(roomPosition);
         
