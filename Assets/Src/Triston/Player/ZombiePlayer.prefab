@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 2160617045843497657}
   - component: {fileID: 3623451588774347533}
   - component: {fileID: 6678843428423476255}
-  - component: {fileID: 6678843428423476268}
   - component: {fileID: 6678843428423476264}
   m_Layer: 7
   m_Name: ZombiePlayer
@@ -304,13 +303,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb5512ac38daf94ea9c88cf9961db4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takeDamage: {fileID: 0}
-  HealthBar: {fileID: 0}
-  GameOverScreen: {fileID: 0}
+  playerDamage: {fileID: 0}
+  healthBar: {fileID: 0}
+  gameOverScreen: {fileID: 0}
   animator: {fileID: 6678843427289805845}
   delay: 0.3
   circleOrigin: {fileID: 6678843428896449887}
   radius: 0.45
+  inSecretRoom: 0
+  DrBCMode: 0
 --- !u!58 &6678843428423476255
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -327,22 +328,6 @@ CircleCollider2D:
   m_Offset: {x: -0.22651675, y: 0.037606634}
   serializedVersion: 2
   m_Radius: 2.2129667
---- !u!58 &6678843428423476268
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928371442453437054}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.23521091, y: 0.03563747}
-  serializedVersion: 2
-  m_Radius: 2.1152856
 --- !u!114 &6678843428423476264
 MonoBehaviour:
   m_ObjectHideFlags: 0
