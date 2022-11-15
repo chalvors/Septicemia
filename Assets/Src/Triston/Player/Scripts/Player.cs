@@ -29,6 +29,7 @@ using UnityEngine;
  * BaseBoss - ''
  * PistolEnemy - ''
  * RifleEnemy - ''
+ * inSecretRoom - bool to stop enemies from spawning if player in secret room
  */
 public class Player : MonoBehaviour
 {
@@ -78,71 +79,11 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(position, radius);
     }
 
-    //heal the player
-    public void heal() 
-    {
-        health = stats.getHealth();
-        healthBar.GetComponent<HealthBar>().setHealth(health);
-    }
-
-    //deal damage to the player
-    public int takeDamage(int Damage)
-    {
-        health = health - Damage;
-        AudioManager.Instance.PlaySound(playerDamage);
-        Debug.Log("Player Health: " + health);
-
-        if (health <= 0)
-        {
-            die();
-        }
-        healthBar.GetComponent<HealthBar>().setHealth(health);
-        return health;
-    }
-
-    //Player attack
-    public void attack()
-    {
-        if(attackBlocked)
-            return;
-        animator.SetTrigger("Attack"); //trigger the attack animation
-        attackBlocked = true;
-        StartCoroutine(delayAttack());
-    }
-
-    //used to delay the players attacking
-    private IEnumerator delayAttack()
-    {
-        yield return new WaitForSeconds(delay);
-        attackBlocked = false;
-    }
-
-    //End the game when player dies
-    void die()
-    {
-        Time.timeScale = 0f;
-        Alive=0;
-        gameOverScreen.SetActive(true);
-        print("YOU DIED! GAME OVER!");
-    }
-
-    //upgrade the players maximum health
-    void decorateHealth()
-    {
-        stats = new DecorateHealth(stats);
-    }
-
-    //upgrade the players damage
-    void decorateDamage()
-    {
-        stats = new DecorateDamage(stats);
-    }
-
     //detect what enemies the player hit and deal damage to them
     public void DetectColliders()
     {
 
-        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position,radius))
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
         {
             //Prevent the attack collider from registering the players collider
             if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -185,6 +126,67 @@ public class Player : MonoBehaviour
         }
     }
 
+    //heal the player
+    public void heal()
+    {
+        health = stats.getHealth();
+        healthBar.GetComponent<HealthBar>().setHealth(health);
+    }
+
+    //deal damage to the player
+    public int takeDamage(int Damage)
+    {
+        health = health - Damage;
+        AudioManager.Instance.PlaySound(playerDamage);
+        Debug.Log("Player Health: " + health);
+
+        if (health <= 0)
+        {
+            die();
+        }
+        healthBar.GetComponent<HealthBar>().setHealth(health);
+        return health;
+    }
+
+    //Player attack
+    public void attack()
+    {
+        if (attackBlocked)
+            return;
+        animator.SetTrigger("Attack"); //trigger the attack animation
+        attackBlocked = true;
+        StartCoroutine(delayAttack());
+    }
+
+    //used to delay the players attacking
+    private IEnumerator delayAttack()
+    {
+        yield return new WaitForSeconds(delay);
+        attackBlocked = false;
+    }
+
+    //End the game when player dies
+    void die()
+    {
+        Time.timeScale = 0f;
+        Alive = 0;
+        gameOverScreen.SetActive(true);
+        print("YOU DIED! GAME OVER!");
+    }
+
+    //upgrade the players maximum health
+    void decorateHealth()
+    {
+        stats = new DecorateHealth(stats);
+    }
+
+    //upgrade the players damage
+    void decorateDamage()
+    {
+        stats = new DecorateDamage(stats);
+    }
 }
 
+
+    
 
