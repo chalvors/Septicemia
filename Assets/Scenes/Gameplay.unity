@@ -3430,7 +3430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &349900999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3531,6 +3531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainCounter: {fileID: 755990505}
+  shopMenu: {fileID: 349900998}
 --- !u!1001 &350509119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4512,7 +4513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &459048485
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8781,26 +8782,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4566475854551371781}
-        m_TargetAssemblyTypeName: Player, TestReference
-        m_MethodName: decorateHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 349901003}
         m_TargetAssemblyTypeName: ShopMenu, TestReference
-        m_MethodName: decreaseBrains
-        m_Mode: 1
+        m_MethodName: upgradeHealth
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16495,26 +16484,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4566475854551371781}
-        m_TargetAssemblyTypeName: Player, TestReference
-        m_MethodName: decorateDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 349901003}
         m_TargetAssemblyTypeName: ShopMenu, TestReference
-        m_MethodName: decreaseBrains
-        m_Mode: 1
+        m_MethodName: upgradeDamage
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16715,26 +16692,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4566475854551371786}
-        m_TargetAssemblyTypeName: PlayerMovement, TestReference
-        m_MethodName: decorateSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 349901003}
         m_TargetAssemblyTypeName: ShopMenu, TestReference
-        m_MethodName: decreaseBrains
-        m_Mode: 1
+        m_MethodName: upgradeSpeed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18835,7 +18800,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1731894581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349901003}
+        m_TargetAssemblyTypeName: ShopMenu, TestReference
+        m_MethodName: exitShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1731894581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23465,17 +23442,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbb5512ac38daf94ea9c88cf9961db4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4566475854551371786 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2160617045843497657, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
-  m_PrefabInstance: {fileID: 6678843427516731724}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071facc6aee83374c8726d2c8bc55048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5040371808808883328

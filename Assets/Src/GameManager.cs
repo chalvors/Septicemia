@@ -6,16 +6,9 @@ public class GameManager : MonoBehaviour
 {
    private PauseMenu pausemenu;
 
-   public static int round = 1;
-   public static int numBrains = 0;
+   public static int round = 1;        //current round
+   public static int numBrains = 0;  //number of brains collected by the player
 
-    // Start is called before the first frame update
-   void Start()
-   {
-        
-   }
-
-    // Update is called once per frame
    void Update()
    {
       if (Input.GetKey(KeyCode.Escape)) {
