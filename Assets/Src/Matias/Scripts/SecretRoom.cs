@@ -11,13 +11,15 @@ public class SecretRoom : Interactible
     [SerializeField]
     private AudioClip opening; 
 
+    [SerializeField]
+    public Player zombie;
+
     private GameObject destination;
     private GameObject player;
     Vector3 roomPosition;
     string fullID;
     bool isInteract = false;
     public bool Shop = false;
-    public Player zombie;
     public bool boolFlip;
     // Start is called before the first frame update
     void Start()
