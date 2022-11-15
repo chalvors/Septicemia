@@ -8,6 +8,9 @@ public class Cover : Interactible
 
     bool isInteract = false;
 
+    [SerializeField]
+    private AudioClip breaking;
+
     void Start()
     {
         
@@ -29,6 +32,7 @@ public class Cover : Interactible
     void BreakWall()
     {
         //cool animation happens here
+        AudioManager.Instance.PlaySound(breaking);
         Destroy(gameObject);
         AstarPath.active.Scan();
     }

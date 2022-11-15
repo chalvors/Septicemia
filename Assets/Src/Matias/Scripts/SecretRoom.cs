@@ -8,6 +8,9 @@ public class SecretRoom : Interactible
     [SerializeField]
     public int roomID = 0;
 
+    [SerializeField]
+    private AudioClip opening; 
+
     private GameObject destination;
     private GameObject player;
     Vector3 roomPosition;
@@ -40,6 +43,7 @@ public class SecretRoom : Interactible
             isInteract = CheckAct();
             if (isInteract == true)
             {
+                AudioManager.Instance.PlaySound(opening);
                 StartCoroutine(switchDelay());
             }
         }

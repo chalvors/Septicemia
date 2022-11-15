@@ -30,6 +30,7 @@ using UnityEngine;
  * PistolEnemy - ''
  * RifleEnemy - ''
  * inSecretRoom - bool to stop enemies from spawning if player in secret room
+ * DrBCMode - bool that if true makes player invincible
  */
 public class Player : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
     private float radius;
 
     public bool inSecretRoom = false;
+    public bool DrBCMode;
 
     //check for key input
     void Update()
@@ -136,6 +138,11 @@ public class Player : MonoBehaviour
     //deal damage to the player
     public int takeDamage(int Damage)
     {
+        if(DrBCMode == true)
+        {
+            return health;
+        }
+
         health = health - Damage;
         AudioManager.Instance.PlaySound(playerDamage);
         Debug.Log("Player Health: " + health);
