@@ -538,8 +538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a716559437d6b4dadb1c3cf3f044e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testEnemyPrefab: {fileID: 4319863136847958204, guid: d71ecf723860d4a41bbe6631d17a3299, type: 3}
-  Sensor: {fileID: 1059054554}
+  testEnemyPrefab: {fileID: 1106182926665401192, guid: 4c51846b294924f458a5bce89df4d2fd, type: 3}
+  sensor: {fileID: 1059054554}
   spawnInterval: 0.01
   totalCount: {fileID: 648796086}
 --- !u!4 &642556458
@@ -779,6 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977810461}
+  - component: {fileID: 977810462}
   m_Layer: 0
   m_Name: Sensors
   m_TagString: Untagged
@@ -802,6 +803,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &977810462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977810460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe33dfeff2faa6e46992194503624e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enteredTrigger: 0
 --- !u!1 &1059054554
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe33dfeff2faa6e46992194503624e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnteredTrigger: 0
+  enteredTrigger: 0
 --- !u!1 &1249225847
 GameObject:
   m_ObjectHideFlags: 0

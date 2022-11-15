@@ -69,6 +69,9 @@ public class EnemyStatsUpgradeDamage : EnemyStatsUpgrade
 }
 
 
+/*
+ * Returns the object wrapped with a health upgrade
+ */
 public class EnemyStatsUpgradeHealth : EnemyStatsUpgrade
 {
 
@@ -134,39 +137,47 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    //
+    //Wait for one second before dealing damage again
     virtual protected IEnumerator damageCooldown()
     {
         yield return new WaitForSeconds(1f);
         canDealDamage = true;
     }
 
-    //
+    //Enemy takes damage equal to the integer passed in by the player
     virtual public int takeDamage(int playerDamage)
     {
         health = health - playerDamage;
         Debug.Log("Enemy health: " + health);
         AudioManager.Instance.PlaySound(takingDamage);
 
+        //If the enemy is no longer alive
         if (health <= 0)
         {
             AudioManager.Instance.PlaySound(death);
+
+            //Drop a brain
             GameObject newObj = Instantiate(brain, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+            
+            //Destroy the enemy
             Destroy(gameObject);
+
+            //Decrement the count of enemies remaining in the round
             counter.GetComponent<SpawnScript>().enemiesRemaining--;
             Debug.Log("Enemies remaining: " + counter.GetComponent<SpawnScript>().enemiesRemaining);
         }
 
+        //Otherwise, return the remaining health to the enemy
         return health;
     }
     
-    //
+    //Returns the current health
     public virtual int getHealth()
     {
         return health;
     }
 
-    //
+    //Returns the current damage
     public virtual int getDamage()
     {
         return damage;
