@@ -22186,11 +22186,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1093826512}
     - target: {fileID: 3623451588774347533, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1093826512}
+    - target: {fileID: 3623451588774347533, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
       propertyPath: takeDamage
       value: 
       objectReference: {fileID: 8300000, guid: b0d7100530db0b044ae566fcfbe20dab, type: 3}
     - target: {fileID: 3623451588774347533, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
+      propertyPath: playerDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: b0d7100530db0b044ae566fcfbe20dab, type: 3}
+    - target: {fileID: 3623451588774347533, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
       propertyPath: GameOverScreen
+      value: 
+      objectReference: {fileID: 258083155}
+    - target: {fileID: 3623451588774347533, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
+      propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 258083155}
     - target: {fileID: 6928371442453437054, guid: 9504fa7061d22a84c8e7e0e6c391170a, type: 3}
