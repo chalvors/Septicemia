@@ -1,21 +1,27 @@
+/*
+ * Cover
+ * Matias Crespo
+ * Destructible Cover
+ */
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
+/*
+ * This class defines the behavior of breakable cover objects
+ * 
+ * member vairables:
+ * breaking - audio clip for the cover breaking
+ * isInteract - tells whether the player is interacting with an object
+ */
 public class Cover : Interactible
 {
-
-    bool isInteract = false;
-
     [SerializeField]
     private AudioClip breaking;
+    private bool isInteract = false;
 
-    void Start()
-    {
-        
-    }
-
+    // while the player is in range, it can interact
     void OnTriggerStay2D(Collider2D interBox)
     {
         if (interBox.tag == "PLAYER")
@@ -29,6 +35,7 @@ public class Cover : Interactible
         }
     }
 
+    // destroys wall and resets the pathfinding
     void BreakWall()
     {
         //cool animation happens here
@@ -37,3 +44,4 @@ public class Cover : Interactible
         AstarPath.active.Scan();
     }
 }
+
