@@ -118,16 +118,15 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip death;
 
-    //
+    //Check if the enemy has collided with the player
     virtual protected void OnCollisionStay2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("PLAYER"))
         {
-            //Deal Damage to Player if enemy collides with Player GameObject
+            //Deal damage to the player if canDealDamage
             if(collider.gameObject.GetComponent<Player>() != null && canDealDamage)
             {
                 Vector2 direction = (transform.position - collider.transform.position).normalized;
-                gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 1600f, ForceMode2D.Impulse);
                 collider.gameObject.GetComponent<Player>().takeDamage(damage);
                 canDealDamage = false;
                 StartCoroutine(damageCooldown());

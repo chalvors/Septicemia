@@ -54,7 +54,7 @@ public class BaseEnemy : Enemy
     {
         try
         {
-            //Find the enemy counter
+            //Find the enemy counter within EnemySpawner
             counter = GameObject.FindGameObjectWithTag("EnemySpawner");
         }
         catch (Exception e)
