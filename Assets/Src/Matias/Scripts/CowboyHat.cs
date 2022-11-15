@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CowboyHat : Interactible
 {
+    bool isInteract = false;
+
     // Start is called before the first frame update
     void Start()
     {
