@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : Menu
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingsMenu;
@@ -11,25 +11,15 @@ public class MainMenu : MonoBehaviour
     
 
     public void StartGame() {
-        Debug.Log("Starting Game");
-        mainMenu.SetActive(false);
+        changeMenu(mainMenu, HUD);  //change from main menu to HUD
         Time.timeScale = 1.0f;   //unpause game on start
-        HUD.SetActive(true);
     }
 
     public void Settings() {
-        Debug.Log("Starting Game");
-        mainMenu.SetActive(false);
-        settingsMenu.SetActive(true);
+        changeMenu(mainMenu, settingsMenu);  //change from main menu to settings menu
     }
 
     public void Help() {
-        Debug.Log("Starting Game");
-        mainMenu.SetActive(false);
-        helpMenu.SetActive(true);
-    }
-
-    public void Start() {
-        Time.timeScale = 0.0f;   //pause game on boot
+        changeMenu(mainMenu, helpMenu);  //change from main menu to help menu
     }
 }

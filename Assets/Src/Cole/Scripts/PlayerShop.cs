@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerShop : Interactible
 {
-
     private bool interacting = false;
     [SerializeField] private GameObject shopMenu;
 

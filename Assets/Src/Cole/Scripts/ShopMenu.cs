@@ -22,7 +22,7 @@ public class ShopMenu : MonoBehaviour
 
     public void upgradeDamage(int cost) {
         if (cost <= GameManager.numBrains) {  //if have enough brains
-            p1.decorateDamage();              //upgrade player health
+            p1.decorateDamage();              //upgrade player damage
             GameManager.numBrains -= cost;    //subtract cost from brains
         } else {
             Debug.Log("Not enough brains!");
@@ -31,7 +31,7 @@ public class ShopMenu : MonoBehaviour
 
     public void upgradeSpeed(int cost) {
         if (cost <= GameManager.numBrains) {  //if have enough brains
-            pm1.decorateSpeed();              //upgrade player health
+            pm1.decorateSpeed();              //upgrade player speed
             GameManager.numBrains -= cost;    //subtract cost from brains
         } else {
             Debug.Log("Not enough brains!");
