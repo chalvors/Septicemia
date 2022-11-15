@@ -107,7 +107,6 @@ public abstract class Enemy : MonoBehaviour
     //This is public so that the pistol and rifle enemies can pass their damage to the bullets that they fire
     public int damage = 0;
 
-    [SerializeField]
     protected GameObject counter;
 
     [SerializeField]
