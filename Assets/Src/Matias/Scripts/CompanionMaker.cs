@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CompanionMaker : Interactible
 {
+    [SerializeField]
+    int compType = 0;
+    
+    bool isInteract = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,19 @@ public class CompanionMaker : Interactible
 
     void CreateCompanion()
     {
-        print("Companion Created");
+        Destroy(gameObject);
+
+        if(compType == 1)
+        {
+            //spawn Zombie Dog
+        }
+        else if (compType == 2)
+        {
+            //spawn ZomBee
+        }
+        else if (compType == 3)
+        {
+            //spawn Zombie Gunman
+        }
     }
 }

@@ -93,6 +93,11 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    void decorateSpeed()
+    {
+        speed = speed++;
+    }
 }
 
 

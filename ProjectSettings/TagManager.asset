@@ -16,6 +16,8 @@ TagManager:
   - Brain
   - RifleEnemy
   - EnemySpawner
+  - enemyContainer
+  - bossContainer
   layers:
   - Default
   - TransparentFX
