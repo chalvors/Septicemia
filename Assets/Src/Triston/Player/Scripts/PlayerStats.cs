@@ -101,7 +101,7 @@ public class DecorateDamage : Decorator
     //decorate base damage
     public override int getDamage()
     {
-        return P1.getDamage() + 10;
+        return P1.getDamage() + 5;
     }
 }
 
