@@ -25,7 +25,7 @@ using UnityEngine;
 * help() - opens the help menu
 * main() - opens the main menu, disables the HUD
 */
-public class PauseMenu : Menu
+public class PauseMenu : Menu  //PauseMenu is the dynamic type, Menu is the static type
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;

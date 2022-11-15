@@ -15,20 +15,21 @@ using UnityEngine;
 * quit() - exits the application
 * changeMenu() - changes the active menu
 */
-public class Menu : MonoBehaviour
-{
 
+public class Menu : MonoBehaviour {
+    
     //exits the application
-    public void quit() {
+    public virtual void quit() {
         Debug.Log("quitting the game");
         Application.Quit();
     }
 
     //changes active menu
     //two GameObject parameters, a 'from' menu and a 'to' menu
-    public void changeMenu(GameObject from, GameObject to) {
+    public virtual void changeMenu(GameObject from, GameObject to) {
         from.SetActive(false);
         to.SetActive(true);
     }
 }
+
 
