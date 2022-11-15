@@ -35,7 +35,7 @@ public class SpawnScript : MonoBehaviour
 {
     public static SpawnScript Instance;
 
-    private Transform player;
+    private GameObject player;
 
     [SerializeField]
     private GameObject[] enemies;
@@ -65,6 +65,7 @@ public class SpawnScript : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            player = GameObject.FindWithTag("PLAYER");
             StartCoroutine(spawnEnemies());
         }
 
@@ -83,6 +84,14 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining = 0;
 
         yield return new WaitForSeconds(10);
+
+        Debug.Log(player.GetComponent<Player>().inSecretRoom);
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+
         enemiesSpawning = true;
 
         for (int i = 0; i < 8; i++) {
@@ -383,9 +392,8 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
-        player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
-        aiDestSetter.target = player;
+        aiDestSetter.target = player.transform;
     }
 
     /*
@@ -422,9 +430,8 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
-        player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
-        aiDestSetter.target = player;
+        aiDestSetter.target = player.transform;
     }
 
     /*
@@ -461,9 +468,8 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
-        player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newEnemy.GetComponent<AIDestinationSetter>();
-        aiDestSetter.target = player;
+        aiDestSetter.target = player.transform;
     }
 
     /*
@@ -500,9 +506,8 @@ public class SpawnScript : MonoBehaviour
         enemiesRemaining++;
 
         //Set the A* Pathfinding target to be the player, so the enemies will follow them
-        player = GameObject.FindWithTag("PLAYER").transform;
         AIDestinationSetter aiDestSetter = newBoss.GetComponent<AIDestinationSetter>();
-        aiDestSetter.target = player;
+        aiDestSetter.target = player.transform;
     }
 
     /*
