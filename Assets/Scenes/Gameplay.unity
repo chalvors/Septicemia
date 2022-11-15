@@ -2099,7 +2099,7 @@ GameObject:
   - component: {fileID: 191380857}
   m_Layer: 0
   m_Name: Bosses
-  m_TagString: Untagged
+  m_TagString: bossContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12771,7 +12771,7 @@ GameObject:
   - component: {fileID: 1310893643}
   m_Layer: 0
   m_Name: enemies
-  m_TagString: Untagged
+  m_TagString: enemyContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

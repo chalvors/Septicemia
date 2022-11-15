@@ -6,6 +6,7 @@
 using Pathfinding;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 /*
@@ -61,7 +62,7 @@ public class SpawnScript : MonoBehaviour
     void Awake()
     {
         // If there is no instance of this singleton, create one
-        if (Instance == null) 
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -73,6 +74,7 @@ public class SpawnScript : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            Debug.Log("Got rid of a singleton");
         }
     }
 
@@ -83,14 +85,18 @@ public class SpawnScript : MonoBehaviour
         GameManager.round = 1;
         enemiesRemaining = 0;
 
+        meleeEnemy();
         yield return new WaitForSeconds(10);
 
+        //StopAllCoroutines();
+        /*
         Debug.Log(player.GetComponent<Player>().inSecretRoom);
 
         while (player.GetComponent<Player>().inSecretRoom == true)
         {
             yield return new WaitForSeconds(1f);
         }
+        */
 
         enemiesSpawning = true;
 
@@ -130,6 +136,8 @@ public class SpawnScript : MonoBehaviour
 
         enemiesSpawning = false;
         Debug.Log("You have survived round " + GameManager.round + "! Well done!");
+
+        
 
         //30 second grace period between rounds
         yield return new WaitForSeconds(30);
