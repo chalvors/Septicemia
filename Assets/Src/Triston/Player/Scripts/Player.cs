@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float radius;
 
+    public bool inSecretRoom = false;
+
     //check for key input
     void Update()
     {
