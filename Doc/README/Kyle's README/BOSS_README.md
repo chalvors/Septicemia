@@ -6,8 +6,9 @@ much of a game to play.
 
 FEATURES?
 
-A* Pathfinding
-Fully functioning upgrade system using a decorator pattern
+- A* Pathfinding
+- Fully functioning upgrade system using a decorator pattern
+- Sprite Renderer
 
 FUNCTIONS/SCRIPTS
 
@@ -64,6 +65,16 @@ BossStatsUpgradeHealth
 */
 
 AIPath.cs
+/*
+* This sets the movement type for the Boss object (Speed, Rotation Speed, ETC)
+*/
 Seeker.cs
+/*
+* This handles path calls for a single object
+*/
 AIDestinationSetter.cs
+/*
+* This set the destination target for the Boss object to follow
+* Make sure the reference is set in the inspector
+*/
 
