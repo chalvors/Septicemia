@@ -7,16 +7,16 @@ public class CowboyHat : Interactible
     bool isInteract = false;
 
     [SerializeField]
-    private GameObject player;
+    private GameObject hat;
 
     [SerializeField]
     private AudioClip cowboySong;
 
-    private CowboyHat hat;
+    private SpriteRenderer hatSprite;
     // Start is called before the first frame update
     void Start()
     {
-        hat = player.GetComponent<CowboyHat>();
+        hatSprite = hat.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class CowboyHat : Interactible
     {
         print("YeeHaw!!!");
 
-        hat.enabled = true;
+        hatSprite.enabled = true;
         //AudioManager.Instance.Stop();
         AudioManager.Instance.PlaySound(cowboySong);
     }

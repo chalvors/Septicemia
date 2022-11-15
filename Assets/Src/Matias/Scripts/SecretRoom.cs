@@ -70,6 +70,7 @@ public class SecretRoom : Interactible
     IEnumerator switchDelay()
     {
         isInteract = false;
+        player.GetComponent<Player>().inSecretRoom = !player.GetComponent<Player>().inSecretRoom;
         yield return new WaitForSeconds(.5f);
         GoToRoom(roomPosition);
         delay = false;
