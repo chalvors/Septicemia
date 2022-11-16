@@ -442,8 +442,8 @@ public class SpawnScript : MonoBehaviour
         while (!canSpawnHere)
         {
             //Selects a random location within the borders of the map
-            float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 19);
+            float spawnPosX = Random.Range(-22, 20);
+            float spawnPosY = Random.Range(-17, 17);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
@@ -480,8 +480,8 @@ public class SpawnScript : MonoBehaviour
         while (!canSpawnHere)
         {
             //Selects a random location within the borders of the map
-            float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 19);
+            float spawnPosX = Random.Range(-22, 20);
+            float spawnPosY = Random.Range(-17, 17);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
@@ -518,8 +518,8 @@ public class SpawnScript : MonoBehaviour
         while (!canSpawnHere)
         {
             //Selects a random location within the borders of the map
-            float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 19);
+            float spawnPosX = Random.Range(-22, 20);
+            float spawnPosY = Random.Range(-17, 17);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
@@ -556,8 +556,8 @@ public class SpawnScript : MonoBehaviour
         while (!canSpawnHere)
         {
             //Selects a random location within the borders of the map
-            float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 19);
+            float spawnPosX = Random.Range(-22, 20);
+            float spawnPosY = Random.Range(-17, 17);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
