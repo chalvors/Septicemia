@@ -47,6 +47,7 @@ public class CowboyHat : Interactible
     //enables cowboy hat and plays cowboy song
     void CowboyMode()
     {
+        Destroy(gameObject);
         hatSprite.enabled = true;
         //AudioManager.Instance.Stop();
         AudioManager.Instance.PlaySound(cowboySong);
