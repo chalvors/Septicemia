@@ -59,7 +59,7 @@ public class SpawnScript : MonoBehaviour
     public int enemiesRemaining = 0;
     public bool enemiesSpawning = false;
     public Collider2D[] colliders;
-    public float radius;
+    public float radius = 1f;
 
     // Start is called before the first frame update
     void Awake()
@@ -128,6 +128,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Second Round --------------------------
         GameManager.round = 2;
         enemiesRemaining = 10;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         for (int i = 0; i < 10; i++)
@@ -153,6 +159,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Third Round -------------------------- 
         GameManager.round = 3;
         enemiesRemaining = 13;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         //Spawning melee enemies
@@ -187,6 +199,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Fourth Round -------------------------- 
         GameManager.round = 4;
         enemiesRemaining = 16;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
@@ -213,6 +231,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Fifth Round -------------------------- 
         GameManager.round = 5;
         enemiesRemaining = 21;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies, pistol enemies, and a boss
@@ -240,6 +264,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Sixth Round -------------------------- 
         GameManager.round = 6;
         enemiesRemaining = 26;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
@@ -266,6 +296,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Seventh Round -------------------------- 
         GameManager.round = 7;
         enemiesRemaining = 30;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies and pistol enemies
@@ -292,6 +328,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Eighth Round -------------------------- 
         GameManager.round = 8;
         enemiesRemaining = 30;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         for (int i = 0; i < 10; i++)
@@ -319,6 +361,12 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Ninth Round -------------------------- 
         GameManager.round = 9;
         enemiesRemaining = 36;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+
         enemiesSpawning = true;
 
         //Spawning a mix of melee enemies, pistol enemies, and rifle enemies
@@ -347,6 +395,11 @@ public class SpawnScript : MonoBehaviour
         //-------------------------- Final Round -------------------------- 
         GameManager.round = 10;
         enemiesRemaining = 41;
+
+        while (player.GetComponent<Player>().inSecretRoom == true)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
 
         enemiesSpawning = true;
 
@@ -390,7 +443,7 @@ public class SpawnScript : MonoBehaviour
         {
             //Selects a random location within the borders of the map
             float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 20);
+            float spawnPosY = Random.Range(-18, 19);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
@@ -428,7 +481,7 @@ public class SpawnScript : MonoBehaviour
         {
             //Selects a random location within the borders of the map
             float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 20);
+            float spawnPosY = Random.Range(-18, 19);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
@@ -466,7 +519,7 @@ public class SpawnScript : MonoBehaviour
         {
             //Selects a random location within the borders of the map
             float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 20);
+            float spawnPosY = Random.Range(-18, 19);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
@@ -504,7 +557,7 @@ public class SpawnScript : MonoBehaviour
         {
             //Selects a random location within the borders of the map
             float spawnPosX = Random.Range(-25, 21);
-            float spawnPosY = Random.Range(-18, 20);
+            float spawnPosY = Random.Range(-18, 19);
 
             //Checks if there are any buildings or cover in the way
             spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
